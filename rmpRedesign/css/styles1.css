@@ -1,0 +1,62 @@
+.black {
+    color:black;
+}
+
+.navy {
+	background-color: #1E4781;
+}
+
+.proxima {
+    font-family: "proxima-nova", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.proxima-bold {
+    font-family: "proxima-nova", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+/* apply a natural box layout model to all elements, but allowing components to change */
+  
+  /* Clearfixes */
+  .row:before, .row:after {
+    content: " "; display: table;
+  }
+  .row:after {
+    clear: both;
+  }
+  .row {
+    margin-left: -30px;
+    margin-right: -30px;
+  }
+  
+  
+  /* Images with Captions */
+  figure {
+    padding: 12px;
+    margin: 20px 0 0 2%;
+  /*  border: 1px solid #ccc; */
+    float: left;
+    width: 30%;
+  }
+  figure img {
+    max-width: 100%;
+    height: auto;
+  }
+  figcaption {
+    /* margin: -4px 0 0; */
+    padding: 12px;
+    background-color: white;
+    text-align: center;
+    color: white;
+  }
+  figcaption h4 {
+    margin-top: 4px;
+    margin-bottom: 0;
+  }
+  figcaption p {
+    font-size: 0.8em;
+    color: #ccc;
+  }
