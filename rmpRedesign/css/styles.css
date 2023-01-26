@@ -125,7 +125,22 @@ form {
 
 .fakeBtn {
   background-color: white;
-  color: #1E4781;
+  color: #1E4781 !important;
   border-radius: 10px;
   padding: 10px 25px;
 }
+
+.leftFix {
+  position: fixed;
+  bottom: 0px;
+  width: 25%;
+  left: 0%;
+}
+
+.rightFix {
+  position: fixed;
+  bottom: 0px;
+  width: 20%;
+  right: 0%;
+}
+
