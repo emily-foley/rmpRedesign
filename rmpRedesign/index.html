@@ -3,53 +3,61 @@
 
 <head>
     <!-- RESET DEFAULT CSS -->
-    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="../css/reset.css">
     <!-- FAVICON -->
     <link rel="icon" type="image/gif" sizes="12x12" href="#">
     <!-- BOOTSTRAP CSS CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
     <!-- CUSTOM CSS-->
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="../css/styles.css">
     <!-- IMPORTING ADOBE FONTS-->
     <link rel="stylesheet" href="https://use.typekit.net/lgz4qep.css">
 </head>
 
 <body>
-    
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navy navbar-dark">
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navy navbar-dark">
     <!-- Container wrapper -->
     <div class="container-fluid">
-        <!-- Navbar brand -->
-        <a class="navbar-brand" href="#">RMP</a>
+      <!-- Navbar brand -->
+      <a class="navbar-brand" href="index.html">RMP</a>
 
-        <!-- Icons -->
-        <ul class="navbar-nav d-flex flex-row me-1">
-            <form onsubmit="event.preventDefault()" class="form-inline my-lg-0"> <input class="form-control mr-sm-2" type="text" placeholder="Search"> 
-            </form>
-            <li class="nav-item me-3 me-lg-0">
-                <a class="nav-link text-white" href="#"><i class="mx-1"></i> Rate</a>
-            </li>
-            <li class="nav-item me-3 me-lg-0">
-                <a class="nav-link text-white" href="#"><i class="mx-1"></i> Recommendations</a>
-            </li>
-            <li class="nav-item me-3 me-lg-0">
-                <a class="nav-link text-white" href="#"><i class="mx-1"></i> Compare</a>
-            </li>
-            <button class="btn btn-light my-2 my-sm-0" type="submit">Sign Up</button>
-        </ul>
+      <!-- Icons -->
+      <ul class="navbar-nav d-flex flex-row me-1">
+        <form onsubmit="event.preventDefault()" class="form-inline my-lg-0"> <input
+            class="whiteInput form-control mr-sm-2" type="text" placeholder="Search">
+        </form>
+        <li class="nav-item me-3 me-lg-0">
+          <a class="nav-link text-white" href="rate.html"><i class="mx-1"></i> Rate</a>
+        </li>
+        <li class="nav-item me-3 me-lg-0">
+          <a class="nav-link text-white" href="#"><i class="mx-1"></i> Recommendations</a>
+        </li>
+        <li class="nav-item me-3 me-lg-0">
+          <a class="nav-link text-white" href="#"><i class="mx-1"></i> Compare</a>
+        </li>
+        <li class="nav-item me-3 me-lg-0">
+          <a class="nav-link text-white" href="login.html"><i class="mx-1"></i> Login</a>
+        </li>
+        <li class="nav-item me-3 me-lg-0">
+          <a class="fakeBtn nav-link" href="signUp.html"><i class="mx-1"></i>Sign Up</a>
+        </li>
+      </ul>
     </div>
     <!-- Container wrapper -->
-</nav>
-<!-- Navbar -->
+  </nav>
+  <!-- Navbar -->
 
 
-<div class="pt-5 justify-content-center">
-    <h2 class="text-center proxima-bold">Rate My Professors</h2>
-    <input class="text-align-center" type="text" placeholder="Search..">
-</div>
+  <div class="pt-5 justify-content-center">
+    <h2 class="text-center topPad proxima-bold">Rate My Professors</h2>
+  </div>
 
-<div class="row justify-content-center">
+  <input class="roundInput" type="text" placeholder="Search a professor...">
+
+
+  <div class="row justify-content-center">
     <figure>
       <img class="img-fluid" src="images/girlWithPencil.png" width="180">
       <figcaption>
@@ -69,5 +77,7 @@
       </figcaption>
     </figure>
   </div>
+
+
 
 </body>
