@@ -112,3 +112,11 @@ form {
 .greyText {
   color: #4E4E4E;
 }
+
+.resizedTextbox {
+  width: 500px; height: 200px;
+  border-radius: 20px;
+  border: 1;
+  background-color: white;
+  padding: 20px;
+}
