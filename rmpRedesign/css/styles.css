@@ -2,6 +2,10 @@
   color: black;
 }
 
+.blue {
+  color:#1E4781;
+}
+
 .navy {
   background-color: #1E4781;
 }
@@ -154,4 +158,21 @@ form {
   width: 50%;
   text-align: center;
   
+}
+
+.column {
+  float: left;
+  width: 46%;
+  padding: 100px;
+  margin: 20px;
+  text-align: center;
+}
+
+.row {margin: 0 -5px;}
+
+@media screen and (max-width: 1000px) {
+  .column {
+    width: 100%;
+    display: block;
+  }
 }
