@@ -99,7 +99,8 @@ form {
 }
 
 .blueButton:hover {
-  color: lightblue;
+  background-color: #1c2e4a;
+  color: white;
 }
 
 .whiteInput {
@@ -114,9 +115,17 @@ form {
 }
 
 .resizedTextbox {
-  width: 500px; height: 200px;
+  width: 500px;
+  height: 200px;
   border-radius: 20px;
   border: 1;
   background-color: white;
   padding: 20px;
+}
+
+.fakeBtn {
+  background-color: white;
+  color: #1E4781;
+  border-radius: 10px;
+  padding: 10px 25px;
 }
