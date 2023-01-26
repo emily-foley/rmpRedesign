@@ -60,3 +60,8 @@
     font-size: 0.8em;
     color: #ccc;
   }
+
+  form { 
+    margin: 0 auto; 
+    width:250px;
+    }
