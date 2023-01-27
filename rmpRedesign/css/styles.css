@@ -10,6 +10,11 @@
   background-color: #1E4781;
 }
 
+.whiteBg {
+  background-color: white;
+  border-radius: 20px;
+}
+
 .proxima {
   font-family: "proxima-nova", sans-serif;
   font-weight: 400;
