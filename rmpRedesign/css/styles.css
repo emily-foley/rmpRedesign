@@ -222,8 +222,9 @@ form {
 }
 
 .column3 {
-  width: 50%;
+  width: 100%;
   text-align: center;
+  margin-top: 30px;
 }
 
 .badgepos {
