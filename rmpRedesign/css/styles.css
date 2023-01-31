@@ -240,6 +240,15 @@ form {
   margin-top: 30px;
 }
 
+.column4 {
+  width: 60%;
+  text-align: center;
+  margin-top: 150px;
+  padding-top: 25px;
+  padding-bottom: 100px;
+}
+
+
 .badgepos {
   background-color: #BDE7BD;
   color: black;
