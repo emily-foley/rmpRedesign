@@ -51,60 +51,80 @@
     <div class="pt-5 justify-content-center">
         <h2 class="text-center topPad pb-2 proxima-bold">Rate Professor</h2>
       </div>
-      <div style='float:left; width:50%; margin-left:30px'>
+      <div class="container">
+          
         <form>
-            <div class="container mb-4">
+            <div class="column4 greyBg">
+                <div style="float:left">
           <label>Select Course Code</label>
+          
+        </div>
+         </div>
           <div class="dropdown">
+            <div style="float:right">
             <button class="dropbtn">Select Course Code</button>
             <div class="dropdown-content">
               <a href="#">Course 1</a>
               <a href="#">Course 2</a>
               <a href="#">Course 3</a>
             </div>
+        </div>
             <br></br>
             <input type="radio"><label>This is an online course</label>
           </div>
-        </div>
-          <div class="container mb-4">
-            <label>Rate Your Professor</label>
-              <div class="rating">
-                  <input type="radio" name="rating" id="rate1"><label for="rate1">1</label>
-                  <input type="radio" name="rating" id="rate1"><label for="rate1">2</label>
-                  <input type="radio" name="rating" id="rate1"><label for="rate1">3</label>
-                  <input type="radio" name="rating" id="rate1"><label for="rate1">4</label>
-                  <input type="radio" name="rating" id="rate1"><label for="rate1">5</label>
-              </div>
-          </div>
-          <div class="container mb-4">
-            <label>How difficult was this professor?</label>
-              <div class="rating">
-                  <input type="radio" name="rating" id="rate1"><label for="rate1">1</label>
-                  <input type="radio" name="rating" id="rate1"><label for="rate1">2</label>
-                  <input type="radio" name="rating" id="rate1"><label for="rate1">3</label>
-                  <input type="radio" name="rating" id="rate1"><label for="rate1">4</label>
-                  <input type="radio" name="rating" id="rate1"><label for="rate1">5</label>
-              </div>
-          </div>
-          <div class="container mb-4">
-              <div class="column3 greyBg">
-                <label>Would you take this professor again?</label>
-                  <input type="radio"><label>Yes</label>
-                  <input type="radio"><label>No</label>
-              </div>
-          </div>
           
-          <div class="container mb-4">
-              <div class="column3 greyBg">
-                <label>Did this professor use textbooks?</label>
+          <div class="column4 greyBg">
+            <div style="float:left">
+            <label>Rate Your Professor</label>
+            </div>
+            <div style="float:right">
+              <div class="rating">
+                  <input type="radio" name="rating" id="rate1"><label for="rate1">1</label>
+                  <input type="radio" name="rating" id="rate1"><label for="rate1">2</label>
+                  <input type="radio" name="rating" id="rate1"><label for="rate1">3</label>
+                  <input type="radio" name="rating" id="rate1"><label for="rate1">4</label>
+                  <input type="radio" name="rating" id="rate1"><label for="rate1">5</label>
+              </div>
+          </div>
+          <div class="column4 greyBg">
+            <div style="float:left">
+            <label>How difficult was this professor?</label>
+            </div>
+            <div style="float:right"> 
+              <div class="rating">
+                  <input type="radio" name="rating" id="rate1"><label for="rate1">1</label>
+                  <input type="radio" name="rating" id="rate1"><label for="rate1">2</label>
+                  <input type="radio" name="rating" id="rate1"><label for="rate1">3</label>
+                  <input type="radio" name="rating" id="rate1"><label for="rate1">4</label>
+                  <input type="radio" name="rating" id="rate1"><label for="rate1">5</label>
+              </div>
+          </div>
+          <div class="column4 greyBg">
+              <div style="float:left">
+                <label>Would you take this professor again?</label>
+                </div>
+                <div style="float: right">
                   <input type="radio"><label>Yes</label>
                   <input type="radio"><label>No</label>
               </div>
           </div>
-          <div class="container mb-4">
+        
+          <div class="column4 greyBg">
+              <div style="float: left">
+                <label>Did this professor use textbooks?</label>
+                </div>
+                <div style="float: right">
+                  <input type="radio"><label>Yes</label>
+                  <input type="radio"><label>No</label>
+              </div>
+          </div>
+        
+          <div class="column4 greyBg">
+              <div style="float: left">
           <label>What grade did you get in the class?</label>
+        </div>
           <div class="dropdown">
-              
+            <div style="float:right">
             <button class="dropbtn">Select grade</button>
             <div class="dropdown-content">
               <a href="#">A</a>
@@ -115,8 +135,9 @@
             </div>
           </div>
         </div>
+        </div>
           <br></br>
           <input type="submit" value="Submit Rating">     
         </form>
-      </div>        
+        </div>    
 </body>
