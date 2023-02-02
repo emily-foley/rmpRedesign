@@ -110,10 +110,28 @@ form {
   color: white;
 }
 
+.yellowButton {
+  border-radius: 20px;
+  border: 0;
+  background-color: #FFEA84;
+  color: black;
+  font-size: 17px;
+}
+
+.yellowButton:hover {
+  background-color: #FFD70A;
+  color: black;
+}
+
+.whiteButton {
+  border-radius: 10px;
+}
+
 .blueButton:hover {
   background-color: #1c2e4a;
   color: white;
 }
+
 
 .whiteInput {
   border-radius: 20px;
@@ -272,6 +290,7 @@ form {
   text-align: center;
 }
 
+
 .badgepos {
   background-color: #BDE7BD;
   color: black;
@@ -290,6 +309,72 @@ form {
   border-radius: 18px;
   font-family: "proxima-nova", sans-serif;
   font-size: 15px;
+}
+
+.badgeAwe {
+  background-color: #BDE7BD;
+  color: black;
+  padding: 8px 10px;
+  text-align: center;
+  border-radius: 10px;
+  font-family: "proxima-nova", sans-serif;
+  font-size: 17px;
+}
+
+.badgeSideAwe {
+  background-color: #BDE7BD;
+  color: black;
+  padding: 15px 10px;
+  text-align: center;
+  border-radius: 10px;
+  font-family: "proxima-nova", sans-serif;
+}
+
+.badgeAve {
+  background-color: #FFEA84;
+  color: black;
+  padding: 8px 10px;
+  text-align: center;
+  border-radius: 10px;
+  font-family: "proxima-nova", sans-serif;
+  font-size: 17px;
+}
+
+.badgeSideAve {
+  background-color: #FFEA84;
+  color: black;
+  padding: 15px 10px;
+  text-align: center;
+  border-radius: 10px;
+  font-family: "proxima-nova", sans-serif;
+}
+
+.badgeAwf {
+  background-color: #FFB6B3;
+  color: black;
+  padding: 8px 10px;
+  text-align: center;
+  border-radius: 10px;
+  font-family: "proxima-nova", sans-serif;
+  font-size: 17px;
+}
+
+.badgeSideAwf {
+  background-color: #FFB6B3;
+  color: black;
+  padding: 15px 10px;
+  text-align: center;
+  border-radius: 10px;
+  font-family: "proxima-nova", sans-serif;
+}
+
+.badgeSide {
+  background-color: #DDDDDD;
+  color: black;
+  padding: 15px 10px;
+  text-align: center;
+  border-radius: 10px;
+  font-family: "proxima-nova", sans-serif;
 }
 
 /* Three column layout */
