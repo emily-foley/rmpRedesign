@@ -110,10 +110,28 @@ form {
   color: white;
 }
 
+.yellowButton {
+  border-radius: 20px;
+  border: 0;
+  background-color: #FFEA84;
+  color: black;
+  font-size: 17px;
+}
+
+.yellowButton:hover {
+  background-color: #FFD70A;
+  color: black;
+}
+
+.whiteButton {
+  border-radius: 10px;
+}
+
 .blueButton:hover {
   background-color: #1c2e4a;
   color: white;
 }
+
 
 .whiteInput {
   border-radius: 20px;
