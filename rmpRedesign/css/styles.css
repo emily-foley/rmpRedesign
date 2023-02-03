@@ -188,7 +188,6 @@ form {
   margin-left: auto;
   margin-right: auto;
   text-align: center;
-
 }
 
 .column {
@@ -339,7 +338,7 @@ form {
 
 /* Styling for rate professor and personalization quiz containers */
 .r-container {
-  border-radius: 5px;
+  border-radius: 25px;
   background-color: #f2f2f2;
   padding: 20px;
   margin-right: 180px;
@@ -347,7 +346,7 @@ form {
 }
 
 .q-container {
-  border-radius: 5px;
+  border-radius: 25px;
   background-color: #f2f2f2;
   padding: 20px;
   margin-left: 350px;
