@@ -337,11 +337,20 @@ form {
 }
 
 
-/* Add a background color and some padding around the form */
-.container {
+/* Styling for rate professor and personalization quiz containers */
+.r-container {
   border-radius: 5px;
   background-color: #f2f2f2;
   padding: 20px;
+  margin-right: 180px;
+  margin-left: 180px;
+}
+
+.q-container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+  margin-left: 350px;
 }
 
 .rating {
