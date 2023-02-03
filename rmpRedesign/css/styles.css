@@ -486,6 +486,44 @@ form {
   border-radius: 3px;
 }
 
+.rating2 {
+  position: relative;
+  display: flex;
+  margin-top: 20px;
+  border: 1.5px solid #000;
+  box-sizing: border-box;
+  border-radius: 8px;
+  height: 45px;
+  width: 277px;
+  background: linear-gradient(to right, #0f0, #ff0, #f00);
+}
+
+.rating2 input {
+  display: none;
+}
+
+.rating2 input[type="radio"]:hover~label,
+.rating2 input[type="radio"]:checked~label {
+  background: transparent;
+}
+
+
+.rating2 label {
+  display: block;
+  cursor: pointer;
+  width: 55px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s;
+  background: #fff;
+  color: #000;
+  font-size: 20px;
+  border-right: 1px solid #000;
+  border-radius: 3px;
+}
+
 /* styling radio buttons */
 .questions {
   justify-content: center;
