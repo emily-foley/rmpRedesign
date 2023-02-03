@@ -353,6 +353,7 @@ form {
   margin-left: 350px;
 }
 
+/* Styling the 1-5 rating boxes */
 .rating {
   position: relative;
   display: flex;
