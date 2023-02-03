@@ -453,16 +453,23 @@ form {
   position: relative;
   display: flex;
   margin-top: 20px;
-  border: 1px solid #000;
+  border: 1.5px solid #000;
   box-sizing: border-box;
-  border-radius: 15px;
+  border-radius: 8px;
   height: 45px;
   width: 277px;
+  background: linear-gradient(to left, #0f0, #ff0, #f00);
 }
 
 .rating input {
   display: none;
 }
+
+.rating input[type="radio"]:hover~label,
+.rating input[type="radio"]:checked~label {
+  background: transparent;
+}
+
 
 .rating label {
   display: block;
@@ -472,6 +479,8 @@ form {
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: 0.5s;
+  background: #fff;
   color: #000;
   font-size: 20px;
   border-right: 1px solid #000;
