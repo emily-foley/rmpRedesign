@@ -160,6 +160,24 @@ form {
   padding: 10px 25px;
 }
 
+.fakeBtnBlue {
+  background-color: #1E4781;
+  color: white !important;
+  border-radius: 20px;
+  padding: 10px 25px;
+  text-decoration: none;
+  text-align: center;
+  padding: 10px 60px;
+}
+
+/* .fakeBtnBlue a:hover {
+  background-color: #1E4781;
+  color: white !important;
+  border-radius: 10px;
+  padding: 10px 25px;
+  text-decoration: none;
+} */
+
 .leftFix {
   position: fixed;
   bottom: 0px;
