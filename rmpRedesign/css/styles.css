@@ -488,6 +488,7 @@ form {
   display: flex;
   margin-top: 20px;
   border: 1.5px solid #000;
+  flex-direction: row-reverse;
   box-sizing: border-box;
   border-radius: 8px;
   height: 45px;
@@ -526,6 +527,7 @@ form {
   display: flex;
   margin-top: 20px;
   border: 1.5px solid #000;
+  flex-direction: row-reverse;
   box-sizing: border-box;
   border-radius: 8px;
   height: 45px;
@@ -560,6 +562,7 @@ form {
 }
 
 /* styling radio buttons */
+
 .questions {
   justify-content: center;
   align-items: center;
