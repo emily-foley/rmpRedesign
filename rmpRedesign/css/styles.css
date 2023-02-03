@@ -178,6 +178,15 @@ form {
   text-decoration: none;
 } */
 
+.fakeBtnYell {
+  background-color: #FFEA84;
+  color: black !important;
+  border-radius: 20px;
+  padding: 10px 45px;
+  text-decoration: none;
+  text-align: center;
+}
+
 .leftFix {
   position: fixed;
   bottom: 0px;
@@ -275,6 +284,14 @@ form {
   width: 100%;
   text-align: center;
   margin-top: 30px;
+}
+
+.column4 {
+  width: 60%;
+  text-align: center;
+  margin-top: 100px;
+  padding-top: 10px;
+  padding-bottom: 100px;
 }
 
 .column5 {
