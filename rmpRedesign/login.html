@@ -1,4 +1,22 @@
-<!DOCTYPE html>
+<?php
+// Connect to the database
+// ...
+
+if (isset($_POST['submit'])) {
+  $email = $_POST['email'];
+  $password = $_POST['password'];
+
+  // Retrieve user from database
+  $stmt = $db->prepare("SELECT * FROM users WHERE email = ?");
+  $stmt->bind_param("s", $email);
+  $stmt->execute();
+  $result = $stmt->get_result();
+  $stmt->close();
+
+  if ($result->num_rows == 1)
+
+
+  <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -66,8 +84,15 @@
 
               <h2 class="mb-4 proxima-bold">Login</h2>
 
+              <form action="login.php" method="post">
+                <label for="email">Email:</label>
+                <input type="email" name="email" id="email" required>
+                <label for="password">Password:</label>
+                <input type="password" name="password" id="password" required>
+                <input type="submit" name="submit" value="Log in">
+              </form>
 
-              <div class="form-white mb-4">
+              <!-- <div class="form-white mb-4">
                 <input type="email" placeholder="Email" class="whiteInput form-control form-control-lg" />
               </div>
 
@@ -77,7 +102,7 @@
 
               <div class="mb-3">
                 <a href="index.html" class="fakeBtnBlue proxima nova text-decoration-none btn-lg px-5 mb-5">Continue</a>
-              </div>
+              </div> -->
 
               <p class="mb-0">
                 <a class="proxima greyText text-decoration-none" href="#">Forgot password?</a>
