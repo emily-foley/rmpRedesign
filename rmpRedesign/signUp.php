@@ -86,12 +86,20 @@
 
                 <!-- email input box -->
                 <div class="form-white mb-4">
-                    <input type="email" placeholder="Email" class="whiteInput form-control form-control-lg" id="floatingInput" name="email" required>
+                  <label for="email">Email:</label>
+                  <input type="email" class="whiteInput form-control form-control-lg" id="floatingInput" name="email" required>
                 </div>
 
                 <!-- password input box -->
                 <div class="form-white mb-4">
-                    <input type="password" placeholder="Password" class="whiteInput form-control form-control-lg" id="floatingInput" name="pass" required>
+                  <label for="password">Password:</label>
+                    <input type="password" class="whiteInput form-control form-control-lg" id="floatingInput" name="pass" required>
+                </div>
+
+                <!-- re-enter password input box -->
+                <div class="form-white mb-4">
+                  <label for="re_password">Re-enter Password:</label>
+                    <input type="password" class="whiteInput form-control form-control-lg" id="floatingInput" name="re_pass" required>
                 </div>
 
                  <!--continue button-->
@@ -101,6 +109,7 @@
                 <a class="proxima greyText text-decoration-none" href="login.php">Already have an account?</a>
               </p>
 
+            </form>
             </div>
 
           </div>
