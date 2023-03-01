@@ -1,3 +1,6 @@
+<!-- including the databse code for mysql connection -->
+<?php include('database.php') ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -67,34 +70,52 @@
 </nav>
 <!-- Navbar -->
 
-    <div class="container py-5 h-100">
-        <div class="row d-flex justify-content-center align-items-center h-100">
-            <div class="col-12 col-md-8 col-lg-8 col-xl-8">
-                <div class="container greyBg">
-                    <div class="p-5 text-center">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+        <div class="container greyBg">
+          <div class="p-5 text-center">
 
-                        <div class="mb-md-4 mt-md-4">
+            <div class="mb-md-3 mt-md-3">
 
-                            <h2 class="mb-4 proxima-bold">Personalization Quiz</h2>
+            <form action=" " method="POST"> 
 
-                            <p class="greyText proxima pt-2 pb-4">Take this quiz so we can recommend professors based on
-                                your learning style!</p>
+                <!-- including error pop ups -->
+                <?php include('errors.php');?>
 
-                                
-                            <div class="my-3">
-                                <a href="personalization2.html" class="fakeBtnBlue proxima text-decoration-none btn-lg py-1 px-5 mt-3 mb-3">Start</a>
-                            </div>
+              <h2 class="mb-4 proxima-bold">Login</h2>
 
-                        </div>
-
-                    </div>
+                <!-- email input box -->
+                <div class="form-white mb-4 form-floating">
+                    <input type="email" placeholder="Email" class="whiteInput form-control form-control-lg" id="floatingInput" name="email" required>
                 </div>
+
+                <!-- password input box -->
+                <div class="form-white mb-4">
+                    <input type="password" placeholder="Password" class="whiteInput form-control form-control-lg" id="floatingPassword" name="password" required>
+                </div>
+
+                <!-- submit button -->
+                <button class="fakeBtnBlue proxima nova text-decoration-none btn-lg px-5 mb-5" type="submit" name="logsubmit" value="Sign in">Continue</button>
+
+                <p class="mb-0">
+                <a class="proxima greyText text-decoration-none" href="#">Forgot password?</a>
+                </p>
+
+                <!-- link to go to register page if user does not have an account -->
+                <p class="proxima greyText text-decoration-none"><a href="signUp.php">Don't have an account?</a></p>
+
+            </form>
             </div>
+
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 
-    <img src="images/pyLeaf.png" alt="decorative leaf" class="leftFix">
+  <img src="images/pyLeaf.png" alt="decorative leaf" class="leftFix">
 
-    <img src="images/byLeaf.png" alt="decorative leaf" class="rightFix">
+  <img src="images/byLeaf.png" alt="decorative leaf" class="rightFix">
 
 </body>
