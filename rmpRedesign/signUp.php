@@ -15,11 +15,10 @@
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.88.1">
     <title>RMP</title>
-
     <!-- RESET DEFAULT CSS -->
     <link rel="stylesheet" href="css/reset.css">
     <!-- FAVICON -->
-    <link rel="icon" type="image/gif" sizes="12x12" href="#">
+    <link rel="icon" type="image/gif" sizes="12x12" href="images/capLogoBlue.png">
     <!-- BOOTSTRAP CSS CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
     <!-- CUSTOM CSS-->
