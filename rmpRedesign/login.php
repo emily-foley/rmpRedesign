@@ -79,9 +79,6 @@
 
             <form action=" " method="POST"> 
 
-                <!-- including error pop ups -->
-                <?php include('errors.php');?>
-
               <h2 class="mb-4 proxima-bold">Login</h2>
 
                 <!-- email input box -->
@@ -90,12 +87,15 @@
                 </div>
 
                 <!-- password input box -->
-                <div class="form-white mb-4">
+                <div class="form-white mb-3">
                     <input type="password" placeholder="Password" class="whiteInput form-control form-control-lg" id="floatingPassword" name="password" required>
                 </div>
 
+                <!-- including error pop ups -->
+                <?php include('errors.php');?>
+
                 <!-- submit button -->
-                <button class="fakeBtnBlue proxima nova text-decoration-none btn-lg px-5 mb-5" type="submit" name="logsubmit" value="Sign in">Continue</button>
+                <button class="fakeBtnBlue proxima nova text-decoration-none btn-lg px-5 mb-1 mt-1" type="submit" name="logsubmit" value="Sign in">Continue</button>
 
                 <p class="mb-0">
                 <a class="proxima greyText text-decoration-none" href="#">Forgot password?</a>
