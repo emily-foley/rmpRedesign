@@ -1,91 +1,74 @@
-<?php
-// Connect to the database
-// ...
-
-if (isset($_POST['submit'])) {
-  $email = $_POST['email'];
-  $password = $_POST['password'];
-  $password2 = $_POST['password2'];
-
-  // Validate input
-  if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    $error = "Invalid email format";
-  } elseif ($password !== $password2) {
-    $error = "Passwords do not match";
-  } else {
-    // Hash the password
-    $hash = password_hash($password, PASSWORD_DEFAULT);
-
-    // Insert user into database
-    $stmt = $db->prepare("INSERT INTO users (email, password) VALUES (?, ?)");
-    $stmt->bind_param("ss", $email, $hash);
-    $stmt->execute();
-    $stmt->close();
-
-    // Redirect to login page
-    header("Location: login.php");
-    exit;
-  }
-}
-?>
+<!-- including the databse code for mysql connection -->
+<?php include('database.php') ?>
 
 <!DOCTYPE html>
 <html lang="en">
 
+
+<!--Head section contains metadata (not displayed in page)-->
+
 <head>
-  <!-- RESET DEFAULT CSS -->
-  <link rel="stylesheet" href="css/reset.css">
-  <!-- FAVICON -->
-  <link rel="icon" type="image/gif" sizes="12x12" href="#">
-  <!-- BOOTSTRAP CSS CDN -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
-  <!-- CUSTOM CSS-->
-  <link rel="stylesheet" href="css/styles.css">
-  <!-- IMPORTING ADOBE FONTS-->
-  <link rel="stylesheet" href="https://use.typekit.net/lgz4qep.css">
+    <!--Title displayed in browser tab-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.88.1">
+    <title>RMP</title>
+
+    <!-- RESET DEFAULT CSS -->
+    <link rel="stylesheet" href="css/reset.css">
+    <!-- FAVICON -->
+    <link rel="icon" type="image/gif" sizes="12x12" href="#">
+    <!-- BOOTSTRAP CSS CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <!-- CUSTOM CSS-->
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- IMPORTING ADOBE FONTS-->
+    <link rel="stylesheet" href="https://use.typekit.net/lgz4qep.css">
 </head>
 
 <body>
 
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navy navbar-dark">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="index.html">
-        <img src="images/capLogo.png" height="50" alt="logo">
-      </a>
-      <div class="collapse navbar-collapse justify-content-left">
-        <ul class="navbar-nav d-flex flex-row me-1">
-          <li class="nav-item me-3 me-lg-0">
-            <!-- <img src="images/RateNav.png" alt="logo" class="center"> -->
-            <a class="nav-link text-white" href="rate.html"><i class="mx-1"></i> Rate</a>
-          </li>
-          <li class="nav-item me-3 me-lg-0">
-            <!-- <img src="images/RecommendationsNav.png" alt="logo" class="center"> -->
-            <a class="nav-link text-white" href="recommend.html"><i class="mx-1"></i> Recommendations</a>
-          </li>
-          <li class="nav-item me-3 me-lg-0">
-            <!-- <img src="images/CompareNav.png"  alt="logo" class="center"> -->
-            <a class="nav-link text-white" href="emptyCompare.html"><i class="mx-1"></i> Compare</a>
-          </li>
-      </div>
-
-      <div class="justify-content-left">
-        <form onsubmit="event.preventDefault()" class="form-inline my-lg-1"> <input
-            class="whiteInput form-control mr-sm-2" type="text" placeholder="Search">
-        </form>
-      </div>
-
-      <li class="nav-item me-3 me-lg-0 noBullet">
-        <a class="nav-link text-white" href="login.html"><i class="mx-1"></i> Login</a>
-      </li>
-      <li class="nav-item me-3 me-lg-0 noBullet">
-        <a class="fakeBtn nav-link" href="signUp.html"><i class=""></i>Sign Up</a>
-      </li>
-      </ul>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navy navbar-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="index.html">
+      <img src="images/capLogo.png" height="50" alt="logo">
+    </a>
+    <div class="collapse navbar-collapse justify-content-left">
+      <ul class="navbar-nav d-flex flex-row me-1">
+        <li class="nav-item me-3 me-lg-0">
+          <!-- <img src="images/RateNav.png" alt="logo" class="center"> -->
+          <a class="nav-link text-white" href="rate.html"><i class="mx-1"></i> Rate</a>
+        </li>
+        <li class="nav-item me-3 me-lg-0">
+          <!-- <img src="images/RecommendationsNav.png" alt="logo" class="center"> -->
+          <a class="nav-link text-white" href="recommend.html"><i class="mx-1"></i> Recommendations</a>
+        </li>
+        <li class="nav-item me-3 me-lg-0">
+          <!-- <img src="images/CompareNav.png"  alt="logo" class="center"> -->
+          <a class="nav-link text-white" href="emptyCompare.html"><i class="mx-1"></i> Compare</a>
+        </li>
     </div>
 
-  </nav>
-  <!-- Navbar -->
+    <div class="justify-content-left">
+      <form onsubmit="event.preventDefault()" class="form-inline my-lg-1"> <input
+          class="whiteInput form-control mr-sm-2" type="text" placeholder="Search">
+      </form>
+    </div>
+
+    <li class="nav-item me-3 me-lg-0 noBullet">
+      <a class="nav-link text-white" href="login.php"><i class="mx-1"></i> Login</a>
+    </li>
+    <li class="nav-item me-3 me-lg-0 noBullet">
+      <a class="fakeBtn nav-link" href="signUp.php"><i class=""></i>Sign Up</a>
+    </li>
+    </ul>
+  </div>
+
+</nav>
+<!-- Navbar -->
 
   <div class="container py-5 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
@@ -95,46 +78,28 @@ if (isset($_POST['submit'])) {
 
             <div class="mb-md-3 mt-md-3">
 
+            <form action=" " method="POST">
+
+                <!-- including error pop ups -->
+                <?php include('errors.php');?>
+
               <h2 class="mb-4 proxima-bold">Sign Up</h2>
 
-              <form action="signup.php" method="post">
-                <label for="email">Email:</label>
-                <input type="email" name="email" id="email" required>
-                <label for="password">Password:</label>
-                <input type="password" name="password" id="password" required>
-                <label for="password2">Re-enter Password:</label>
-                <input type="password" name="password2" id="password2" required>
-                <input type="submit" name="submit" value="Sign up">
-              </form>
-
-              <!-- <form method="post">
+                <!-- email input box -->
                 <div class="form-white mb-4">
-                  <input type="email" name="email" id="email" placeholder="Email"
-                    class="whiteInput form-control form-control-lg" required />
+                    <input type="email" placeholder="Email" class="whiteInput form-control form-control-lg" id="floatingInput" name="email" required>
                 </div>
 
+                <!-- password input box -->
                 <div class="form-white mb-4">
-                  <input type="password" name="password" id="password" placeholder="Password"
-                    class="whiteInput form-control form-control-lg" required />
+                    <input type="password" placeholder="Password" class="whiteInput form-control form-control-lg" id="floatingInput" name="pass" required>
                 </div>
 
-                <div class="form-white mb-4">
-                  <input type="password" name="re_enter_password" id="re_enter_password" placeholder="Re-enter Password"
-                    class="whiteInput form-control form-control-lg" required />
-                </div>
-
-                <div class="my-3">
-                  <a href="personalization.html" class="fakeBtnBlue proxima text-decoration-none btn-lg px-5 mb-3">Continue</a>
-                  </div>
-
-                <div>
-                  <button type="submit">Sign Up</button>
-                </div>
-              </form> -->
-
+                 <!--continue button-->
+                <button class="fakeBtnBlue proxima text-decoration-none btn-lg px-5 mb-3" type="submit" name="regsubmit" value="Submit">Continue</button>
 
               <p class="pb-lg-2">
-                <a class="proxima greyText" href="login.html">Already have an account?</a>
+                <a class="proxima greyText text-decoration-none" href="login.php">Already have an account?</a>
               </p>
 
             </div>
