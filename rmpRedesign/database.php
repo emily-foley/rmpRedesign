@@ -12,11 +12,9 @@
 		//yara
 		$connection = mysqli_connect('localhost', 'ya818631', '34096885!Yar', 'ya818631');
 		}else {
-		//yara
-		$connection = mysqli_connect('localhost', 'em248165', '3535A5F4D0EB4F319A17FBEEF735D58Aa!', 'em248165');
-	}
-	} else {
-		$connection = mysqli_connect('localhost', 'root', '', 'rmpaccount');	
+		// $connection = mysqli_connect('localhost', 'em248165', '3535A5F4D0EB4F319A17FBEEF735D58Aa!', 'em248165');
+	 	$connection = mysqli_connect('localhost', 'root', '', 'rmpaccount');	
+		}
 	}
 
     // registration validation
