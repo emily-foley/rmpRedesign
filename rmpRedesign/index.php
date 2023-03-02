@@ -1,3 +1,32 @@
+<?php
+
+
+	if ($_SERVER["SERVER_NAME"] == "students.gaim.ucf.edu") {
+		if ($_SERVER["SCRIPT_URL"]=="/~ya818631/dig4172C/rmpRedesign/index.php"){
+		//yara
+		$connection = mysqli_connect('localhost', 'ya818631', '34096885!Yar', 'ya818631');
+		}else {
+		// $connection = mysqli_connect('localhost', 'em248165', '3535A5F4D0EB4F319A17FBEEF735D58Aa!', 'em248165');
+	 	$connection = mysqli_connect('localhost', 'root', '', 'rmpaccount');	
+		}
+	}
+
+    // retrieve all products
+    $sql = "SELECT * FROM professors";
+    $result = $conn->query($sql);
+
+    // retrieve search term
+    $search = $_POST['search'];
+
+    // retrieve filtered results
+    $sql = "SELECT * FROM professors WHERE name LIKE '%".$search."%' OR school LIKE '%".$search."%'";
+    $result = $conn->query($sql);
+
+    // close database connection
+    $conn->close();
+
+  ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -70,11 +99,26 @@
     <h2 class="text-center topPad pb-2 proxima-bold">Rate My Professors</h2>
   </div>
 
-  <input class="roundInput" type="text" placeholder="Leonardo DiCapri...">
+  <form method="post" action="RatePage.html">
+    <input type="text" name="search" placeholder="Search professor...">
+    <button type="submit">Search</button>
+    <div class="dropdown">
+      <ul>
+        <?php
+        // display filtered results in dropdown menu
+        while ($row = $result->fetch_assoc()) {
+          echo "<li>".$row["name"]."</li>";
+        }
+        ?>
+      </ul>
+    </div>
+  </form>
 
-  <div class="justify-content-center text-center mt-4">
+  <!-- <input class="roundInput" type="text" placeholder="Leonardo DiCapri..."> -->
+
+  <!-- <div class="justify-content-center text-center mt-4">
     <a href="RatePage.html" class="fakeBtnBlue btn-lg">Search</a>
-  </div>
+  </div> -->
 
   <div class="row justify-content-center">
     <figure>
