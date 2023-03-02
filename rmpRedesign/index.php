@@ -101,7 +101,12 @@
     <button type="submit">Search</button>
     <div class="dropdown">
       <ul>
-  
+        <?php
+          // display filtered results in dropdown menu
+          while ($row = $result->fetch_assoc()) {
+            echo "<li>".$row["name"]."</li>";
+          }
+        ?>
       </ul>
     </div>
   </form>
