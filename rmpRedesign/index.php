@@ -22,6 +22,8 @@
     $sql = "SELECT * FROM professors WHERE name LIKE '%".$search."%' OR school LIKE '%".$search."%'";
     $result = $connection->query($sql);
 
+    // close database connection
+    $connection->close();
   ?>
   
   <!DOCTYPE html>
