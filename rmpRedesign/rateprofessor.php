@@ -23,6 +23,13 @@
 
       $query = "INSERT INTO 'ratings' ('id','online','rating','difficulty','again','textbooks','created_at') VALUES ('$id','$online','$rating','$difficulty','$again','$textbooks','$created_at')";
       $query_run = mysqli_query($connection, $query);
+
+      if ($connection->query($sql) === TRUE) {
+        echo "data inserted successfully";
+      } else {
+          echo "Error: " . $sql . "<br>" . $connection->error;
+      }
+      
     }
 
 
