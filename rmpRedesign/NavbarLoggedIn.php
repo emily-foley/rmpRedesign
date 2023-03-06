@@ -29,22 +29,22 @@
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navy navbar-dark">
   <div class="container-fluid">
-    <a class="navbar-brand" href="index.html">
+    <a class="navbar-brand" href="indexIn.php">
       <img src="images/capLogo.png" height="50" alt="logo">
     </a>
     <div class="collapse navbar-collapse justify-content-left">
       <ul class="navbar-nav d-flex flex-row me-1">
         <li class="nav-item me-3 me-lg-0">
           <!-- <img src="images/RateNav.png" alt="logo" class="center"> -->
-          <a class="nav-link text-white" href="rate.html"><i class="mx-1"></i> Rate</a>
+          <a class="nav-link text-white" href="rateIn.php"><i class="mx-1"></i> Rate</a>
         </li>
         <li class="nav-item me-3 me-lg-0">
           <!-- <img src="images/RecommendationsNav.png" alt="logo" class="center"> -->
-          <a class="nav-link text-white" href="recommend.html"><i class="mx-1"></i> Recommendations</a>
+          <a class="nav-link text-white" href="recommendIn.php"><i class="mx-1"></i> Recommendations</a>
         </li>
         <li class="nav-item me-3 me-lg-0">
           <!-- <img src="images/CompareNav.png"  alt="logo" class="center"> -->
-          <a class="nav-link text-white" href="emptyCompare.html"><i class="mx-1"></i> Compare</a>
+          <a class="nav-link text-white" href="emptyCompareIn.php"><i class="mx-1"></i> Compare</a>
         </li>
     </div>
 
@@ -54,55 +54,13 @@
       </form>
     </div>
 
-    <li class="nav-item me-3 me-lg-0 noBullet">
-      <a class="nav-link text-white" href="login.php"><i class="mx-1"></i> Login</a>
-    </li>
-    <li class="nav-item me-3 me-lg-0 noBullet">
-      <a class="fakeBtn nav-link" href="signUp.php"><i class=""></i>Sign Up</a>
+    <li class="nav-item me-lg-0 mr-3 ml-5 noBullet">
+      <a class="fakeBtn nav-link" href="logout.php"><i class="mx-1"></i>Logout</a>
     </li>
     </ul>
+
   </div>
 
 </nav>
 <!-- Navbar -->
-
-  <div class="container py-5 h-100">
-    <div class="row d-flex justify-content-center align-items-center h-100">
-      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-        <div class="container greyBg">
-          <div class="p-5 text-center">
-
-            <div class="mb-md-3 mt-md-3">
-
-              <h2 class="mb-4 proxima-bold">Personalization Quiz</h2>
-
-
-              <div class="whiteBg">
-                <h5 class="proxima pt-3 pl-4 text-left">I prefer...</h5>
-                <form>
-                    <label class="radio-inline proxima pr-1">
-                      <input type="radio" name="optradio" checked>Group projects
-                    </label>
-                    <label class="radio-inline proxima">
-                      <input type="radio" name="optradio">Individual work
-                    </label>
-                  </form>
-              </div>
-
-
-              <button class="btn blueButton btn-lg px-5 mb-3 mt-5 proxima" type="submit">Submit</button>
-
-
-            </div>
-
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <img src="images/pyLeaf.png" alt="decorative leaf" class="leftFix">
-
-  <img src="images/byLeaf.png" alt="decorative leaf" class="rightFix">
-
 </body>

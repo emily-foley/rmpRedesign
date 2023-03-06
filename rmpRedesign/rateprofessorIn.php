@@ -24,12 +24,17 @@
       $query = "INSERT INTO 'ratings' ('id','online','rating','difficulty','again','textbooks','created_at') VALUES ('$id','$online','$rating','$difficulty','$again','$textbooks','$created_at')";
       $query_run = mysqli_query($connection, $query);
 
-      if ($connection->query($sql) === TRUE) {
-        echo "data inserted successfully";
-      } else {
-          echo "Error: " . $sql . "<br>" . $connection->error;
+      //test if data is saved
+      if($query_run)
+      {
+        echo '<script type="text/javascript"> alert("Data saved") </script>';
       }
-      
+      else 
+      {
+        echo '<script type="text/javascript"> alert("Data not saved") </script>';
+      }
+
+      // mysqli_query($connection, "INSERT INTO 'ratings' ('online','rating','difficulty','again','textbooks') VALUES ('$online','$rating','$difficulty','$again','$textbooks')");
     }
 
 
@@ -64,7 +69,7 @@
 <body>
 
   <!-- Navbar -->
-  <?php include ('navbar.html');?>
+  <?php include ('NavbarLoggedIn.php');?>
   <!-- Navbar -->
 
   <div class="pt-3 justify-content-center">
