@@ -1,31 +1,4 @@
-<?php
 
-
-	if ($_SERVER["SERVER_NAME"] == "students.gaim.ucf.edu") {
-		if ($_SERVER["SCRIPT_URL"]=="/~ya818631/dig4172C/rmpRedesign/index.php"){
-		//yara
-		$connection = mysqli_connect('localhost', 'ya818631', '34096885!Yar', 'ya818631');
-		}else {
-		// $connection = mysqli_connect('localhost', 'em248165', '3535A5F4D0EB4F319A17FBEEF735D58Aa!', 'em248165');
-	 	$connection = mysqli_connect('localhost', 'root', '', 'rmpaccount');	
-		}
-	}
-
-    // retrieve all products
-    $sql = "SELECT * FROM professors";
-    $result = $connection->query($sql);
-
-    // retrieve search term
-    $search = $_POST['search'];
-
-    // retrieve filtered results
-    $sql = "SELECT * FROM professors WHERE name LIKE '%".$search."%' OR school LIKE '%".$search."%'";
-    $result = $connection->query($sql);
-
-    // close database connection
-    $connection->close();
-  ?>
-  
 <!DOCTYPE html>
 <html lang="en">
 
@@ -55,91 +28,69 @@
 <body>
 
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navy navbar-dark">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="index.html">
-      <img src="images/capLogo.png" height="50" alt="logo">
-    </a>
-    <div class="collapse navbar-collapse justify-content-left">
-      <ul class="navbar-nav d-flex flex-row me-1">
-        <li class="nav-item me-3 me-lg-0">
-          <!-- <img src="images/RateNav.png" alt="logo" class="center"> -->
-          <a class="nav-link text-white" href="rate.html"><i class="mx-1"></i> Rate</a>
-        </li>
-        <li class="nav-item me-3 me-lg-0">
-          <!-- <img src="images/RecommendationsNav.png" alt="logo" class="center"> -->
-          <a class="nav-link text-white" href="recommend.html"><i class="mx-1"></i> Recommendations</a>
-        </li>
-        <li class="nav-item me-3 me-lg-0">
-          <!-- <img src="images/CompareNav.png"  alt="logo" class="center"> -->
-          <a class="nav-link text-white" href="emptyCompare.html"><i class="mx-1"></i> Compare</a>
-        </li>
-    </div>
-
-    <div class="justify-content-left">
-      <form onsubmit="event.preventDefault()" class="form-inline my-lg-1"> <input
-          class="whiteInput form-control mr-sm-2" type="text" placeholder="Search">
-      </form>
-    </div>
-
-    <li class="nav-item me-3 me-lg-0 noBullet">
-      <a class="nav-link text-white" href="login.php"><i class="mx-1"></i> Login</a>
-    </li>
-    <li class="nav-item me-3 me-lg-0 noBullet">
-      <a class="fakeBtn nav-link" href="signUp.php"><i class=""></i>Sign Up</a>
-    </li>
-    </ul>
-  </div>
-
-</nav>
+<?php include 'navbar.html';?>
 <!-- Navbar -->
 
   <div class="pt-5 justify-content-center">
     <h2 class="text-center topPad pb-2 proxima-bold">Rate My Professors</h2>
   </div>
-
-  <form method="post" action="RatePage.html">
-    <input type="text" name="search" placeholder="Search professor...">
-    <button type="submit">Search</button>
+  
+  <form method="post" action="RatePage.php">
     <div class="dropdown">
       <ul>
-        <?php
-          // display filtered results in dropdown menu
-          while ($row = $result->fetch_assoc()) {
-            echo "<li>".$row["name"]."</li>";
-          }
-        ?>
+      <?php
+if ($_SERVER["SERVER_NAME"] == "students.gaim.ucf.edu") {
+  if ($_SERVER["SCRIPT_URL"]=="/~ya818631/dig4172C/RateMyProTest/index.php"){
+  //yara
+  $connection = mysqli_connect('localhost', 'ya818631', '34096885!Yar', 'ya818631');
+  }else {
+  // $connection = mysqli_connect('localhost', 'em248165', '3535A5F4D0EB4F319A17FBEEF735D58Aa!', 'em248165');
+   $connection = mysqli_connect('localhost', 'root', '', 'rmpaccount');	
+  }
+}
+
+$result=mysqli_query($connection, "SELECT * FROM professors");
+echo "<center>";
+echo "<select id='searchprof'>";
+echo "<option>Search professor...</option>";
+while ($row=mysqli_fetch_array($result))
+{
+  echo "<option>$row[name]</option>";
+}
+echo "</select>";
+echo "</center>";
+mysqli_close($connection)
+
+?> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.min.css" rel="stylesheet"></link>
+<script>
+  $("#searchprof").chosen();
+</script>
+        
       </ul>
     </div>
   </form>
 
-  <!-- <input class="roundInput" type="text" placeholder="Leonardo DiCapri..."> -->
-
-  <!-- <div class="justify-content-center text-center mt-4">
-    <a href="RatePage.html" class="fakeBtnBlue btn-lg">Search</a>
-  </div> -->
-
   <div class="row justify-content-center">
     <figure>
-      <!-- <img class="center" src="images/girlWithPencil.png" width="180"> -->
       <figcaption>
-        <a class="black text-decoration-none" href="rate.html">
+        <a class="black text-decoration-none" href="rate.php">
           <img class="center" src="images/girlWithPencil.png" width="180">
           Rate a Professor</a>
       </figcaption>
     </figure>
     <figure>
-      <!-- <img class="center" src="images/thumbs.png" width="200"> -->
       <figcaption class="mt-4">
-        <a class="black text-decoration-none" href="recommend.html">
+        <a class="black text-decoration-none" href="recommend.php">
           <img class="center" src="images/thumbs.png" width="200">
           Recommend me a Professor</a>
       </figcaption>
     </figure>
     <figure>
-      <!-- <img class="center" src="images/balance.png" width="200"> -->
       <figcaption class="mt-4">
-        <a class="black text-decoration-none" href="compare.html">
+        <a class="black text-decoration-none" href="compare.php">
           <img class="center" src="images/balance.png" width="200">
           Compare Professors
         </a>
