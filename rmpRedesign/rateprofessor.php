@@ -19,8 +19,8 @@
       $again = $_POST['again'];
       $textbooks = $_POST['textbooks'];
 
-      $query = "INSERT INTO 'ratings' ('online','rating','difficulty','again','textbooks') VALUES ('$online','$rating','$difficulty','$again','$textbooks')";
-      $query_run = mysqli_query($connection,$query);
+      $query = "INSERT INTO ratings ('online','rating','difficulty','again','textbooks') VALUES ('$online','$rating','$difficulty','$again','$textbooks')";
+      $query_run = mysqli_query($connection, $query);
 
       //test if data is saved
       if($query_run)
@@ -31,7 +31,11 @@
       {
         echo '<script type="text/javascript"> alert("Data not saved") </script>';
       }
+
+      // mysqli_query($connection, "INSERT INTO 'ratings' ('online','rating','difficulty','again','textbooks') VALUES ('$online','$rating','$difficulty','$again','$textbooks')");
     }
+
+
 ?>
   
 <!DOCTYPE html>
