@@ -69,7 +69,7 @@
 <body>
 
   <!-- Navbar -->
-  <?php include ('navbar.html');?>
+  <?php include ('NavbarLoggedIn.php');?>
   <!-- Navbar -->
 
   <div class="pt-3 justify-content-center">

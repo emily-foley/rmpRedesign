@@ -27,43 +27,7 @@
 <body>
 
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navy navbar-dark">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="index.html">
-      <img src="images/capLogo.png" height="50" alt="logo">
-    </a>
-    <div class="collapse navbar-collapse justify-content-left">
-      <ul class="navbar-nav d-flex flex-row me-1">
-        <li class="nav-item me-3 me-lg-0">
-          <!-- <img src="images/RateNav.png" alt="logo" class="center"> -->
-          <a class="nav-link text-white" href="rate.html"><i class="mx-1"></i> Rate</a>
-        </li>
-        <li class="nav-item me-3 me-lg-0">
-          <!-- <img src="images/RecommendationsNav.png" alt="logo" class="center"> -->
-          <a class="nav-link text-white" href="recommend.html"><i class="mx-1"></i> Recommendations</a>
-        </li>
-        <li class="nav-item me-3 me-lg-0">
-          <!-- <img src="images/CompareNav.png"  alt="logo" class="center"> -->
-          <a class="nav-link text-white" href="emptyCompare.html"><i class="mx-1"></i> Compare</a>
-        </li>
-    </div>
-
-    <div class="justify-content-left">
-      <form onsubmit="event.preventDefault()" class="form-inline my-lg-1"> <input
-          class="whiteInput form-control mr-sm-2" type="text" placeholder="Search">
-      </form>
-    </div>
-
-    <li class="nav-item me-3 me-lg-0 noBullet">
-      <a class="nav-link text-white" href="login.php"><i class="mx-1"></i> Login</a>
-    </li>
-    <li class="nav-item me-3 me-lg-0 noBullet">
-      <a class="fakeBtn nav-link" href="signUp.php"><i class=""></i>Sign Up</a>
-    </li>
-    </ul>
-  </div>
-
-</nav>
+<?php include ('NavbarLoggedIn.php');?>
 <!-- Navbar -->
 
   <h4 class="mb-4 proxima-bold text-center pt-5">Report a Rating for Leonardo DiCaprio</h4>
@@ -81,7 +45,7 @@
     
                   <h5 class="proxima-bold">You are reporting: </h5>
                 </div>
-                  <p>"The class was incredibly hard and the professor did nothing to help. He would only read off of PowerPoints and barely gave us any feedback on our work."</p>
+                  <p>"Leonardo is a great professor who knows what he's doing and will help you out if you ask for it. He has a bit of an ego, but understandably so considering all he's done in life. After taking plenty of classes with him over the years, I can confidently say he's the best professors UCF SVAD/DM has and you WILL learn if you put forth the effort."</p>
     
                   <h5 class="proxima-bold">What is the problem?</h5>
     
@@ -93,21 +57,16 @@
                 </div>
                 <div class="mb-4 text-center proxima nova">
                   <div class="mt-5">
-                    <a href="reportSubmitted.html" class="fakeBtnBlue proxima btn-lg py-1 px-5 mt-3 mb-3 text-decoration-none">Submit</a>
+                    <a href="reportSubmittedIn.php" class="fakeBtnBlue proxima btn-lg py-1 px-5 mt-3 mb-3 text-decoration-none">Submit</a>
                   </div>
   
                   <p class="pb-lg-2 mt-3">
-                    <a class="proxima greyText text-decoration-none" href="RatePage.html">Cancel</a>
+                    <a class="proxima greyText text-decoration-none" href="RatePageIn.php">Cancel</a>
                   </p>
                   </div>
                   </div>
-                
-    
               </div>
-            </div>
-          
-        
-          
+            </div>    
   </div>
   </div>
 

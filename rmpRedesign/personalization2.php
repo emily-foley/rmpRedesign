@@ -27,43 +27,7 @@
 <body>
 
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navy navbar-dark">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="index.html">
-      <img src="images/capLogo.png" height="50" alt="logo">
-    </a>
-    <div class="collapse navbar-collapse justify-content-left">
-      <ul class="navbar-nav d-flex flex-row me-1">
-        <li class="nav-item me-3 me-lg-0">
-          <!-- <img src="images/RateNav.png" alt="logo" class="center"> -->
-          <a class="nav-link text-white" href="rate.html"><i class="mx-1"></i> Rate</a>
-        </li>
-        <li class="nav-item me-3 me-lg-0">
-          <!-- <img src="images/RecommendationsNav.png" alt="logo" class="center"> -->
-          <a class="nav-link text-white" href="recommend.html"><i class="mx-1"></i> Recommendations</a>
-        </li>
-        <li class="nav-item me-3 me-lg-0">
-          <!-- <img src="images/CompareNav.png"  alt="logo" class="center"> -->
-          <a class="nav-link text-white" href="emptyCompare.html"><i class="mx-1"></i> Compare</a>
-        </li>
-    </div>
-
-    <div class="justify-content-left">
-      <form onsubmit="event.preventDefault()" class="form-inline my-lg-1"> <input
-          class="whiteInput form-control mr-sm-2" type="text" placeholder="Search">
-      </form>
-    </div>
-
-    <li class="nav-item me-3 me-lg-0 noBullet">
-      <a class="nav-link text-white" href="login.php"><i class="mx-1"></i> Login</a>
-    </li>
-    <li class="nav-item me-3 me-lg-0 noBullet">
-      <a class="fakeBtn nav-link" href="signUp.php"><i class=""></i>Sign Up</a>
-    </li>
-    </ul>
-  </div>
-
-</nav>
+<?php include ('NavbarLoggedIn.php');?>
 <!-- Navbar -->
 
     <div>
@@ -100,7 +64,7 @@
               </div>
           </div>
           <div class="mb-4 w-80 text-center">
-            <a href="index.html" class="fakeBtnBlue proxima nova text-decoration-none btn-lg py-1 px-5 mt-3 mb-3">Submit</a>
+            <a href="indexIn.php" class="fakeBtnBlue proxima nova text-decoration-none btn-lg py-1 px-5 mt-3 mb-3">Submit</a>
         </div>
       </div>  
     </div>    
