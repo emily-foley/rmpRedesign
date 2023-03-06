@@ -1,4 +1,4 @@
- 
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -40,7 +40,7 @@
       <ul>
       <?php
 if ($_SERVER["SERVER_NAME"] == "students.gaim.ucf.edu") {
-  if ($_SERVER["SCRIPT_URL"]=="/~ya818631/dig4172C/rmpRedesign/index.php"){
+  if ($_SERVER["SCRIPT_URL"]=="/~ya818631/dig4172C/RateMyProTest/index.php"){
   //yara
   $connection = mysqli_connect('localhost', 'ya818631', '34096885!Yar', 'ya818631');
   }else {
@@ -61,27 +61,6 @@ echo "</select>";
 echo "</center>";
 mysqli_close($connection)
 
-/*
-  // retrieve all products
-  $sql = "SELECT * FROM professors";
-  $result = $connection->query($sql);
-
-  // retrieve search term
-  $search = $_POST['search'];
-
-  // retrieve filtered results
-  $sql = "SELECT * FROM professors WHERE name LIKE '%".$search."%' OR school LIKE '%".$search."%'";
-  $result = $connection->query($sql);
-
-  // close database connection
-  $connection->close();
-  <?php
-        // display filtered results in dropdown menu
-        while ($row = $result->fetch_assoc()) {
-          echo "<li>".$row["name"]."</li>";
-        }
-      ?>
-*/  
 ?> 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.min.js"></script>
@@ -94,15 +73,8 @@ mysqli_close($connection)
     </div>
   </form>
 
-  <!-- <input class="roundInput" type="text" placeholder="Leonardo DiCapri..."> -->
-
-  <!-- <div class="justify-content-center text-center mt-4">
-    <a href="RatePage.html" class="fakeBtnBlue btn-lg">Search</a>
-  </div> -->
-
   <div class="row justify-content-center">
     <figure>
-      <!-- <img class="center" src="images/girlWithPencil.png" width="180"> -->
       <figcaption>
         <a class="black text-decoration-none" href="rate.php">
           <img class="center" src="images/girlWithPencil.png" width="180">
@@ -110,7 +82,6 @@ mysqli_close($connection)
       </figcaption>
     </figure>
     <figure>
-      <!-- <img class="center" src="images/thumbs.png" width="200"> -->
       <figcaption class="mt-4">
         <a class="black text-decoration-none" href="recommend.php">
           <img class="center" src="images/thumbs.png" width="200">
@@ -118,7 +89,6 @@ mysqli_close($connection)
       </figcaption>
     </figure>
     <figure>
-      <!-- <img class="center" src="images/balance.png" width="200"> -->
       <figcaption class="mt-4">
         <a class="black text-decoration-none" href="compare.php">
           <img class="center" src="images/balance.png" width="200">
