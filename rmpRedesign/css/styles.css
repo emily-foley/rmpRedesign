@@ -153,6 +153,15 @@ form {
   padding: 20px;
 }
 
+.resizedTextbox2 {
+  width: 550px;
+  height: 200px;
+  border-radius: 20px;
+  border: 1;
+  background-color: white;
+  padding: 20px;
+}
+
 .fakeBtn {
   background-color: white;
   color: #1E4781 !important;
@@ -596,32 +605,4 @@ form {
 
 .noBullet {
   list-style-type: none;
-}
-
-/* Styling for search dropdowns  */
-
-.dropdown ul {
-  position: absolute;
-  z-index: 1;
-  top: 100%;
-  left: 0;
-  right: 0;
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.dropdown li {
-  padding: 10px;
-  border-bottom: 1px solid #eee;
-}
-
-.dropdown li:last-child {
-  border-bottom: none;
-}
-
-.dropdown li:hover {
-  background-color: #f1f1f1;
 }
