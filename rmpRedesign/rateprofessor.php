@@ -19,8 +19,9 @@
       $difficulty = $_POST['difficulty'];
       $again = $_POST['again'];
       $textbooks = $_POST['textbooks'];
+      $created_at = NULL;
 
-      $query = "INSERT INTO 'ratings' ('id','online','rating','difficulty','again','textbooks') VALUES ('$id','$online','$rating','$difficulty','$again','$textbooks')";
+      $query = "INSERT INTO 'ratings' ('id','online','rating','difficulty','again','textbooks','created_at') VALUES ('$id','$online','$rating','$difficulty','$again','$textbooks','$created_at')";
       $query_run = mysqli_query($connection, $query);
 
       //test if data is saved
