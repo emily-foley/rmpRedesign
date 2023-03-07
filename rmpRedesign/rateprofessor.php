@@ -12,7 +12,6 @@ if ($_SERVER["SERVER_NAME"] == "students.gaim.ucf.edu") {
 }
 
 if (isset($_POST['insert'])) {
-  // $ID = NULL;
   $online = $_POST['online'];
   $rating = $_POST['rating'];
   $difficulty = $_POST['difficulty'];
@@ -84,6 +83,9 @@ if (isset($_POST['insert'])) {
           <div class="dropdown">
             <div class="justify-content-left">
               <form action="" method="post">
+
+                <input type="hidden" name="professorID" value=<?php $professorID ?>>
+
                 <select name="course" id="courses">
                   <option value="DIG4172C">DIG4172C</option>
                   <option value="DIG3043">DIG3043</option>
