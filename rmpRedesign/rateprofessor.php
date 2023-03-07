@@ -13,7 +13,7 @@
 
     if(isset($_POST['insert']))
     {
-      $ID = NULL;
+      // $ID = NULL;
       $online = $_POST['online'];
       $rating = $_POST['rating'];
       $difficulty = $_POST['difficulty'];
@@ -21,7 +21,7 @@
       $textbooks = $_POST['textbooks'];
       $created_at = NULL;
 
-      $query = "INSERT INTO ratings (ID,online,rating,difficulty,again,textbooks,created_at) VALUES ('$ID','$online','$rating','$difficulty','$again','$textbooks','$created_at')";
+      $query = "INSERT INTO ratings (online,rating,difficulty,again,textbooks,created_at) VALUES ('$online','$rating','$difficulty','$again','$textbooks','$created_at')";
       $query_run = mysqli_query($connection, $query);
 
       if ($connection->query($sql) === TRUE) {
