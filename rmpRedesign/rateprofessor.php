@@ -19,9 +19,10 @@
       $difficulty = $_POST['difficulty'];
       $again = $_POST['again'];
       $textbooks = $_POST['textbooks'];
+      $review = $_POST['review'];
       // $created_at = NULL;
 
-      $query = "INSERT INTO ratings (online,rating,difficulty,again,textbooks) VALUES ('$online','$rating','$difficulty','$again','$textbooks')";
+      $query = "INSERT INTO ratings (online,rating,difficulty,again,textbooks,review) VALUES ('$online','$rating','$difficulty','$again','$textbooks','$review')";
       $query_run = mysqli_query($connection, $query);
 
       if ($connection->query($sql) === TRUE) {
@@ -193,7 +194,7 @@
           <div style='float:left; width:100%; margin-left:30px'>
           <h5 class="proxima-bold text-left">Write a Review</h5>
         </div>
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        <textarea name="review" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
           <br>
           <br>
           <input type="submit" name="insert" value="Submit Rating" class="fakeBtnBlue proxima nova text-decoration-none"/>
