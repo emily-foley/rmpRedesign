@@ -51,7 +51,7 @@
 
 			$_SESSION['loggedin'] = $email;
 
-            header('location: personalizationIn.php');
+            header('location: personalization.php');
 
 		}
 
