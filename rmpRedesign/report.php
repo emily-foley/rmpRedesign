@@ -31,11 +31,11 @@
 <!-- Navbar -->
 
 <div class="pt-5 justify-content-center">
-    <h2 class="text-center topPad proxima-bold pb-3 ">Sign Up to report!</h2>
+    <h2 class="text-center topPad proxima-bold pb-3 ">Sign Up to Report!</h2>
   </div>
 
   <div class="justify-content-center text-center my-4">
-    <a href="signUp.php" class="fakeBtnBlue btn-lg text-decoration-none">Sign Up</a>
+    <a href="SignUpReport.php" class="fakeBtnBlue btn-lg text-decoration-none">Sign Up</a>
   </div>
       
   <img src="images/pyLeaf.png" alt="decorative leaf" class="leftFix">
