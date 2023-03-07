@@ -31,7 +31,7 @@
 <!-- Navbar -->
 
   <div class="pt-5 justify-content-center">
-    <h2 class="text-center topPad proxima-bold pb-3 ">Sign Up to get recommendations!</h2>
+    <h2 class="text-center topPad proxima-bold pb-3 ">Sign Up to Get Recommendations!</h2>
   </div>
 
   <div class="justify-content-center text-center my-4">
