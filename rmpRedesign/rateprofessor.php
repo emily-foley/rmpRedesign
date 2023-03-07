@@ -1,41 +1,40 @@
 <?php
 
 
-	if ($_SERVER["SERVER_NAME"] == "students.gaim.ucf.edu") {
-		if ($_SERVER["SCRIPT_URL"]=="/~ya818631/dig4172C/rmpRedesign/rateprofessor.php"){
-		//yara
-		$connection = mysqli_connect('localhost', 'ya818631', '34096885!Yar', 'ya818631');
-		}else {
-		// $connection = mysqli_connect('localhost', 'em248165', '3535A5F4D0EB4F319A17FBEEF735D58Aa!', 'em248165');
-	 	$connection = mysqli_connect('localhost', 'root', '', 'rmpaccount');	
-		}
-	}
+if ($_SERVER["SERVER_NAME"] == "students.gaim.ucf.edu") {
+  if ($_SERVER["SCRIPT_URL"] == "/~ya818631/dig4172C/rmpRedesign/rateprofessor.php") {
+    //yara
+    $connection = mysqli_connect('localhost', 'ya818631', '34096885!Yar', 'ya818631');
+  } else {
+    // $connection = mysqli_connect('localhost', 'em248165', '3535A5F4D0EB4F319A17FBEEF735D58Aa!', 'em248165');
+    $connection = mysqli_connect('localhost', 'root', '', 'rmpaccount');
+  }
+}
 
-    if(isset($_POST['insert']))
-    {
-      // $ID = NULL;
-      $online = $_POST['online'];
-      $rating = $_POST['rating'];
-      $difficulty = $_POST['difficulty'];
-      $again = $_POST['again'];
-      $textbooks = $_POST['textbooks'];
-      $review = $_POST['review'];
-      // $created_at = NULL;
+if (isset($_POST['insert'])) {
+  // $ID = NULL;
+  $online = $_POST['online'];
+  $rating = $_POST['rating'];
+  $difficulty = $_POST['difficulty'];
+  $again = $_POST['again'];
+  $textbooks = $_POST['textbooks'];
+  $review = $_POST['review'];
+  // $created_at = NULL;
 
-      $query = "INSERT INTO ratings (online,rating,difficulty,again,textbooks,review) VALUES ('$online','$rating','$difficulty','$again','$textbooks','$review')";
-      $query_run = mysqli_query($connection, $query);
+  $query = "INSERT INTO ratings (online,rating,difficulty,again,textbooks,review) VALUES ('$online','$rating','$difficulty','$again','$textbooks','$review')";
+  $query_run = mysqli_query($connection, $query);
 
-      if ($connection->query($sql) === TRUE) {
-        echo "data inserted successfully";
-      } else {
-          echo "Error: " . $sql . "<br>" . $connection->error;
-      }
-      
-    }
+  if ($connection->query($sql) === TRUE) {
+    echo "data inserted successfully";
+  } else {
+    echo "Error: " . $sql . "<br>" . $connection->error;
+  }
+
+}
 
 
 ?>
-  
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -65,7 +64,7 @@
 <body>
 
   <!-- Navbar -->
-  <?php include ('navbar.html');?>
+  <?php include('navbar.html'); ?>
   <!-- Navbar -->
 
   <div class="pt-3 justify-content-center">
@@ -183,23 +182,24 @@
                 <option value="D">D</option>
                 <option value="F">F</option>
               </select>
-              </div>
+            </div>
           </div>
-        
-        </div>  
-      <br>
-          <br>
-          <br>
-          <br>
-          <div style='float:left; width:100%; margin-left:30px'>
+
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div style='float:left; width:100%; margin-left:30px'>
           <h5 class="proxima-bold text-left">Write a Review</h5>
         </div>
         <textarea name="review" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-          <br>
-          <br>
-          <input type="submit" name="insert" value="Submit Rating" class="fakeBtnBlue proxima nova text-decoration-none"/>
+        <br>
+        <br>
+        <input type="submit" name="insert" value="Submit Rating"
+          class="fakeBtnBlue proxima nova text-decoration-none" />
       </div>
-      </form>    
+      </form>
     </div>
     <!-- <div class="my-5 w-80 text-center">
       <a href="RatingSubmitted.php" class="fakeBtnBlue proxima nova">Submit Rating</a>
