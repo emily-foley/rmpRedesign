@@ -32,6 +32,8 @@ if (isset($_POST['insert'])) {
     echo "Error: " . $sql . "<br>" . $connection->error;
   }
 
+  header('Location: RatingSubmitted.php');
+
 }
 
 // print_r($_POST);
