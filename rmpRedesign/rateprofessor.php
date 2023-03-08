@@ -12,7 +12,7 @@ if ($_SERVER["SERVER_NAME"] == "students.gaim.ucf.edu") {
 }
 
 if (isset($_POST['insert'])) {
-  $professorID = $_POST['professorID'];
+  $professorID = $_POST['searchprof'];
   $course = $_POST['course'];
   $online = $_POST['online'];
   $rating = $_POST['rating'];
