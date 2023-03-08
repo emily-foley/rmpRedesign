@@ -32,6 +32,7 @@
 
   <div class="pt-5 justify-content-center">
     <h2 class="text-center topPad pb-2 proxima-bold">Rate My Professors</h2>
+    <h4 class="text-center topPad pb-2 proxima-bold">Select professor to view ratings</h4>
   </div>
 
   <form method="post" action="rateprofessor.php">
@@ -52,7 +53,7 @@
         $result = mysqli_query($connection, "SELECT * FROM professors");
         echo "<center>";
         echo "<select id='searchprof' name='searchprof'>";
-        echo "<option>Search professor...</option>";
+        echo "<option>Select professor...</option>";
         while ($row = mysqli_fetch_array($result)) {
           echo "<option value=$row[professorID]>$row[name]</option>";
         }
