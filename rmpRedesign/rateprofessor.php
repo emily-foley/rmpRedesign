@@ -26,7 +26,7 @@ if (isset($_POST['insert'])) {
   $query = "INSERT INTO ratings (ratingID,professorID,course,online,rating,difficulty,again,textbooks,grade,review) VALUES (NULL,'$professorID','$course','$online','$rating','$difficulty','$again','$textbooks','$grade','$review')";
   $query_run = mysqli_query($connection, $query);
 
-  if ($connection->query($sql) === TRUE) {
+  if ($connection->query($sql) === true) {
     echo "data inserted successfully";
   } else {
     echo "Error: " . $sql . "<br>" . $connection->error;
@@ -36,6 +36,8 @@ if (isset($_POST['insert'])) {
 
 // print_r($_POST);
 $professorID = $_POST['searchprof'];
+$query = "SELECT * FROM professors WHERE professorID = $professorID";
+$query_run = mysqli_query($connection, $query);
 
 ?>
 
@@ -72,7 +74,7 @@ $professorID = $_POST['searchprof'];
   <!-- Navbar -->
 
   <div class="pt-3 justify-content-center">
-    <h2 class="text-center topPad pb-2 proxima">Rate: <b>Leonardo DiCaprio</b></h2>
+    <h2 class="text-center topPad pb-2 proxima">Rate: <b><?php echo $row['name'];?></b></h2>
   </div>
 
   <div class="r-container mb-4">
