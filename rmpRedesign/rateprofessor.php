@@ -101,7 +101,7 @@ if (isset($_POST['insert'])) {
           <br>
           <div class="r-questions">
             <div style='float:left; width:250%; margin-left: -105px;'>
-              <input type="radio" name="online" value="Online course"><label>This is an online course</label>
+              <input type="checkbox" name="online" value="Online course"><label>This is an online course</label>
             </div>
 
           </div>
