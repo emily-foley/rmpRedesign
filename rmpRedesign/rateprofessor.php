@@ -12,15 +12,17 @@ if ($_SERVER["SERVER_NAME"] == "students.gaim.ucf.edu") {
 }
 
 if (isset($_POST['insert'])) {
+  $course = $_POST['course'];
   $online = $_POST['online'];
   $rating = $_POST['rating'];
   $difficulty = $_POST['difficulty'];
   $again = $_POST['again'];
   $textbooks = $_POST['textbooks'];
+  $grade = $_POST['grade'];
   $review = $_POST['review'];
   // $created_at = NULL;
 
-  $query = "INSERT INTO ratings (online,rating,difficulty,again,textbooks,review) VALUES ('$online','$rating','$difficulty','$again','$textbooks','$review')";
+  $query = "INSERT INTO ratings (course,online,rating,difficulty,again,textbooks,grade,review) VALUES ('$course','$online','$rating','$difficulty','$again','$textbooks','$grade','$review')";
   $query_run = mysqli_query($connection, $query);
 
   if ($connection->query($sql) === TRUE) {
