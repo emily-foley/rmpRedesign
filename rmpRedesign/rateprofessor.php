@@ -32,10 +32,10 @@ if (isset($_POST['insert'])) {
     echo "Error: " . $sql . "<br>" . $connection->error;
   }
 
-} else {
-  $professorID = $_POST['professorID'];
 }
 
+print_r($_POST);
+$professorID = $_POST['professorID'];
 
 ?>
 
@@ -89,7 +89,7 @@ if (isset($_POST['insert'])) {
             <div class="justify-content-left">
               <form action="" method="post">
 
-                <?php echo "<input type=\"hidden\" name=\"professorID\" value=\"$professorID\"" ?>;
+                <?php echo "<input type=\"hidden\" name=\"professorID\" value=\"$professorID\">" ?>;
 
                 <select name="course" id="courses">
                   <option value="DIG4172C">DIG4172C</option>
