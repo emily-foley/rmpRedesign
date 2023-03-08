@@ -34,7 +34,7 @@
     <h2 class="text-center topPad pb-2 proxima-bold">Rate My Professors</h2>
   </div>
 
-  <form method="post" action="RatePage.php">
+  <form method="post" action="rateprofessor.php">
     <div class="dropdown">
       <ul>
 
@@ -59,6 +59,7 @@
         echo "</select>";
         echo "</center>";
         mysqli_close($connection)
+
           ?>
 
         <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
@@ -69,6 +70,7 @@
         </script>-->
 
       </ul>
+      <input type="submit" name="submit" value="submit" />
     </div>
   </form>
 
