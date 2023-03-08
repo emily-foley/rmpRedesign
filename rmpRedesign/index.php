@@ -35,7 +35,7 @@
     <h4 class="text-center topPad pb-2 proxima-bold">Select professor to view ratings</h4>
   </div>
 
-  <form method="post" action="rateprofessor.php">
+  <form method="post" action="RatePage.php">
     <div class="dropdown">
       <ul>
 
@@ -71,7 +71,7 @@
         </script>-->
 
       </ul>
-      <input type="submit" name="submit" value="Search" />
+      <input type="submit" name="submit" value="View ratings" />
     </div>
   </form>
 
