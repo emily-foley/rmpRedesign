@@ -54,8 +54,7 @@
         echo "<select id='searchprof' name='searchprof'>";
         echo "<option>Search professor...</option>";
         while ($row = mysqli_fetch_array($result)) {
-          echo "<option>$row[name]</option>";
-          echo "<input type='hidden' value=$row[professorID] name='id'>";
+          echo "<option value=$row[professorID]>$row[name]</option>";
         }
         echo "</select>";
         echo "</center>";
