@@ -37,6 +37,7 @@
   <form method="post" action="RatePage.php">
     <div class="dropdown">
       <ul>
+        
         <?php
         if ($_SERVER["SERVER_NAME"] == "students.gaim.ucf.edu") {
           if ($_SERVER["SCRIPT_URL"] == "/~ya818631/dig4172C/rmpRedesign/index.php") {
@@ -58,8 +59,8 @@
         echo "</select>";
         echo "</center>";
         mysqli_close($connection)
+        ?>
 
-          ?>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.min.js"></script>
         <link href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.min.css" rel="stylesheet">
