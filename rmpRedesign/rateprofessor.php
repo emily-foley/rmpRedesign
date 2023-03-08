@@ -39,6 +39,7 @@ $professorID = $_POST['searchprof'];
 $query = "SELECT * FROM professors WHERE professorID = $professorID";
 $query_run = mysqli_query($connection, $query);
 
+
 ?>
 
 <!DOCTYPE html>
@@ -74,7 +75,17 @@ $query_run = mysqli_query($connection, $query);
   <!-- Navbar -->
 
   <div class="pt-3 justify-content-center">
-    <h2 class="text-center topPad pb-2 proxima">Rate: <b><?php echo $row['name'];?></b></h2>
+    <h2 class="text-center topPad pb-2 proxima">Rate: <b>
+        <?php
+        if ($query_run->num_rows > 0) {
+          while ($row = $query_run->fetch_assoc()) {
+            echo $row['name'];
+          }
+        } else {
+          echo "No Results";
+        }
+        ?>
+      </b></h2>
   </div>
 
   <div class="r-container mb-4">
