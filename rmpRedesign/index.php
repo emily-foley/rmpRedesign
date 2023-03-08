@@ -70,7 +70,7 @@
         </script>-->
 
       </ul>
-      <input type="submit" name="submit" value="submit" />
+      <input type="submit" name="submit" value="Search" />
     </div>
   </form>
 
