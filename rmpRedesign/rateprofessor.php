@@ -89,7 +89,7 @@ if (isset($_POST['insert'])) {
             <div class="justify-content-left">
               <form action="" method="post">
 
-                <input type="hidden" name="professorID" value="<?php print($professorID); ?>">
+                <?php echo "<input type=\"hidden\" name=\"professorID\" value=\"$professorID\"" ?>;
 
                 <select name="course" id="courses">
                   <option value="DIG4172C">DIG4172C</option>
