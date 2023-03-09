@@ -55,7 +55,14 @@ $query_run = mysqli_query($connection, $query);
         <div class="column6">
         <?php echo "<input type=\"hidden\" name=\"professorID\" value=\"$professorID\">"; ?>
             <div style='float:left; width:35%'>
-                <h1 class="display-1 proxima-bold text-right"> 66
+                <h1 class="display-1 proxima-bold text-right"> 
+                  <?php
+                  $qry = "SELECT AVG(rating) AS avg FROM `ratings`";
+                  $qry_result = mysqli_query($connection, $qry);
+                  while($row = mysqli_fetch_assoc($query_result)){
+                     echo $row['avg']; 
+                  }
+                  ?>
                 </h1> 
             </div>
             <div style='float:left; width:90%;'>
