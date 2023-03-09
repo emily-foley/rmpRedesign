@@ -208,8 +208,19 @@ $query_run = mysqli_query($connection, $query);ss
           <div class="row justify-content-md-center">
               <!--Row 1-->
               <div class="column3 greyBg pt-3">
+              <?php echo "<input type=\"hidden\" name=\"professorID\" value=\"$professorID\">"; ?>
                   <div style='float:left; width:8%'>
-                      <h4 class="proxima-bold text-left" style="margin-left:130px">DIG3716C</h4>
+                      <h4 class="proxima-bold text-left" style="margin-left:130px">
+                      <?php
+                      if ($query_run->num_rows > 0) {
+                      while ($row = $query_run->fetch_assoc()) {
+                      echo $row['course'];
+                      }
+                      } else {
+                      echo "No Results";
+                      }
+                    ?> 
+                    </h4>
                   </div>
 
                   <div style=' float:left; width: 45%;'>
@@ -225,38 +236,91 @@ $query_run = mysqli_query($connection, $query);ss
 
                   <div style='float:left'>
                     <p class="mb-1 ml-3"><b>Quality</b></p>
-                    <h2 class="badgeSideAwe proxima-bold ml-3">5.0</h2>
-                  </div>
-
-                  <div style='float:left; width:25%'>
-                    <p class="mb-1">Attendance: <b>Not Mandatory</b></p>
+                    <h2 class="badgeSideAwe proxima-bold ml-3">
+                    <?php
+                      if ($query_run->num_rows > 0) {
+                      while ($row = $query_run->fetch_assoc()) {
+                      echo $row['rating'];
+                      }
+                      } else {
+                      echo "No Results";
+                      }
+                    ?> 
+                    </h2>
                   </div>
 
                   <div style='float:left; width:15%'>
-                    <p class="mb-1">Would take again: <b>Yes</b></p>
+                    <p class="mb-1">Would take again: <b>
+                    <?php
+                      if ($query_run->num_rows > 0) {
+                      while ($row = $query_run->fetch_assoc()) {
+                      echo $row['again'];
+                      }
+                      } else {
+                      echo "No Results";
+                      }
+                    ?> 
+                    </b></p>
                   </div>
 
                   <div style='float:left; width:15%'>
-                    <p class="mb-1">Textbook: <b>Yes</b></p>
+                    <p class="mb-1">Textbook: <b>
+                    <?php
+                      if ($query_run->num_rows > 0) {
+                      while ($row = $query_run->fetch_assoc()) {
+                      echo $row['textbooks'];
+                      }
+                      } else {
+                      echo "No Results";
+                      }
+                    ?> 
+                    </b></p>
                   </div>
 
                   <div style='float:left; width:10%'>
-                    <p class="mb-1">Grade: <b>A</b></p>
+                    <p class="mb-1">Grade: <b>
+                      <?php
+                      if ($query_run->num_rows > 0) {
+                      while ($row = $query_run->fetch_assoc()) {
+                      echo $row['grade'];
+                      }
+                      } else {
+                      echo "No Results";
+                      }
+                    ?> 
+                    </b></p>
                   </div>              
 
                   <br>
                   <br>                  
 
                   <div style="margin-left:10%">
-                    <p class="text-left">Attendance isn't mandatory, but if you don't go you'll fall behind. The class was
-                       tough and he is very picky with grading. I still ended up with an A in this class and I felt 
-                       like I learned a lot. I went to almost every class, didn't procrastinate and asked questions 
-                       when needed to. His feedback is helpful but he can come off as a bit rude.</p>
+                    <p class="text-left">
+                      <?php
+                      if ($query_run->num_rows > 0) {
+                     while ($row = $query_run->fetch_assoc()) {
+                     echo $row['review'];
+                    }
+                    } else {
+                    echo "No Results";
+                    }
+                ?> 
+                    </p>
                   </div>
 
                   <div style='float:left'>
                     <p class="mb-1 ml-3"><b>Dificulty</b></p>
-                    <h2 class="badgeSide proxima-bold ml-3">5.0</h2>
+                    <h2 class="badgeSide proxima-bold ml-3">
+                    <?php
+                      if ($query_run->num_rows > 0) {
+                      while ($row = $query_run->fetch_assoc()) {
+                      echo $row['difficulty'];
+                      }
+                      } else {
+                      echo "No Results";
+                      }
+                    ?> 
+                    </h2>
                   </div>
 
                   <div style='float:left; width:40%; margin-top: 30px;'>
