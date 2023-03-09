@@ -52,7 +52,7 @@
 
         $result = mysqli_query($connection, "SELECT * FROM professors");
         echo "<center>";
-        echo "<select id='searchprof' name='searchprof' school='searchprof'>";
+        echo "<select id='searchprof' name='searchprof'>";
         echo "<option>Select professor...</option>";
         while ($row = mysqli_fetch_array($result)) {
           echo "<option value=$row[professorID]>$row[name]</option>";
