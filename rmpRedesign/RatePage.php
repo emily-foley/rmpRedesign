@@ -11,35 +11,13 @@ if ($_SERVER["SERVER_NAME"] == "students.gaim.ucf.edu") {
   }
 }
 
-if (isset($_POST['insert'])) {
-  $professorID = $_POST['professorID'];
-  $course = $_POST['course'];
-  $online = $_POST['online'];
-  $rating = $_POST['rating'];
-  $difficulty = $_POST['difficulty'];
-  $again = $_POST['again'];
-  $textbooks = $_POST['textbooks'];
-  $grade = $_POST['grade'];
-  $review = $_POST['review'];
-  // $created_at = NULL;
-
-  $query = "INSERT INTO ratings (ratingID,professorID,course,online,rating,difficulty,again,textbooks,grade,review) VALUES (NULL,'$professorID','$course','$online','$rating','$difficulty','$again','$textbooks','$grade','$review')";
-  $query_run = mysqli_query($connection, $query);
-
-  if ($connection->query($sql) === true) {
-    echo "data inserted successfully";
-  } else {
-    echo "Error: " . $sql . "<br>" . $connection->error;
-  }
-
-  header('Location: RatePage.php');
-
-}
-
 // print_r($_POST);
 $professorID = $_POST['searchprof'];
 $query = "SELECT * FROM professors WHERE professorID = $professorID";
-$query_run = mysqli_query($connection, $query);ss
+$query_run = mysqli_query($connection, $query);
+
+$sql = "SELECT ratingID,professorID,course,online,rating,difficulty,again,textbooks,grade,review FROM ratings";
+$result = mysqli_query($conn, $sql);
 
 ?>
 
@@ -297,14 +275,15 @@ $query_run = mysqli_query($connection, $query);ss
                   <div style="margin-left:10%">
                     <p class="text-left">
                       <?php
-                      if ($query_run->num_rows > 0) {
-                     while ($row = $query_run->fetch_assoc()) {
-                     echo $row['review'];
-                    }
-                    } else {
-                    echo "No Results";
-                    }
-                ?> 
+                      if (mysqli_num_rows($result) > 0) {
+                        // output data of each row
+                        while($row = mysqli_fetch_assoc($result)) {
+                          echo $row["review"];
+                        }
+                      } else {
+                        echo "0 results";
+                      }
+                    ?> 
                     </p>
                   </div>
 
