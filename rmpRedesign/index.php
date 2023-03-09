@@ -32,7 +32,7 @@
 
   <div class="pt-5 justify-content-center">
     <h2 class="text-center topPad pb-2 proxima-bold">Rate My Professors</h2>
-    <h4 class="text-center topPad pb-2 proxima-bold">Select professor to view ratings</h4>
+    <h4 class="text-center proxima-bold">Select professor to view ratings</h4>
   </div>
 
   <form method="post" action="RatePage.php">
