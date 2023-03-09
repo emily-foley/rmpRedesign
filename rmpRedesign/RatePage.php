@@ -182,6 +182,12 @@ $result = mysqli_query($connection, $sql);
             <button class="btn btn-outline-secondary whiteButton px-4 ml-5 proxima" type="submit">All Courses</button>
         </div>
 
+        <?php 
+        if ($result->num_rows > 0) {
+          echo "<table><tr><th>ID</th><th>Name</th></tr>";
+          // output data of each row
+          while($row = $result->fetch_assoc()) {
+        ?>
         <div class="container ml-4" style="margin-right:300px">
           <div class="row justify-content-md-center">
               <!--Row 1-->
@@ -332,5 +338,6 @@ $result = mysqli_query($connection, $sql);
           </div>
           </div>
           </div>
+          <?php } }?>
     </div>
 </body>
