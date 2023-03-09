@@ -16,13 +16,17 @@ $professorID = $_POST['searchprof'];
 $query = "SELECT * FROM professors WHERE professorID = $professorID";
 $query_run = mysqli_query($connection, $query);
 
-//Averaging rating
-$qry = "SELECT AVG(rating) AS AverageRating FROM ratings WHERE professorID = $professorID";
-$qry_result = mysqli_query($connection, $qry);
-while($row = mysqli_fetch_assoc($query_result)){
-$output = $row['AverageRating'];
-}
-?>
+
+$picture = mysqli_query($connection, "SELECT rating FROM ratings professorID = $professorID"); 
+$row = mysqli_fetch_assoc($picture); 
+if ($row['rating'] == 1.0 or 2.0) { 
+  echo '<img src="images/Awful.png" alt="Awful"> &nbsp <b>Awful</b>'; 
+  } elseif ($row['rating'] == 3.0) 
+    { echo '<img src="images/Average.png" alt="Average"> &nbsp <b>Average</b>'; 
+  } elseif ($row['rating'] == 4.0 or 5.0)  
+    { echo '<img src="images/Awesome.png" alt="Awesome"> &nbsp <b>Awesome</b>';  } 
+
+?> 
 
 <!DOCTYPE html>
 <html lang="en">
@@ -63,7 +67,13 @@ $output = $row['AverageRating'];
             <div style='float:left; width:35%'>
                 <h1 class="display-1 proxima-bold text-right"> 
                   <?php
-                  echo $output;
+                  //Averaging rating
+                  $professorID = $_POST['searchprof'];
+                  $qry = "SELECT AVG(rating) AS AverageRating FROM ratings WHERE professorID = $professorID";
+                  $qry_result = mysqli_query($connection, $qry);
+                  while($row = mysqli_fetch_assoc($query_result)){
+                  echo $row['AverageRating'];
+                  }
                   ?>
                 </h1> 
             </div>
@@ -204,7 +214,11 @@ $output = $row['AverageRating'];
                   </div>
 
                   <div style=' float:left; width: 45%;'>
-                    <span class="badgeAwe"><img src="images/Awesome.png" alt="smiley face" style="width:5%" > &nbsp <b>Awesome</b></span>
+                    <span>
+                    <?php
+                      echo $picture;
+                    ?> 
+                    </span>
                   </div>
 
                   <div style='float:left; width: 46%; padding-left: 0px;'>
@@ -271,11 +285,11 @@ $output = $row['AverageRating'];
                     </h2>
                   </div>
 
-                  <div style='float:left; width:40%; margin-top: 30px;'>
+                  <!-- <div style='float:left; width:40%; margin-top: 30px;'>
                     <span class="badgepos">Gives Feedback</span>
                     <span class="badgeneg">Participation matters</span>
                     <span class="badgeneg">Tough grader</span>
-                  </div>
+                  </div> -->
 
                   <br>
                   <br>
