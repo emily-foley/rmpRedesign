@@ -58,8 +58,8 @@ $query_run = mysqli_query($connection, $query);
                 <h1 class="display-1 proxima-bold text-right">
                   <?php
                   $average = mysql_query("SELECT AVG(rating) AS avg FROM ratings");
-                  $row2 = mysql_fetch_assoc($average);
-                  echo $row2['avg'];
+                  $row = mysql_fetch_assoc($average);
+                  echo $row['avg'];
                   ?>
                 </h1> 
             </div>
