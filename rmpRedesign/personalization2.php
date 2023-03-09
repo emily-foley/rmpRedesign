@@ -1,3 +1,45 @@
+<?php
+
+
+if ($_SERVER["SERVER_NAME"] == "students.gaim.ucf.edu") {
+    if ($_SERVER["SCRIPT_URL"] == "/~ya818631/dig4172C/rmpRedesign/personalization2.php") {
+        //yara
+        $connection = mysqli_connect('localhost', 'ya818631', '34096885!Yar', 'ya818631');
+    } else {
+        // $connection = mysqli_connect('localhost', 'em248165', '3535A5F4D0EB4F319A17FBEEF735D58Aa!', 'em248165');
+        $connection = mysqli_connect('localhost', 'root', '', 'rmpaccount');
+    }
+}
+
+if (isset($_POST['insertQuiz'])) {
+    $q1 = $_POST['q1'];
+    $q2 = $_POST['q2'];
+    $q3 = $_POST['q3'];
+    $q4 = $_POST['q4'];
+
+    $query = "INSERT INTO quiz (q1,q2,q3,q4) VALUES ('$q1','$q2','$q3','$q4')";
+    $query_run = mysqli_query($connection, $query);
+
+    $totalScore = $q1 + $q2 + $q3 + $q4;
+
+
+
+    // $query = "SELECT SUM(answer_value) AS score FROM quiz WHERE (question_id = 1 AND answer_id = $q1) OR (question_id = 2 AND answer_id = $q2)";
+    // $result = mysqli_query($conn, $query);
+
+    if ($connection->query($sql) === true) {
+        echo "data inserted successfully";
+    } else {
+        echo "Error: " . $sql . "<br>" . $connection->error;
+    }
+
+    header('Location: index.php');
+
+}
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,46 +68,54 @@
 
 <body>
 
-<!-- Navbar -->
-<?php include ('NavbarLoggedIn.php');?>
-<!-- Navbar -->
+    <!-- Navbar -->
+    <?php include('NavbarLoggedIn.php'); ?>
+    <!-- Navbar -->
 
-    <div>
-        <div class="pt-5 justify-content-center">
-        <h2 class="text-center topPad pb-2 proxima-bold">Personalization Quiz</h2>
-        
-          <div class="q-container mb-4 w-50 text-center proxima nova">
-              <h5>I prefer...</h5>
-              <div class="questions">
-                  <input type="radio" name="questions" id="question1"><label>Group Projects</label>
-                  <input type="radio" name="questions" id="question2"><label>Individual work</label>
-              </div>
-          </div>
-          <div class="q-container mb-4 w-50 text-center proxima nova">
-              <h5>I prefer to attend classes...</h5>
-              <div class="questions">
-                  <input type="radio" name="questions2" id="question3"><label>Online</label>
-                  <input type="radio" name="questions2" id="question4"><label>In person</label>
-              </div>
-          </div>
-           <div class="q-container mb-4 w-50 text-center proxima nova">
-               <h5>I would rather learn from...</h5>
-              <div class="questions">
-                  <input type="radio" name="questions3" id="question1"><label>Reading</label>
-                  <input type="radio" name="questions3" id="question1"><label>Lectures</label>
-              </div>
-          </div>
-          <div class="q-container mb-4 w-50 text-center proxima nova">
-              <h5>I prefer a class with mostly...</h5>
-              <div class="questions">
-                  <input type="radio" name="questions4" id="question1">
-                  <label>Essays</label>
-                  <input type="radio" name="questions4" id="question1"><label>Quizzes</label>
-              </div>
-          </div>
-          <div class="mb-4 w-80 text-center">
-            <a href="indexIn.php" class="fakeBtnBlue proxima nova text-decoration-none btn-lg py-1 px-5 mt-3 mb-3">Submit</a>
+    <form action="" method="post">
+        <div>
+            <div class="pt-5 justify-content-center">
+                <h2 class="text-center topPad pb-2 proxima-bold">Personalization Quiz</h2>
+
+                <div class="q-container mb-4 w-50 text-center proxima nova">
+                    <h5>I prefer...</h5>
+                    <div class="questions">
+                        <input type="radio" name="q1" id="question1" value="1"><label>Group
+                            Projects</label>
+                        <input type="radio" name="q1" id="question2" value="2"><label>Individual
+                            work</label>
+                    </div>
+                </div>
+                <div class="q-container mb-4 w-50 text-center proxima nova">
+                    <h5>I prefer to attend classes...</h5>
+                    <div class="questions">
+                        <input type="radio" name="q2" id="question3" value="1"><label>Online</label>
+                        <input type="radio" name="q2" id="question4" value="2"><label>In person</label>
+                    </div>
+                </div>
+                <div class="q-container mb-4 w-50 text-center proxima nova">
+                    <h5>I would rather learn from...</h5>
+                    <div class="questions">
+                        <input type="radio" name="q3" id="question1" value="1"><label>Reading</label>
+                        <input type="radio" name="q3" id="question1" value="2"><label>Lectures</label>
+                    </div>
+                </div>
+                <div class="q-container mb-4 w-50 text-center proxima nova">
+                    <h5>I prefer a class with mostly...</h5>
+                    <div class="questions">
+                        <input type="radio" name="q4" id="question1" value="1">
+                        <label>Essays</label>
+                        <input type="radio" name="q4" id="question1" value="2"><label>Quizzes</label>
+                    </div>
+                </div>
+                <div class="mb-4 w-80 text-center">
+                    <input type="submit" name="insertQuiz" value="Submit quiz"
+                        class="fakeBtnBlue proxima nova text-decoration-none" />
+
+                    <!-- <a href="indexIn.php"
+                    class="fakeBtnBlue proxima nova text-decoration-none btn-lg py-1 px-5 mt-3 mb-3">Submit</a> -->
+                </div>
+            </div>
         </div>
-      </div>  
-    </div>    
-    </body>
+    </form>
+</body>
