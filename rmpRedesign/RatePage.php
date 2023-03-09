@@ -181,7 +181,7 @@ $query_run = mysqli_query($connection, $query);
 
         <!--Ratings-->
         <?php 
-        $sql = "SELECT * FROM ratings";
+        $sql = "SELECT * FROM ratings WHERE professorID = $professorID";
         $sql_run = mysqli_query($connection, $sql);
         $check_rating = mysqli_num_rows($sql_run) >0;
 
@@ -221,7 +221,7 @@ $query_run = mysqli_query($connection, $query);
                     </h2>
                   </div>
 
-                  <div style='float:left; width:15%'>
+                  <div style='float:left; width:30%'>
                     <p class="mb-1">Would take again: <b>
                     <?php
                       echo $row['again'];
