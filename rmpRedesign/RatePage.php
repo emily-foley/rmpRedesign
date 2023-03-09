@@ -17,10 +17,10 @@ $query = "SELECT * FROM professors WHERE professorID = $professorID";
 $query_run = mysqli_query($connection, $query);
 
 //Averaging rating
-$qry = "SELECT AVG(rating) AS avg FROM `ratings`";
+$qry = "SELECT AVG(rating) AS AverageRating FROM ratings WHERE professorID = $professorID";
 $qry_result = mysqli_query($connection, $qry);
 while($row = mysqli_fetch_assoc($query_result)){
-$output = $row['avg'];
+$output = $row['AverageRating'];
 }
 ?>
 
