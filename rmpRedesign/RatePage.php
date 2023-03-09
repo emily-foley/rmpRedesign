@@ -16,6 +16,12 @@ $professorID = $_POST['searchprof'];
 $query = "SELECT * FROM professors WHERE professorID = $professorID";
 $query_run = mysqli_query($connection, $query);
 
+//Averaging rating
+$qry = "SELECT AVG(rating) AS AverageRating FROM ratings WHERE professorID = $professorID";
+$qry_result = mysqli_query($connection, $qry);
+while($row = mysqli_fetch_assoc($query_result)){
+$output = $row['AverageRating'];
+}
 ?>
 
 <!DOCTYPE html>
@@ -55,7 +61,11 @@ $query_run = mysqli_query($connection, $query);
         <div class="column6">
         <?php echo "<input type=\"hidden\" name=\"professorID\" value=\"$professorID\">"; ?>
             <div style='float:left; width:35%'>
-                <h1 class="display-1 proxima-bold text-right">4.3</h1> 
+                <h1 class="display-1 proxima-bold text-right"> 
+                  <?php
+                  echo $output;
+                  ?>
+                </h1> 
             </div>
             <div style='float:left; width:90%;'>
                 <h4 class="proxima-bold text-left">
@@ -68,20 +78,12 @@ $query_run = mysqli_query($connection, $query);
                 echo "No Results";
                 }
                 ?> </h4>
-                <h6 class="text-left greyText">
-                <?php
-                  if ($query_run->num_rows > 0) {
-                  while ($row = $query_run->fetch_assoc()) {
-                  echo $row['school'];
-                 }
-                } else {
-                echo "No Results";
-                }
-                ?> 
-                </h6>
+                <h6 class="text-left greyText"> University of Central Florida </h6>
             </div>
             <div style='float:left; width:55%; margin-top: 10px;'>
-                <a href="rateprofessor.php" class="fakeBtnBlue proxima-bold text-decoration-none">Rate Professor</a>
+                <a href="rateprofessor.php" class="fakeBtnBlue proxima-bold text-decoration-none">
+                <?php echo "<input type=\"hidden\" name=\"professorID\" value=\"$professorID\">"; ?>
+                Rate Professor</a>
               </div>
             <div style='float:left; width:55%; margin-top: 25px; margin-bottom: 20px;'>
               <a href="oneCompare.php" class="fakeBtnYell proxima-bold text-decoration-none">Compare Professor</a>
@@ -206,7 +208,11 @@ $query_run = mysqli_query($connection, $query);
                   </div>
 
                   <div style='float:left; width: 46%; padding-left: 0px;'>
-                    <h8><b>November 11th, 2021</b></h8>
+                    <h8><b>
+                    <?php
+                      echo $row['date'];
+                    ?> 
+                    </b></h8>
                   </div>
 
                   <br>

@@ -38,7 +38,6 @@
   <form method="post" action="rateprofessor.php">
     <div class="dropdown">
       <ul>
-
         <?php
         if ($_SERVER["SERVER_NAME"] == "students.gaim.ucf.edu") {
           if ($_SERVER["SCRIPT_URL"] == "/~ya818631/dig4172C/rmpRedesign/rate.php") {
