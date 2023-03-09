@@ -183,10 +183,9 @@ $result = mysqli_query($connection, $sql);
         </div>
 
         <?php 
-        if ($result->num_rows > 0) {
-          echo "<table><tr><th>ID</th><th>Name</th></tr>";
+        if (mysqli_num_rows($result) > 0) {
           // output data of each row
-          while($row = $result->fetch_assoc()) {
+          while($row = mysqli_fetch_assoc($result)) {
         ?>
         <div class="container ml-4" style="margin-right:300px">
           <div class="row justify-content-md-center">
@@ -196,13 +195,7 @@ $result = mysqli_query($connection, $sql);
                   <div style='float:left; width:8%'>
                       <h4 class="proxima-bold text-left" style="margin-left:130px">
                       <?php
-                      if ($query_run->num_rows > 0) {
-                      while ($row = $query_run->fetch_assoc()) {
                       echo $row['course'];
-                      }
-                      } else {
-                      echo "No Results";
-                      }
                     ?> 
                     </h4>
                   </div>
@@ -222,13 +215,7 @@ $result = mysqli_query($connection, $sql);
                     <p class="mb-1 ml-3"><b>Quality</b></p>
                     <h2 class="badgeSideAwe proxima-bold ml-3">
                     <?php
-                      if ($query_run->num_rows > 0) {
-                      while ($row = $query_run->fetch_assoc()) {
                       echo $row['rating'];
-                      }
-                      } else {
-                      echo "No Results";
-                      }
                     ?> 
                     </h2>
                   </div>
@@ -236,13 +223,7 @@ $result = mysqli_query($connection, $sql);
                   <div style='float:left; width:15%'>
                     <p class="mb-1">Would take again: <b>
                     <?php
-                      if ($query_run->num_rows > 0) {
-                      while ($row = $query_run->fetch_assoc()) {
                       echo $row['again'];
-                      }
-                      } else {
-                      echo "No Results";
-                      }
                     ?> 
                     </b></p>
                   </div>
@@ -250,13 +231,7 @@ $result = mysqli_query($connection, $sql);
                   <div style='float:left; width:15%'>
                     <p class="mb-1">Textbook: <b>
                     <?php
-                      if ($query_run->num_rows > 0) {
-                      while ($row = $query_run->fetch_assoc()) {
                       echo $row['textbooks'];
-                      }
-                      } else {
-                      echo "No Results";
-                      }
                     ?> 
                     </b></p>
                   </div>
@@ -264,13 +239,7 @@ $result = mysqli_query($connection, $sql);
                   <div style='float:left; width:10%'>
                     <p class="mb-1">Grade: <b>
                       <?php
-                      if ($query_run->num_rows > 0) {
-                      while ($row = $query_run->fetch_assoc()) {
                       echo $row['grade'];
-                      }
-                      } else {
-                      echo "No Results";
-                      }
                     ?> 
                     </b></p>
                   </div>              
@@ -281,14 +250,7 @@ $result = mysqli_query($connection, $sql);
                   <div style="margin-left:10%">
                     <p class="text-left">
                       <?php
-                      if (mysqli_num_rows($result) > 0) {
-                        // output data of each row
-                        while($row = mysqli_fetch_assoc($result)) {
                           echo $row['review'];
-                        }
-                      } else {
-                        echo "No results";
-                      }
                     ?> 
                     </p>
                   </div>
@@ -297,13 +259,7 @@ $result = mysqli_query($connection, $sql);
                     <p class="mb-1 ml-3"><b>Dificulty</b></p>
                     <h2 class="badgeSide proxima-bold ml-3">
                     <?php
-                      if ($query_run->num_rows > 0) {
-                      while ($row = $query_run->fetch_assoc()) {
                       echo $row['difficulty'];
-                      }
-                      } else {
-                      echo "No Results";
-                      }
                     ?> 
                     </h2>
                   </div>
@@ -338,6 +294,10 @@ $result = mysqli_query($connection, $sql);
           </div>
           </div>
           </div>
-          <?php } }?>
+          <?php 
+          }else {
+            echo "No Results";
+            }
+          ?>
     </div>
 </body>
