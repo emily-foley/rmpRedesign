@@ -37,7 +37,7 @@
 
   <form method="post" action="rateprofessor.php">
     <div class="dropdown">
-      <ul>
+      <ul class="roundInput">
 
         <?php
         if ($_SERVER["SERVER_NAME"] == "students.gaim.ucf.edu") {

@@ -68,17 +68,7 @@ $query_run = mysqli_query($connection, $query);
                 echo "No Results";
                 }
                 ?> </h4>
-                <h6 class="text-left greyText">
-                <?php
-                  if ($query_run->num_rows > 0) {
-                  while ($row = $query_run->fetch_assoc()) {
-                  echo $row['school'];
-                 }
-                } else {
-                echo "No Results";
-                }
-                ?> 
-                </h6>
+                <h6 class="text-left greyText"> University of Central Florida </h6>
             </div>
             <div style='float:left; width:55%; margin-top: 10px;'>
                 <a href="rateprofessor.php" class="fakeBtnBlue proxima-bold text-decoration-none">Rate Professor</a>
@@ -206,7 +196,11 @@ $query_run = mysqli_query($connection, $query);
                   </div>
 
                   <div style='float:left; width: 46%; padding-left: 0px;'>
-                    <h8><b>November 11th, 2021</b></h8>
+                    <h8><b>
+                    <?php
+                      echo $row['date'];
+                    ?> 
+                    </b></h8>
                   </div>
 
                   <br>
