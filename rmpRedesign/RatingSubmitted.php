@@ -34,7 +34,7 @@
         <div class="row justify-content-md-center">
     <div class="column4 greyBg ">
         <div style='float:right; width:15%'>
-            <a href="index.html">
+            <a href="index.php">
             <img src="images/Close.png" alt="Trash" >
             </a>
         </div>
