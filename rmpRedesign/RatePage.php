@@ -16,9 +16,6 @@ $professorID = $_POST['searchprof'];
 $query = "SELECT * FROM professors WHERE professorID = $professorID";
 $query_run = mysqli_query($connection, $query);
 
-$sql = "SELECT ratingID,professorID,course,online,rating,difficulty,again,textbooks,grade,review FROM ratings";
-$result = mysqli_query($connection, $sql);
-
 ?>
 
 <!DOCTYPE html>
@@ -182,12 +179,16 @@ $result = mysqli_query($connection, $sql);
             <button class="btn btn-outline-secondary whiteButton px-4 ml-5 proxima" type="submit">All Courses</button>
         </div>
 
+        <!--Ratings-->
         <?php 
-        if (mysqli_num_rows($result) > 0) {
-          // output data of each row
-          while($row = mysqli_fetch_assoc($result)) {
-        ?>
-        <div class="container ml-4" style="margin-right:300px">
+        $sql = "SELECT * FROM ratings";
+        $sql_run = mysqli_query($connection, $sql);
+        $check_rating = mysqli_num_rows($sql_run) >0;
+
+        if($check_rating) {
+          while($row = mysqli_fetch_assoc($sql_run)){
+            ?>
+                    <div class="container ml-4" style="margin-right:300px">
           <div class="row justify-content-md-center">
               <!--Row 1-->
               <div class="column3 greyBg pt-3">
@@ -288,16 +289,16 @@ $result = mysqli_query($connection, $sql);
                     <p><img src="images/Report.png" alt="Report" style="width:50%"><br>Report</p>
                     </a>
                   </div>
-    
               </div>
-  
           </div>
           </div>
-          </div>
-          <?php 
-          }else {
-            echo "No Results";
-            }
-          ?>
+
+            <?php
+          }
+        } else{
+          echo "No Result";
+        }
+        ?>
+      </div>    
     </div>
 </body>
