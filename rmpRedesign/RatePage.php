@@ -21,6 +21,7 @@ if (isset($_POST['insert'])) {
   $textbooks = $_POST['textbooks'];
   $grade = $_POST['grade'];
   $review = $_POST['review'];
+  $school = $_POST['school'];
   // $created_at = NULL;
 
   $query = "INSERT INTO ratings (ratingID,professorID,course,online,rating,difficulty,again,textbooks,grade,review) VALUES (NULL,'$professorID','$course','$online','$rating','$difficulty','$again','$textbooks','$grade','$review')";
@@ -38,7 +39,7 @@ if (isset($_POST['insert'])) {
 
 // print_r($_POST);
 $professorID = $_POST['searchprof'];
-$query = "SELECT * FROM professors WHERE professorID = $professorID";
+$query = "SELECT * FROM professors WHERE professorID = $professorID and school = $school";
 $query_run = mysqli_query($connection, $query);
 
 ?>
