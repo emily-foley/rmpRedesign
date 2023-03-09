@@ -17,13 +17,13 @@ $query = "SELECT * FROM professors WHERE professorID = $professorID";
 $query_run = mysqli_query($connection, $query);
 
 
-$picture = mysqli_query($connection, "SELECT rating FROM ratings professorID = $professorID"); 
+$picture = mysqli_query($connection, "SELECT rating FROM ratings WHERE professorID = $professorID"); 
 $row = mysqli_fetch_assoc($picture); 
-if ($row['rating'] == 1.0 or 2.0) { 
+if ($row['rating'] == 1.0 || 2.0) { 
   echo '<img src="images/Awful.png" alt="Awful"> &nbsp <b>Awful</b>'; 
   } elseif ($row['rating'] == 3.0) 
     { echo '<img src="images/Average.png" alt="Average"> &nbsp <b>Average</b>'; 
-  } elseif ($row['rating'] == 4.0 or 5.0)  
+  } elseif ($row['rating'] == 4.0 || 5.0)  
     { echo '<img src="images/Awesome.png" alt="Awesome"> &nbsp <b>Awesome</b>';  } 
 
 ?> 
@@ -68,10 +68,9 @@ if ($row['rating'] == 1.0 or 2.0) {
                 <h1 class="display-1 proxima-bold text-right"> 
                   <?php
                   //Averaging rating
-                  $professorID = $_POST['searchprof'];
                   $qry = "SELECT AVG(rating) AS AverageRating FROM ratings WHERE professorID = $professorID";
                   $qry_result = mysqli_query($connection, $qry);
-                  while($row = mysqli_fetch_assoc($query_result)){
+                  while($row = mysqli_fetch_assoc($qry_result)){
                   echo $row['AverageRating'];
                   }
                   ?>
