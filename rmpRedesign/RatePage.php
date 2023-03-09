@@ -16,16 +16,6 @@ $professorID = $_POST['searchprof'];
 $query = "SELECT * FROM professors WHERE professorID = $professorID";
 $query_run = mysqli_query($connection, $query);
 
-
-$picture = mysqli_query($connection, "SELECT rating FROM ratings WHERE professorID = $professorID"); 
-$row = mysqli_fetch_assoc($picture); 
-if ($row['rating'] == 1.0 || 2.0) { 
-  echo '<img src="images/Awful.png" alt="Awful"> &nbsp <b>Awful</b>'; 
-  } elseif ($row['rating'] == 3.0) 
-    { echo '<img src="images/Average.png" alt="Average"> &nbsp <b>Average</b>'; 
-  } elseif ($row['rating'] == 4.0 || 5.0)  
-    { echo '<img src="images/Awesome.png" alt="Awesome"> &nbsp <b>Awesome</b>';  } 
-
 ?> 
 
 <!DOCTYPE html>
@@ -215,7 +205,14 @@ if ($row['rating'] == 1.0 || 2.0) {
                   <div style=' float:left; width: 45%;'>
                     <span>
                     <?php
-                      echo $picture;
+                      $picture = mysqli_query($connection, "SELECT rating FROM ratings WHERE professorID = $professorID"); 
+                      $row = mysqli_fetch_assoc($picture); 
+                      if ($row['rating'] == 1.0 || 2.0) { 
+                        echo '<img src="images/Awful.png" alt="Awful"> &nbsp <b>Awful</b>'; 
+                        } elseif ($row['rating'] == 3.0) 
+                          { echo '<img src="images/Average.png" alt="Average"> &nbsp <b>Average</b>'; 
+                        } elseif ($row['rating'] == 4.0 || 5.0)  
+                          { echo '<img src="images/Awesome.png" alt="Awesome"> &nbsp <b>Awesome</b>';  }                       
                     ?> 
                     </span>
                   </div>
