@@ -21,15 +21,10 @@ if (isset($_POST['insert'])) {
   $textbooks = $_POST['textbooks'];
   $grade = $_POST['grade'];
   $review = $_POST['review'];
-  $name = $_POST['name'];
-  $school = $_POST['school'];
   // $created_at = NULL;
 
   $query = "INSERT INTO ratings (ratingID,professorID,course,online,rating,difficulty,again,textbooks,grade,review) VALUES (NULL,'$professorID','$course','$online','$rating','$difficulty','$again','$textbooks','$grade','$review')";
   $query_run = mysqli_query($connection, $query);
-
-  $qry = "INSERT INTO professors (professorID,name,school) VALUES ('$professorID','$name','$school')";
-  $qry_run = mysqli_query($connection, $qry);
 
   if ($connection->query($sql) === true) {
     echo "data inserted successfully";
@@ -44,13 +39,7 @@ if (isset($_POST['insert'])) {
 // print_r($_POST);
 $professorID = $_POST['searchprof'];
 $query = "SELECT * FROM professors WHERE professorID = $professorID";
-$query_run = mysqli_query($connection, $query);
-
-// print_r($_POST);
-$professorID = $_POST['searchprof'];
-$qry = "SELECT * FROM professors WHERE professorID = $professorID";
-$qry_run = mysqli_query($connection, $qry);
-
+$query_run = mysqli_query($connection, $query);ss
 
 ?>
 
