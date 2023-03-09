@@ -1,3 +1,48 @@
+<?php
+
+
+if ($_SERVER["SERVER_NAME"] == "students.gaim.ucf.edu") {
+  if ($_SERVER["SCRIPT_URL"] == "/~ya818631/dig4172C/rmpRedesign/RatePage.php") {
+    //yara
+    $connection = mysqli_connect('localhost', 'ya818631', '34096885!Yar', 'ya818631');
+  } else {
+    // $connection = mysqli_connect('localhost', 'em248165', '3535A5F4D0EB4F319A17FBEEF735D58Aa!', 'em248165');
+    $connection = mysqli_connect('localhost', 'root', '', 'rmpaccount');
+  }
+}
+
+if (isset($_POST['insert'])) {
+  $professorID = $_POST['professorID'];
+  $course = $_POST['course'];
+  $online = $_POST['online'];
+  $rating = $_POST['rating'];
+  $difficulty = $_POST['difficulty'];
+  $again = $_POST['again'];
+  $textbooks = $_POST['textbooks'];
+  $grade = $_POST['grade'];
+  $review = $_POST['review'];
+  // $created_at = NULL;
+
+  $query = "INSERT INTO ratings (ratingID,professorID,course,online,rating,difficulty,again,textbooks,grade,review) VALUES (NULL,'$professorID','$course','$online','$rating','$difficulty','$again','$textbooks','$grade','$review')";
+  $query_run = mysqli_query($connection, $query);
+
+  if ($connection->query($sql) === true) {
+    echo "data inserted successfully";
+  } else {
+    echo "Error: " . $sql . "<br>" . $connection->error;
+  }
+
+  header('Location: RatePage.php');
+
+}
+
+// print_r($_POST);
+$professorID = $_POST['searchprof'];
+$query = "SELECT * FROM professors WHERE professorID = $professorID";
+$query_run = mysqli_query($connection, $query);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -33,12 +78,32 @@
     <div class="container">
     <div class="row ">
         <div class="column6">
+        <?php echo "<input type=\"hidden\" name=\"professorID\" value=\"$professorID\">"; ?>
             <div style='float:left; width:35%'>
                 <h1 class="display-1 proxima-bold text-right">4.3</h1> 
             </div>
             <div style='float:left; width:90%;'>
-                <h4 class="proxima-bold text-left">Leonardo DiCaprio</h4>
-                <h6 class="text-left greyText">University of Central Florida</h6>
+                <h4 class="proxima-bold text-left">
+                <?php
+                  if ($query_run->num_rows > 0) {
+                  while ($row = $query_run->fetch_assoc()) {
+                  echo $row['name'];
+                 }
+                } else {
+                echo "No Results";
+                }
+                ?> </h4>
+                <h6 class="text-left greyText">
+                <?php
+                  if ($query_run->num_rows > 0) {
+                  while ($row = $query_run->fetch_assoc()) {
+                  echo $row['school'];
+                 }
+                } else {
+                echo "No Results";
+                }
+                ?> 
+                </h6>
             </div>
             <div style='float:left; width:55%; margin-top: 10px;'>
                 <a href="rateprofessor.php" class="fakeBtnBlue proxima-bold text-decoration-none">Rate Professor</a>
@@ -220,244 +285,7 @@
                   </div>
     
               </div>
-      
-      
-              <!--Row 2-->
-              <div class="column3 greyBg pt-3">
-                <div style='float:left; width:8%'>
-                    <h4 class="proxima-bold text-left" style="margin-left:130px">DIG3716C</h4>
-                </div>
-
-                <div style=' float:left; width: 45%;'>
-                  <span class="badgeAve"><img src="images/Average.png" alt="smiley face" style="width:5%" > &nbsp <b>Average</b></span>
-                </div>
-
-                <div style='float:left; width: 46%; padding-left: 0px;'>
-                  <h8><b>May 1st, 2022</b></h8>
-                </div>
-
-                <br>
-                <br>
-
-                <div style='float:left'>
-                  <p class="mb-1 ml-3"><b>Quality</b></p>
-                  <h2 class="badgeSideAve proxima-bold ml-3">3.0</h2>
-                </div>
-
-                <div style='float:left; width:25%'>
-                  <p class="mb-1">Attendance: <b>Not Mandatory</b></p>
-                </div>
-
-                <div style='float:left; width:15%'>
-                  <p class="mb-1">Would take again: <b>Yes</b></p>
-                </div>
-
-                <div style='float:left; width:15%'>
-                  <p class="mb-1">Textbook: <b>Yes</b></p>
-                </div>
-
-                <div style='float:left; width:10%'>
-                  <p class="mb-1">Grade: <b>B</b></p>
-                </div>              
-
-                <br>
-                <br>                  
-
-                <div style="margin-left:10%">
-                  <p class="text-left">He is alright. Assignments and Quizzes were fairly easy, Projects were 
-                    medium in difficulty but ensured that you learned something.</p>
-                </div>
-
-                <br>
-
-                <div style='float:left'>
-                  <p class="mb-1 ml-3"><b>Dificulty</b></p>
-                  <h2 class="badgeSide proxima-bold ml-3">3.0</h2>
-                </div>
-
-                <div style='float:left; width:40%; margin-top: 30px;'>
-                  <span class="badgepos">Clear grading criteria</span>
-                  <span class="badgepos">Hilarious</span>
-                  <span class="badgeneg">Lots of homework</span>
-                </div>
-
-                <br>
-                <br>
-                <br>
-                <br>
-
-                <div style='float:left; width:10%'>
-                  <h6><img src="images/ThumbsUp.png" alt="Thumbs Up" style="width:28%"> &nbsp<b>4</b></h6>
-                </div>
-
-                <div style='float:left; width:5%'>
-                  <h6><img src="images/ThumbsDown.png" alt="Thumbs Up" style="width:57%"> &nbsp<b>0</b></h6>
-                </div>
-
-                <div style='float:right; margin-right:2%;'>
-                  <a href="report.php" class="text-decoration-none" style="color:black">
-                  <p><img src="images/Report.png" alt="Report" style="width:50%"><br>Report</p>
-                  </a>
-                </div>
   
-            </div>
-      
-              <!--Row 3-->
-              <div class="column3 greyBg pt-3">
-                <div style='float:left; width:8%'>
-                    <h4 class="proxima-bold text-left" style="margin-left:130px">DIG3716C</h4>
-                </div>
-
-                <div style=' float:left; width: 45%;'>
-                  <span class="badgeAwf"><img src="images/Awesome.png" alt="smiley face" style="width:5%" > &nbsp <b>Awesome</b></span>
-                </div>
-
-                <div style='float:left; width: 46%; padding-left: 0px;'>
-                  <h8><b>November 17th, 2021</b></h8>
-                </div>
-
-                <br>
-                <br>
-
-                <div style='float:left'>
-                  <p class="mb-1 ml-3"><b>Quality</b></p>
-                  <h2 class="badgeSideAwf proxima-bold ml-3">1.0</h2>
-                </div>
-
-                <div style='float:left; width:25%'>
-                  <p class="mb-1">Attendance: <b>Not Mandatory</b></p>
-                </div>
-
-                <div style='float:left; width:15%'>
-                  <p class="mb-1">Would take again: <b>Yes</b></p>
-                </div>
-
-                <div style='float:left; width:15%'>
-                  <p class="mb-1">Textbook: <b>Yes</b></p>
-                </div>
-
-                <div style='float:left; width:10%'>
-                  <p class="mb-1">Grade: <b>C+</b></p>
-                </div>              
-
-                <br>
-                <br>                  
-
-                <div style="margin-left:10%">
-                  <p class="text-left">The class was incredibly hard and the professor did nothing to help. He 
-                    would only read off of PowerPoints and barely gave us any feedback on our work. </p>
-                </div>
-
-                <div style='float:left'>
-                  <p class="mb-1 ml-3"><b>Dificulty</b></p>
-                  <h2 class="badgeSide proxima-bold ml-3">5.0</h2>
-                </div>
-
-                <div style='float:left; width:30%; margin-top: 30px;'>
-                  <span class="badgeneg">Rude</span>
-                  <span class="badgeneg">Tough grader</span>
-                  <span class="badgeneg">No feedback</span>
-                </div>
-
-                <br>
-                <br>
-                <br>
-                <br>
-
-                <div style='float:left; width:10%'>
-                  <h6><img src="images/ThumbsUp.png" alt="Thumbs Up" style="width:28%"> &nbsp<b>8</b></h6>
-                </div>
-
-                <div style='float:left; width:5%'>
-                  <h6><img src="images/ThumbsDown.png" alt="Thumbs Up" style="width:57%"> &nbsp<b>1</b></h6>
-                </div>
-
-                <div style='float:right; margin-right:2%;'>
-                  <a href="report.php" class="text-decoration-none" style="color:black">
-                  <p><img src="images/Report.png" alt="Report" style="width:50%"><br>Report</p>
-                  </a>
-                </div>
-  
-            </div>
-
-            <!--Row 4-->
-            <div class="column3 greyBg pt-3 mb-5">
-              <div style='float:left; width:8%'>
-                  <h4 class="proxima-bold text-left" style="margin-left:130px">DIG3716C</h4>
-              </div>
-
-              <div style=' float:left; width: 45%;'>
-                <span class="badgeAwe"><img src="images/Awesome.png" alt="smiley face" style="width:5%" > &nbsp <b>Awesome</b></span>
-              </div>
-
-              <div style='float:left; width: 47%;'>
-                <h8><b>May 29th, 2022</b></h8>
-              </div>
-
-              <br>
-              <br>
-
-              <div style='float:left'>
-                <p class="mb-1 ml-3"><b>Quality</b></p>
-                <h2 class="badgeSideAwe proxima-bold ml-3">5.0</h2>
-              </div>
-
-              <div style='float:left; width:25%'>
-                <p class="mb-1">Attendance: <b>Not Mandatory</b></p>
-              </div>
-
-              <div style='float:left; width:15%'>
-                <p class="mb-1">Would take again: <b>Yes</b></p>
-              </div>
-
-              <div style='float:left; width:15%'>
-                <p class="mb-1">Textbook: <b>Yes</b></p>
-              </div>
-
-              <div style='float:left; width:10%'>
-                <p class="mb-1">Grade: <b>A</b></p>
-              </div>              
-
-              <br>
-              <br>                  
-
-              <div style="margin-left:10%">
-                <p class="text-left">Leonardo is a great professor who knows what he's doing and will help you out 
-                  if you ask for it. He has a bit of an ego, but understandably so considering all he's done in 
-                  life. After taking plenty of classes with him over the years, I can confidently say he's the best
-                   professors UCF SVAD/DM has and you WILL learn if you put forth the effort.</p>
-              </div>
-
-              <div style='float:left'>
-                <p class="mb-1 ml-3"><b>Dificulty</b></p>
-                <h2 class="badgeSide proxima-bold ml-3">2.0</h2>
-              </div>
-
-              <div style='float:left; width:50%; margin-top: 30px;'>
-                <span class="badgepos">Accessible outside of class</span>
-                <span class="badgepos">Clear grading criteria</span>
-                <span class="badgepos">Inspirational</span>
-              </div>
-
-              <br>
-              <br>
-              <br>
-              <br>
-
-              <div style='float:left; width:10%'>
-                <h6><img src="images/ThumbsUp.png" alt="Thumbs Up" style="width:28%"> &nbsp<b>2</b></h6>
-              </div>
-
-              <div style='float:left; width:5%'>
-                <h6><img src="images/ThumbsDown.png" alt="Thumbs Up" style="width:57%"> &nbsp<b>9</b></h6>
-              </div>
-
-              <div style='float:right; margin-right:2%;'>
-                <a href="report.php" class="text-decoration-none" style="color:black">
-                <p><img src="images/Report.png" alt="Report" style="width:50%"><br>Report</p>
-                </a>
-              </div>
-
           </div>
           </div>
           </div>
