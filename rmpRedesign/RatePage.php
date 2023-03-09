@@ -55,7 +55,13 @@ $query_run = mysqli_query($connection, $query);
         <div class="column6">
         <?php echo "<input type=\"hidden\" name=\"professorID\" value=\"$professorID\">"; ?>
             <div style='float:left; width:35%'>
-                <h1 class="display-1 proxima-bold text-right">4.3</h1> 
+                <h1 class="display-1 proxima-bold text-right">
+                  <?php
+                  $average = mysql_query("SELECT AVG(rating) AS avg FROM ratings");
+                  $row2 = mysql_fetch_assoc($average);
+                  echo $row2['avg'];
+                  ?>
+                </h1> 
             </div>
             <div style='float:left; width:90%;'>
                 <h4 class="proxima-bold text-left">
@@ -71,7 +77,9 @@ $query_run = mysqli_query($connection, $query);
                 <h6 class="text-left greyText"> University of Central Florida </h6>
             </div>
             <div style='float:left; width:55%; margin-top: 10px;'>
-                <a href="rateprofessor.php" class="fakeBtnBlue proxima-bold text-decoration-none">Rate Professor</a>
+                <a href="rateprofessor.php" class="fakeBtnBlue proxima-bold text-decoration-none">
+                <?php echo "<input type=\"hidden\" name=\"professorID\" value=\"$professorID\">"; ?>
+                Rate Professor</a>
               </div>
             <div style='float:left; width:55%; margin-top: 25px; margin-bottom: 20px;'>
               <a href="oneCompare.php" class="fakeBtnYell proxima-bold text-decoration-none">Compare Professor</a>
