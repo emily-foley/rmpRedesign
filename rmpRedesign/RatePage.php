@@ -39,7 +39,7 @@ if (isset($_POST['insert'])) {
 
 // print_r($_POST);
 $professorID = $_POST['searchprof'];
-$query = "SELECT * FROM professors WHERE professorID = $professorID and school = $school";
+$query = "SELECT * FROM professors WHERE professorID = $professorID";
 $query_run = mysqli_query($connection, $query);
 
 ?>
