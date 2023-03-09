@@ -16,6 +16,12 @@ $professorID = $_POST['searchprof'];
 $query = "SELECT * FROM professors WHERE professorID = $professorID";
 $query_run = mysqli_query($connection, $query);
 
+//Averaging rating
+$qry = "SELECT AVG(rating) AS avg FROM `ratings`";
+$qry_result = mysqli_query($connection, $qry);
+while($row = mysqli_fetch_assoc($query_result)){
+$output = $row['avg'];
+}
 ?>
 
 <!DOCTYPE html>
@@ -57,11 +63,7 @@ $query_run = mysqli_query($connection, $query);
             <div style='float:left; width:35%'>
                 <h1 class="display-1 proxima-bold text-right"> 
                   <?php
-                  $qry = "SELECT AVG(rating) AS avg FROM `ratings`";
-                  $qry_result = mysqli_query($connection, $qry);
-                  while($row = mysqli_fetch_assoc($query_result)){
-                     echo $row['avg']; 
-                  }
+                  echo $output;
                   ?>
                 </h1> 
             </div>
