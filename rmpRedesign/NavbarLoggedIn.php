@@ -48,12 +48,6 @@
         </li>
     </div>
 
-    <div class="justify-content-left">
-      <form onsubmit="event.preventDefault()" class="form-inline my-lg-1"> <input
-          class="whiteInput form-control mr-sm-2" type="text" placeholder="Search">
-      </form>
-    </div>
-
     <li class="nav-item me-lg-0 mr-3 ml-5 noBullet">
       <a class="fakeBtn nav-link" href="logout.php"><i class="mx-1"></i>Logout</a>
     </li>
