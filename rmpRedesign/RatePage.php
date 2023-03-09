@@ -17,7 +17,7 @@ $query = "SELECT * FROM professors WHERE professorID = $professorID";
 $query_run = mysqli_query($connection, $query);
 
 $sql = "SELECT ratingID,professorID,course,online,rating,difficulty,again,textbooks,grade,review FROM ratings";
-$result = mysqli_query($conn, $sql);
+$result = mysqli_query($connection, $sql);
 
 ?>
 
@@ -278,10 +278,10 @@ $result = mysqli_query($conn, $sql);
                       if (mysqli_num_rows($result) > 0) {
                         // output data of each row
                         while($row = mysqli_fetch_assoc($result)) {
-                          echo $row["review"];
+                          echo $row['review'];
                         }
                       } else {
-                        echo "0 results";
+                        echo "No results";
                       }
                     ?> 
                     </p>
