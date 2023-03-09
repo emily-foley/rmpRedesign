@@ -21,9 +21,10 @@ if (isset($_POST['insert'])) {
   $textbooks = $_POST['textbooks'];
   $grade = $_POST['grade'];
   $review = $_POST['review'];
+  $date = $_POST['date'];
   // $created_at = NULL;
 
-  $query = "INSERT INTO ratings (ratingID,professorID,course,online,rating,difficulty,again,textbooks,grade,review) VALUES (NULL,'$professorID','$course','$online','$rating','$difficulty','$again','$textbooks','$grade','$review')";
+  $query = "INSERT INTO ratings (ratingID,professorID,course,online,rating,difficulty,again,textbooks,grade,review,date) VALUES (NULL,'$professorID','$course','$online','$rating','$difficulty','$again','$textbooks','$grade','$review', '$date')";
   $query_run = mysqli_query($connection, $query);
 
   if ($connection->query($sql) === true) {
