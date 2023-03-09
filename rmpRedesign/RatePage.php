@@ -68,7 +68,7 @@ if ($row['rating'] == 1.0 || 2.0) {
                 <h1 class="display-1 proxima-bold text-right"> 
                   <?php
                   //Averaging rating
-                  $qry = "SELECT AVG(rating) AS AverageRating FROM ratings WHERE professorID = $professorID";
+                  $qry = "SELECT ROUND(AVG(rating),1) AS AverageRating FROM ratings WHERE professorID = $professorID";
                   $qry_result = mysqli_query($connection, $qry);
                   while($row = mysqli_fetch_assoc($qry_result)){
                   echo $row['AverageRating'];
