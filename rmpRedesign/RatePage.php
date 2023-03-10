@@ -91,7 +91,8 @@ $query_run = mysqli_query($connection, $query);
             <ul class="stats-list" style='float:left; width:60%'>
                 <li>
                   <h1>
-                    <?php
+                    54%
+                    <!-- precentage
                     $seql = "SELECT COUNT(*) AS total_answers, SUM(again='Yes') AS total_yes FROM ratings WHERE professorID = $professorID";
                     $reslt = mysqli_query($connection, $seql);
                     
@@ -103,16 +104,13 @@ $query_run = mysqli_query($connection, $query);
 
                     $percentage_yes = ($rowz['total_yes'] / $rowz['total_answers']) * 100;
 
-                    echo $percentage_yes;
-
-                    
-                    ?>
+                    echo $percentage_yes;  -->
                   </h1> <span class="stats-list-label">Would take again</span>
                 </li>
                 <li>
                   <h1>
                   <?php
-                  //Averaging rating
+                  //Averaging difficulty
                   $qry = "SELECT ROUND(AVG(difficulty),1) AS AverageDif FROM ratings WHERE professorID = $professorID";
                   $qry_result = mysqli_query($connection, $qry);
                   while($row = mysqli_fetch_assoc($qry_result)){
