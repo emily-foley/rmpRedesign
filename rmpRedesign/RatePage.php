@@ -191,8 +191,8 @@ $query_run = mysqli_query($connection, $query);
               <?php
               mysql_select_db("database", $connection);
 
-              $result = mysql_query("SELECT * ratings WHERE professorID = $professorID", $connection);
-              $num_rows = mysql_num_rows($result);
+              $resulted = mysql_query("SELECT * ratings WHERE professorID = $professorID", $connection);
+              $num_rows = mysql_num_rows($resulted);
 
               echo "$num_rows Ratings\n";
               // $number = "SELECT * FROM ratings WHERE professorID = $professorID";
