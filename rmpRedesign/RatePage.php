@@ -92,7 +92,7 @@ $query_run = mysqli_query($connection, $query);
                 <li>
                   <h1>
                     <?php
-                    $result1= "SELECT COUNT(*) AS total FROM ratings WHERE professorID = $professorID WHERE again = 'Yes'";
+                    $result1= "SELECT COUNT(*) AS total FROM ratings WHERE again = 'Yes'  WHERE professorID = $professorID";
 
                     $result2= "SELECT COUNT(*) AS total FROM ratings WHERE professorID = $professorID";
 
