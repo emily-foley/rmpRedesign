@@ -79,21 +79,21 @@
   <div class="row justify-content-center">
     <figure>
       <figcaption>
-        <a class="black text-decoration-none" href="rate.php">
+        <a class="black text-decoration-none" href="rateIn.php">
           <img class="center" src="images/girlWithPencil.png" width="180">
           Rate a Professor</a>
       </figcaption>
     </figure>
     <figure>
       <figcaption class="mt-4">
-        <a class="black text-decoration-none" href="recommend.php">
+        <a class="black text-decoration-none" href="recommendIn.php">
           <img class="center" src="images/thumbs.png" width="200">
           Recommend me a Professor</a>
       </figcaption>
     </figure>
     <figure>
       <figcaption class="mt-4">
-        <a class="black text-decoration-none" href="compare.php">
+        <a class="black text-decoration-none" href="compareIn.php">
           <img class="center" src="images/balance.png" width="200">
           Compare Professors
         </a>

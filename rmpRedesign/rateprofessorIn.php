@@ -1,41 +1,46 @@
 <?php
 
 
-	if ($_SERVER["SERVER_NAME"] == "students.gaim.ucf.edu") {
-		if ($_SERVER["SCRIPT_URL"]=="/~ya818631/dig4172C/rmpRedesign/rateprofessor.php"){
-		//yara
-		$connection = mysqli_connect('localhost', 'ya818631', '34096885!Yar', 'ya818631');
-		}else {
-		// $connection = mysqli_connect('localhost', 'em248165', '3535A5F4D0EB4F319A17FBEEF735D58Aa!', 'em248165');
-	 	$connection = mysqli_connect('localhost', 'root', '', 'rmpaccount');	
-		}
-	}
+if ($_SERVER["SERVER_NAME"] == "students.gaim.ucf.edu") {
+  if ($_SERVER["SCRIPT_URL"] == "/~ya818631/dig4172C/rmpRedesign/rateprofessorIn.php") {
+    //yara
+    $connection = mysqli_connect('localhost', 'ya818631', '34096885!Yar', 'ya818631');
+  } else {
+    // $connection = mysqli_connect('localhost', 'em248165', '3535A5F4D0EB4F319A17FBEEF735D58Aa!', 'em248165');
+    $connection = mysqli_connect('localhost', 'root', '', 'rmpaccount');
+  }
+}
 
-    if(isset($_POST['insert']))
-    {
-      $id = NULL;
-      $online = $_POST['online'];
-      $rating = $_POST['rating'];
-      $difficulty = $_POST['difficulty'];
-      $again = $_POST['again'];
-      $textbooks = $_POST['textbooks'];
-      $created_at = NULL;
+if (isset($_POST['insert'])) {
+  $professorID = $_POST['professorID'];
+  $course = $_POST['course'];
+  $online = $_POST['online'];
+  $rating = $_POST['rating'];
+  $difficulty = $_POST['difficulty'];
+  $again = $_POST['again'];
+  $textbooks = $_POST['textbooks'];
+  $grade = $_POST['grade'];
+  $review = $_POST['review'];
+  $date = date("Y-M-D");
+  // $created_at = NULL;
 
-      $query = "INSERT INTO 'ratings' ('id','online','rating','difficulty','again','textbooks','created_at') VALUES ('$id','$online','$rating','$difficulty','$again','$textbooks','$created_at')";
-      $query_run = mysqli_query($connection, $query);
+  $query = "INSERT INTO ratings (ratingID,professorID,course,online,rating,difficulty,again,textbooks,grade,review,date) VALUES (NULL,'$professorID','$course','$online','$rating','$difficulty','$again','$textbooks','$grade','$review', NOW() )";
+  $query_run = mysqli_query($connection, $query);
 
-      //test if data is saved
-      if($query_run)
-      {
-        echo '<script type="text/javascript"> alert("Data saved") </script>';
-      }
-      else 
-      {
-        echo '<script type="text/javascript"> alert("Data not saved") </script>';
-      }
+  if ($connection->query($sql) === true) {
+    echo "data inserted successfully";
+  } else {
+    echo "Error: " . $sql . "<br>" . $connection->error;
+  }
 
-      // mysqli_query($connection, "INSERT INTO 'ratings' ('online','rating','difficulty','again','textbooks') VALUES ('$online','$rating','$difficulty','$again','$textbooks')");
-    }
+  header('Location: RatingSubmittedIn.php');
+
+}
+
+// print_r($_POST);
+$professorID = $_POST['searchprof'];
+$query = "SELECT * FROM professors WHERE professorID = $professorID";
+$query_run = mysqli_query($connection, $query);
 
 
 ?>
@@ -73,7 +78,17 @@
   <!-- Navbar -->
 
   <div class="pt-3 justify-content-center">
-    <h2 class="text-center topPad pb-2 proxima">Rate: <b>Leonardo DiCaprio</b></h2>
+    <h2 class="text-center topPad pb-2 proxima">Rate: <b>
+        <?php
+        if ($query_run->num_rows > 0) {
+          while ($row = $query_run->fetch_assoc()) {
+            echo $row['name'];
+          }
+        } else {
+          echo "No Results";
+        }
+        ?>
+      </b></h2>
   </div>
 
   <div class="r-container mb-4">
@@ -89,6 +104,9 @@
           <div class="dropdown">
             <div class="justify-content-left">
               <form action="" method="post">
+
+                <?php echo "<input type=\"hidden\" name=\"professorID\" value=\"$professorID\">"; ?>
+
                 <select name="course" id="courses">
                   <option value="DIG4172C">DIG4172C</option>
                   <option value="DIG3043">DIG3043</option>
@@ -101,7 +119,7 @@
           <br>
           <div class="r-questions">
             <div style='float:left; width:250%; margin-left: -105px;'>
-              <input type="radio" name="online" value="online course"><label>This is an online course</label>
+              <input type="checkbox" name="online" value="Online course"><label>This is an online course</label>
             </div>
 
           </div>
@@ -187,23 +205,24 @@
                 <option value="D">D</option>
                 <option value="F">F</option>
               </select>
-              </div>
+            </div>
           </div>
-        </form>
-        </div>  
-      <br>
-          <br>
-          <br>
-          <br>
-          <div style='float:left; width:100%; margin-left:30px'>
+
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div style='float:left; width:100%; margin-left:30px'>
           <h5 class="proxima-bold text-left">Write a Review</h5>
         </div>
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-          <br>
-          <br>
-          <input type="submit" name="insert" value="Submit Rating" class="fakeBtnBlue proxima nova text-decoration-none"/>
+        <textarea name="review" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        <br>
+        <br>
+        <input type="submit" name="insert" value="Submit Rating"
+          class="fakeBtnBlue proxima nova text-decoration-none" />
       </div>
-          
+      </form>
     </div>
     <!-- <div class="my-5 w-80 text-center">
       <a href="RatingSubmitted.php" class="fakeBtnBlue proxima nova">Submit Rating</a>
