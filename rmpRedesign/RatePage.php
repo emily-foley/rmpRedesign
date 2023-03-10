@@ -93,7 +93,16 @@ $query_run = mysqli_query($connection, $query);
                   <h1>54%</h1> <span class="stats-list-label">Would take again</span>
                 </li>
                 <li>
-                  <h1>2.5</h1> <span class="stats-list-label">Level of dificulty</span>
+                  <h1>
+                  <?php
+                  //Averaging rating
+                  $qry = "SELECT ROUND(AVG(difficulty),1) AS AverageDif FROM ratings WHERE professorID = $professorID";
+                  $qry_result = mysqli_query($connection, $qry);
+                  while($row = mysqli_fetch_assoc($qry_result)){
+                  echo $row['AverageDif'];
+                  }
+                  ?>
+                  </h1> <span class="stats-list-label">Level of dificulty</span>
                 </li>
               </ul>
 
@@ -207,11 +216,11 @@ $query_run = mysqli_query($connection, $query);
                       $picture = mysqli_query($connection, "SELECT rating FROM ratings WHERE professorID = $professorID"); 
                       $show = mysqli_fetch_assoc($picture); 
                       if ($show['rating'] == 1 || 2) { 
-                        echo '<img src="images/Awful.png" alt="Awful"> &nbsp <b>Awful</b>'; 
+                        echo '<span class="badgeAwf"> <img src="images/Awful.png" alt="Awful"> &nbsp <b>Awful</b>'; 
                         } elseif ($show['rating'] == 3) 
                           { echo '<img src="images/Average.png" alt="Average"> &nbsp <b>Average</b>'; 
                         } elseif ($show['rating'] == 4 || 5)  
-                          { echo '<img src="images/Awesome.png" alt="Awesome"> &nbsp <b>Awesome</b>';  }                       
+                          { echo '<span class="badgeAwe"> <img src="images/Awesome.png" alt="Awesome"> &nbsp <b>Awesome</b></span>';  }                       
                     ?> 
                   </div>
 
