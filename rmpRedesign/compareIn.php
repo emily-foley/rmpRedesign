@@ -30,16 +30,41 @@
 <?php include ('NavbarLoggedIn.php');?>
 <!-- Navbar -->
 
-
-    <div class="pt-5 justify-content-center">
+<div class="pt-5 justify-content-center">
         <h2 class="text-center topPad proxima-bold pb-3 ">Search a Professor to Compare</h2>
     </div>
 
-    <input class="roundInput" type="text" placeholder="Leonardo DiCapr...">
+    <form method="post" action="oneCompareIn.php">
+    <div class="dropdown">
+      <ul>
 
-    <div class="justify-content-center text-center my-4">
-      <a href="RatePageIn.php" class="fakeBtnBlue btn-lg text-decoration-none">Search</a>
+        <?php
+        if ($_SERVER["SERVER_NAME"] == "students.gaim.ucf.edu") {
+          if ($_SERVER["SCRIPT_URL"] == "/~ya818631/dig4172C/rmpRedesign/compareIn.php") {
+            //yara
+            $connection = mysqli_connect('localhost', 'ya818631', '34096885!Yar', 'ya818631');
+          } else {
+            // $connection = mysqli_connect('localhost', 'em248165', '3535A5F4D0EB4F319A17FBEEF735D58Aa!', 'em248165');
+            $connection = mysqli_connect('localhost', 'root', '', 'ya818631');
+          }
+        }
+
+        $result = mysqli_query($connection, "SELECT * FROM professors");
+        echo "<center>";
+        echo "<select id='searchprof' name='searchprof'>";
+        echo "<option>Select professor...</option>";
+        while ($row = mysqli_fetch_array($result)) {
+          echo "<option value=$row[professorID]>$row[name]</option>";
+        }
+        echo "</select>";
+        echo "</center>";
+        mysqli_close($connection)
+
+         ?>
+      </ul>
+      <input type="submit" name="submit" value="View ratings" />
     </div>
+  </form>
 
     <div class="center">
         <img src="images/balance.png" alt="girl holding a pencil" width="400">

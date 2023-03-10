@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -31,18 +30,18 @@
 <?php include ('NavbarLoggedIn.php');?>
 <!-- Navbar -->
 
-<div class="pt-5 justify-content-center">
-    <h2 class="text-center topPad pb-2 proxima-bold">Rate My Professors</h2>
-    <h4 class="text-center proxima-bold">Select professor to view ratings</h4>
-  </div>
 
-  <form method="post" action="RatePageIn.php">
+    <div class="pt-5 justify-content-center">
+        <h2 class="text-center topPad proxima-bold pb-3 ">Search a Professor to Compare</h2>
+    </div>
+
+    <form method="post" action="twoCompare.php">
     <div class="dropdown">
       <ul>
 
         <?php
         if ($_SERVER["SERVER_NAME"] == "students.gaim.ucf.edu") {
-          if ($_SERVER["SCRIPT_URL"] == "/~ya818631/dig4172C/rmpRedesign/indexIn.php") {
+          if ($_SERVER["SCRIPT_URL"] == "/~ya818631/dig4172C/rmpRedesign/compare2In.php") {
             //yara
             $connection = mysqli_connect('localhost', 'ya818631', '34096885!Yar', 'ya818631');
           } else {
@@ -62,45 +61,14 @@
         echo "</center>";
         mysqli_close($connection)
 
-          ?>
-
-        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.min.js"></script>
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.min.css" rel="stylesheet">
-        </link>
-        <script>                   $("#searchprof").chosen();
-        </script>-->
-
+         ?>
       </ul>
       <input type="submit" name="submit" value="View ratings" />
     </div>
   </form>
 
-  <div class="row justify-content-center">
-    <figure>
-      <figcaption>
-        <a class="black text-decoration-none" href="rate.php">
-          <img class="center" src="images/girlWithPencil.png" width="180">
-          Rate a Professor</a>
-      </figcaption>
-    </figure>
-    <figure>
-      <figcaption class="mt-4">
-        <a class="black text-decoration-none" href="recommend.php">
-          <img class="center" src="images/thumbs.png" width="200">
-          Recommend me a Professor</a>
-      </figcaption>
-    </figure>
-    <figure>
-      <figcaption class="mt-4">
-        <a class="black text-decoration-none" href="compare.php">
-          <img class="center" src="images/balance.png" width="200">
-          Compare Professors
-        </a>
-      </figcaption>
-    </figure>
-  </div>
-
-
+    <div class="center">
+        <img src="images/balance.png" alt="girl holding a pencil" width="400">
+    </div>
 
 </body>

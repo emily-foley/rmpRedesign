@@ -1,3 +1,24 @@
+<?php
+
+
+if ($_SERVER["SERVER_NAME"] == "students.gaim.ucf.edu") {
+  if ($_SERVER["SCRIPT_URL"] == "/~ya818631/dig4172C/rmpRedesign/RatePageIn.php") {
+    //yara
+    $connection = mysqli_connect('localhost', 'ya818631', '34096885!Yar', 'ya818631');
+  } else {
+    // $connection = mysqli_connect('localhost', 'em248165', '3535A5F4D0EB4F319A17FBEEF735D58Aa!', 'em248165');
+    $connection = mysqli_connect('localhost', 'root', '', 'rmpaccount');
+  }
+}
+
+// print_r($_POST);
+$professorID = $_POST['searchprof'];
+$query = "SELECT * FROM professors WHERE professorID = $professorID";
+$query_run = mysqli_query($connection, $query);
+
+?> 
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,33 +51,78 @@
 <?php include ('NavbarLoggedIn.php');?>
 <!-- Navbar -->
 
-    <div class="container">
+<div class="container">
     <div class="row ">
         <div class="column6">
+        <?php echo "<input type=\"hidden\" name=\"professorID\" value=\"$professorID\">"; ?>
             <div style='float:left; width:35%'>
-                <h1 class="display-1 proxima-bold text-right">4.3</h1> 
+                <h1 class="display-1 proxima-bold text-right"> 
+                  <?php
+                  //Averaging rating
+                  $qry = "SELECT ROUND(AVG(rating),1) AS AverageRating FROM ratings WHERE professorID = $professorID";
+                  $qry_result = mysqli_query($connection, $qry);
+                  while($row = mysqli_fetch_assoc($qry_result)){
+                  echo $row['AverageRating'];
+                  }
+                  ?>
+                </h1> 
             </div>
             <div style='float:left; width:90%;'>
-                <h4 class="proxima-bold text-left">Leonardo DiCaprio</h4>
-                <h6 class="text-left greyText">University of Central Florida</h6>
+                <h4 class="proxima-bold text-left">
+                <?php
+                  if ($query_run->num_rows > 0) {
+                  while ($row = $query_run->fetch_assoc()) {
+                  echo $row['name'];
+                 }
+                } else {
+                echo "No Results";
+                }
+                ?> </h4>
+                <h6 class="text-left greyText"> University of Central Florida </h6>
             </div>
             <div style='float:left; width:55%; margin-top: 10px;'>
-                <a href="rateprofessorIn.php" class="fakeBtnBlue proxima-bold text-decoration-none">Rate Professor</a>
+                <a href="rateprofessor.php" class="fakeBtnBlue proxima-bold text-decoration-none">
+                <?php echo "<input type=\"hidden\" name=\"professorID\" value=\"$professorID\">"; ?>
+                Rate Professor</a>
               </div>
             <div style='float:left; width:55%; margin-top: 25px; margin-bottom: 20px;'>
-              <a href="oneCompareIn.php" class="fakeBtnYell proxima-bold text-decoration-none">Compare Professor</a>
+              <a href="oneCompare.php" class="fakeBtnYell proxima-bold text-decoration-none">Compare Professor</a>
             </div>
             
             <ul class="stats-list" style='float:left; width:60%'>
                 <li>
-                  <h1>54%</h1> <span class="stats-list-label">Would take again</span>
+                  <h1>
+                    54%
+                    <!-- precentage
+                    $seql = "SELECT COUNT(*) AS total_answers, SUM(again='Yes') AS total_yes FROM ratings WHERE professorID = $professorID";
+                    $reslt = mysqli_query($connection, $seql);
+                    
+                    if (!$result) {
+                      die("Query failed: " . mysqli_error($connection));
+                    }
+                    
+                    $rowz = mysqli_fetch_assoc($reslt);
+
+                    $percentage_yes = ($rowz['total_yes'] / $rowz['total_answers']) * 100;
+
+                    echo $percentage_yes;  -->
+                  </h1> <span class="stats-list-label">Would take again</span>
                 </li>
                 <li>
-                  <h1>2.5</h1> <span class="stats-list-label">Level of dificulty</span>
+                  <h1>
+                  <?php
+                  //Averaging difficulty
+                  $qry = "SELECT ROUND(AVG(difficulty),1) AS AverageDif FROM ratings WHERE professorID = $professorID";
+                  $qry_result = mysqli_query($connection, $qry);
+                  while($row = mysqli_fetch_assoc($qry_result)){
+                  echo $row['AverageDif'];
+                  }
+                  ?>
+                  </h1> <span class="stats-list-label">Level of dificulty</span>
                 </li>
               </ul>
 
-              <div style='float:left; width: 40.5%'>
+              <!-- <div style='float:left; width: 40.5%'>
                 <p class="greyText">Professors Top Tags</p>
                 </div>
 
@@ -69,8 +135,10 @@
               <span class="badgeneg" style='float:left'>Reading Heavy</span>
             </div>
               <br>
-              <br>
+              <br> -->
 
+
+        <!-- Side Bar graph -->
         </div>
         <div class="column7 greyBg mx-10">
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -135,24 +203,51 @@
         </div>
         </div>
         <div>
-            <p class="ml-5"><b>75 ratings</b></p>
+            <p class="ml-5"><b> 3 Ratings</b></p>
             <button class="btn btn-outline-secondary whiteButton px-4 ml-5 proxima" type="submit">All Courses</button>
         </div>
 
-        <div class="container ml-4" style="margin-right:300px">
+        <!--Ratings-->
+        <?php 
+        $sql = "SELECT * FROM ratings WHERE professorID = $professorID";
+        $sql_run = mysqli_query($connection, $sql);
+        $check_rating = mysqli_num_rows($sql_run) >0;
+
+        if($check_rating) {
+          while($row = mysqli_fetch_assoc($sql_run)){
+            ?>
+                    <div class="container ml-4" style="margin-right:300px">
           <div class="row justify-content-md-center">
               <!--Row 1-->
               <div class="column3 greyBg pt-3">
+              <?php echo "<input type=\"hidden\" name=\"professorID\" value=\"$professorID\">"; ?>
                   <div style='float:left; width:8%'>
-                      <h4 class="proxima-bold text-left" style="margin-left:130px">DIG3716C</h4>
+                      <h4 class="proxima-bold text-left" style="margin-left:130px">
+                      <?php
+                      echo $row['course'];
+                    ?> 
+                    </h4>
                   </div>
 
                   <div style=' float:left; width: 45%;'>
-                    <span class="badgeAwe"><img src="images/Awesome.png" alt="smiley face" style="width:5%" > &nbsp <b>Awesome</b></span>
+                    <?php
+                      $picture = mysqli_query($connection, "SELECT rating FROM ratings WHERE professorID = $professorID"); 
+                      $show = mysqli_fetch_assoc($picture); 
+                      if ($show['rating'] == 1.0 || 2.0) { 
+                        echo '<span> <img src="images/Awful.png" alt="Awful" style="width:5%"> &nbsp <b>Awful</b>'; 
+                        } elseif ($show['rating'] == 3.0) 
+                          { echo '<img src="images/Average.png" alt="Average" style="width:5%"> &nbsp <b>Average</b>'; 
+                        } elseif($show['rating'] == 4.0 || 5.0)  
+                          { echo '<span> <img src="images/Awesome.png" alt="Awesome" style="width:5%"> &nbsp <b>Awesome</b></span>';  }                       
+                    ?> 
                   </div>
 
                   <div style='float:left; width: 46%; padding-left: 0px;'>
-                    <h8><b>November 11th, 2021</b></h8>
+                    <h8><b>
+                    <?php
+                      echo $row['date'];
+                    ?> 
+                    </b></h8>
                   </div>
 
                   <br>
@@ -160,45 +255,62 @@
 
                   <div style='float:left'>
                     <p class="mb-1 ml-3"><b>Quality</b></p>
-                    <h2 class="badgeSideAwe proxima-bold ml-3">5.0</h2>
+                    <h2 class="badgeSideAwe proxima-bold ml-3">
+                    <?php
+                      echo $row['rating'];
+                    ?> 
+                    </h2>
                   </div>
 
-                  <div style='float:left; width:25%'>
-                    <p class="mb-1">Attendance: <b>Not Mandatory</b></p>
+                  <div style='float:left; width:30%'>
+                    <p class="mb-1">Would take again: <b>
+                    <?php
+                      echo $row['again'];
+                    ?> 
+                    </b></p>
                   </div>
 
                   <div style='float:left; width:15%'>
-                    <p class="mb-1">Would take again: <b>Yes</b></p>
-                  </div>
-
-                  <div style='float:left; width:15%'>
-                    <p class="mb-1">Textbook: <b>Yes</b></p>
+                    <p class="mb-1">Textbook: <b>
+                    <?php
+                      echo $row['textbooks'];
+                    ?> 
+                    </b></p>
                   </div>
 
                   <div style='float:left; width:10%'>
-                    <p class="mb-1">Grade: <b>A</b></p>
+                    <p class="mb-1">Grade: <b>
+                      <?php
+                      echo $row['grade'];
+                    ?> 
+                    </b></p>
                   </div>              
 
                   <br>
                   <br>                  
 
                   <div style="margin-left:10%">
-                    <p class="text-left">Attendance isn't mandatory, but if you don't go you'll fall behind. The class was
-                       tough and he is very picky with grading. I still ended up with an A in this class and I felt 
-                       like I learned a lot. I went to almost every class, didn't procrastinate and asked questions 
-                       when needed to. His feedback is helpful but he can come off as a bit rude.</p>
+                    <p class="text-left">
+                      <?php
+                          echo $row['review'];
+                    ?> 
+                    </p>
                   </div>
 
                   <div style='float:left'>
                     <p class="mb-1 ml-3"><b>Dificulty</b></p>
-                    <h2 class="badgeSide proxima-bold ml-3">5.0</h2>
+                    <h2 class="badgeSide proxima-bold ml-3">
+                    <?php
+                      echo $row['difficulty'];
+                    ?> 
+                    </h2>
                   </div>
 
-                  <div style='float:left; width:40%; margin-top: 30px;'>
+                  <!-- <div style='float:left; width:40%; margin-top: 30px;'>
                     <span class="badgepos">Gives Feedback</span>
                     <span class="badgeneg">Participation matters</span>
                     <span class="badgeneg">Tough grader</span>
-                  </div>
+                  </div> -->
 
                   <br>
                   <br>
@@ -214,252 +326,25 @@
                   </div>
 
                   <div style='float:right; margin-right:2%;'>
-                    <a href="reportIn.php" class="text-decoration-none" style="color:black">
+                    <a href="report.php" class="text-decoration-none" style="color:black">
                     <p><img src="images/Report.png" alt="Report" style="width:50%"><br>Report</p>
                     </a>
                   </div>
-    
               </div>
-      
-      
-              <!--Row 2-->
-              <div class="column3 greyBg pt-3">
-                <div style='float:left; width:8%'>
-                    <h4 class="proxima-bold text-left" style="margin-left:130px">DIG3716C</h4>
-                </div>
-
-                <div style=' float:left; width: 45%;'>
-                  <span class="badgeAve"><img src="images/Average.png" alt="smiley face" style="width:5%" > &nbsp <b>Average</b></span>
-                </div>
-
-                <div style='float:left; width: 46%; padding-left: 0px;'>
-                  <h8><b>May 1st, 2022</b></h8>
-                </div>
-
-                <br>
-                <br>
-
-                <div style='float:left'>
-                  <p class="mb-1 ml-3"><b>Quality</b></p>
-                  <h2 class="badgeSideAve proxima-bold ml-3">3.0</h2>
-                </div>
-
-                <div style='float:left; width:25%'>
-                  <p class="mb-1">Attendance: <b>Not Mandatory</b></p>
-                </div>
-
-                <div style='float:left; width:15%'>
-                  <p class="mb-1">Would take again: <b>Yes</b></p>
-                </div>
-
-                <div style='float:left; width:15%'>
-                  <p class="mb-1">Textbook: <b>Yes</b></p>
-                </div>
-
-                <div style='float:left; width:10%'>
-                  <p class="mb-1">Grade: <b>B</b></p>
-                </div>              
-
-                <br>
-                <br>                  
-
-                <div style="margin-left:10%">
-                  <p class="text-left">He is alright. Assignments and Quizzes were fairly easy, Projects were 
-                    medium in difficulty but ensured that you learned something.</p>
-                </div>
-
-                <br>
-
-                <div style='float:left'>
-                  <p class="mb-1 ml-3"><b>Dificulty</b></p>
-                  <h2 class="badgeSide proxima-bold ml-3">3.0</h2>
-                </div>
-
-                <div style='float:left; width:40%; margin-top: 30px;'>
-                  <span class="badgepos">Clear grading criteria</span>
-                  <span class="badgepos">Hilarious</span>
-                  <span class="badgeneg">Lots of homework</span>
-                </div>
-
-                <br>
-                <br>
-                <br>
-                <br>
-
-                <div style='float:left; width:10%'>
-                  <h6><img src="images/ThumbsUp.png" alt="Thumbs Up" style="width:28%"> &nbsp<b>4</b></h6>
-                </div>
-
-                <div style='float:left; width:5%'>
-                  <h6><img src="images/ThumbsDown.png" alt="Thumbs Up" style="width:57%"> &nbsp<b>0</b></h6>
-                </div>
-
-                <div style='float:right; margin-right:2%;'>
-                  <a href="report2In.php" class="text-decoration-none" style="color:black">
-                  <p><img src="images/Report.png" alt="Report" style="width:50%"><br>Report</p>
-                  </a>
-                </div>
-  
-            </div>
-      
-              <!--Row 3-->
-              <div class="column3 greyBg pt-3">
-                <div style='float:left; width:8%'>
-                    <h4 class="proxima-bold text-left" style="margin-left:130px">DIG3716C</h4>
-                </div>
-
-                <div style=' float:left; width: 45%;'>
-                  <span class="badgeAwf"><img src="images/Awesome.png" alt="smiley face" style="width:5%" > &nbsp <b>Awesome</b></span>
-                </div>
-
-                <div style='float:left; width: 46%; padding-left: 0px;'>
-                  <h8><b>November 17th, 2021</b></h8>
-                </div>
-
-                <br>
-                <br>
-
-                <div style='float:left'>
-                  <p class="mb-1 ml-3"><b>Quality</b></p>
-                  <h2 class="badgeSideAwf proxima-bold ml-3">1.0</h2>
-                </div>
-
-                <div style='float:left; width:25%'>
-                  <p class="mb-1">Attendance: <b>Not Mandatory</b></p>
-                </div>
-
-                <div style='float:left; width:15%'>
-                  <p class="mb-1">Would take again: <b>Yes</b></p>
-                </div>
-
-                <div style='float:left; width:15%'>
-                  <p class="mb-1">Textbook: <b>Yes</b></p>
-                </div>
-
-                <div style='float:left; width:10%'>
-                  <p class="mb-1">Grade: <b>C+</b></p>
-                </div>              
-
-                <br>
-                <br>                  
-
-                <div style="margin-left:10%">
-                  <p class="text-left">The class was incredibly hard and the professor did nothing to help. He 
-                    would only read off of PowerPoints and barely gave us any feedback on our work. </p>
-                </div>
-
-                <div style='float:left'>
-                  <p class="mb-1 ml-3"><b>Dificulty</b></p>
-                  <h2 class="badgeSide proxima-bold ml-3">5.0</h2>
-                </div>
-
-                <div style='float:left; width:30%; margin-top: 30px;'>
-                  <span class="badgeneg">Rude</span>
-                  <span class="badgeneg">Tough grader</span>
-                  <span class="badgeneg">No feedback</span>
-                </div>
-
-                <br>
-                <br>
-                <br>
-                <br>
-
-                <div style='float:left; width:10%'>
-                  <h6><img src="images/ThumbsUp.png" alt="Thumbs Up" style="width:28%"> &nbsp<b>8</b></h6>
-                </div>
-
-                <div style='float:left; width:5%'>
-                  <h6><img src="images/ThumbsDown.png" alt="Thumbs Up" style="width:57%"> &nbsp<b>1</b></h6>
-                </div>
-
-                <div style='float:right; margin-right:2%;'>
-                  <a href="report3In.php" class="text-decoration-none" style="color:black">
-                  <p><img src="images/Report.png" alt="Report" style="width:50%"><br>Report</p>
-                  </a>
-                </div>
-  
-            </div>
-
-            <!--Row 4-->
-            <div class="column3 greyBg pt-3 mb-5">
-              <div style='float:left; width:8%'>
-                  <h4 class="proxima-bold text-left" style="margin-left:130px">DIG3716C</h4>
-              </div>
-
-              <div style=' float:left; width: 45%;'>
-                <span class="badgeAwe"><img src="images/Awesome.png" alt="smiley face" style="width:5%" > &nbsp <b>Awesome</b></span>
-              </div>
-
-              <div style='float:left; width: 47%;'>
-                <h8><b>May 29th, 2022</b></h8>
-              </div>
-
-              <br>
-              <br>
-
-              <div style='float:left'>
-                <p class="mb-1 ml-3"><b>Quality</b></p>
-                <h2 class="badgeSideAwe proxima-bold ml-3">5.0</h2>
-              </div>
-
-              <div style='float:left; width:25%'>
-                <p class="mb-1">Attendance: <b>Not Mandatory</b></p>
-              </div>
-
-              <div style='float:left; width:15%'>
-                <p class="mb-1">Would take again: <b>Yes</b></p>
-              </div>
-
-              <div style='float:left; width:15%'>
-                <p class="mb-1">Textbook: <b>Yes</b></p>
-              </div>
-
-              <div style='float:left; width:10%'>
-                <p class="mb-1">Grade: <b>A</b></p>
-              </div>              
-
-              <br>
-              <br>                  
-
-              <div style="margin-left:10%">
-                <p class="text-left">Leonardo is a great professor who knows what he's doing and will help you out 
-                  if you ask for it. He has a bit of an ego, but understandably so considering all he's done in 
-                  life. After taking plenty of classes with him over the years, I can confidently say he's the best
-                   professors UCF SVAD/DM has and you WILL learn if you put forth the effort.</p>
-              </div>
-
-              <div style='float:left'>
-                <p class="mb-1 ml-3"><b>Dificulty</b></p>
-                <h2 class="badgeSide proxima-bold ml-3">2.0</h2>
-              </div>
-
-              <div style='float:left; width:50%; margin-top: 30px;'>
-                <span class="badgepos">Accessible outside of class</span>
-                <span class="badgepos">Clear grading criteria</span>
-                <span class="badgepos">Inspirational</span>
-              </div>
-
-              <br>
-              <br>
-              <br>
-              <br>
-
-              <div style='float:left; width:10%'>
-                <h6><img src="images/ThumbsUp.png" alt="Thumbs Up" style="width:28%"> &nbsp<b>2</b></h6>
-              </div>
-
-              <div style='float:left; width:5%'>
-                <h6><img src="images/ThumbsDown.png" alt="Thumbs Up" style="width:57%"> &nbsp<b>9</b></h6>
-              </div>
-
-              <div style='float:right; margin-right:2%;'>
-                <a href="report4In.php" class="text-decoration-none" style="color:black">
-                <p><img src="images/Report.png" alt="Report" style="width:50%"><br>Report</p>
-                </a>
-              </div>
-
           </div>
           </div>
-          </div>
+
+            <?php
+          }
+        } else{
+          echo "No Result";
+        }
+        ?>
+        
+        <br>
+        <br>
+        <br>
+        <br>
+      </div>    
     </div>
 </body>
