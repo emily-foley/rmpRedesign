@@ -106,7 +106,7 @@ $query_run = mysqli_query($connection, $query);
                 </li>
               </ul>
 
-              <div style='float:left; width: 40.5%'>
+              <!-- <div style='float:left; width: 40.5%'>
                 <p class="greyText">Professors Top Tags</p>
                 </div>
 
@@ -119,8 +119,10 @@ $query_run = mysqli_query($connection, $query);
               <span class="badgeneg" style='float:left'>Reading Heavy</span>
             </div>
               <br>
-              <br>
+              <br> -->
 
+
+        <!-- Side Bar graph -->
         </div>
         <div class="column7 greyBg mx-10">
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -219,7 +221,7 @@ $query_run = mysqli_query($connection, $query);
                         echo '<span class="badgeAwf"> <img src="images/Awful.png" alt="Awful"> &nbsp <b>Awful</b>'; 
                         } elseif ($show['rating'] == 3) 
                           { echo '<img src="images/Average.png" alt="Average"> &nbsp <b>Average</b>'; 
-                        } elseif ($show['rating'] == 4 || 5)  
+                        } else($show['rating'] == 4 || 5)  
                           { echo '<span class="badgeAwe"> <img src="images/Awesome.png" alt="Awesome"> &nbsp <b>Awesome</b></span>';  }                       
                     ?> 
                   </div>
