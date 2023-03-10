@@ -205,12 +205,12 @@ $query_run = mysqli_query($connection, $query);
                   <div style=' float:left; width: 45%;'>
                     <?php
                       $picture = mysqli_query($connection, "SELECT rating FROM ratings WHERE professorID = $professorID"); 
-                      $row = mysqli_fetch_assoc($picture); 
-                      if ($row['rating'] == 1 || 2) { 
+                      $show = mysqli_fetch_assoc($picture); 
+                      if ($show['rating'] == 1 || 2) { 
                         echo '<img src="images/Awful.png" alt="Awful"> &nbsp <b>Awful</b>'; 
-                        } elseif ($row['rating'] == 3) 
+                        } elseif ($show['rating'] == 3) 
                           { echo '<img src="images/Average.png" alt="Average"> &nbsp <b>Average</b>'; 
-                        } elseif ($row['rating'] == 4 || 5)  
+                        } elseif ($show['rating'] == 4 || 5)  
                           { echo '<img src="images/Awesome.png" alt="Awesome"> &nbsp <b>Awesome</b>';  }                       
                     ?> 
                   </div>
