@@ -189,9 +189,16 @@ $query_run = mysqli_query($connection, $query);
         <div>
             <p class="ml-5"><b>
               <?php
+
               $resulted = "SELECT * FROM ratings WHERE professorID = $professorID";
               $result_run = mysqli_query($connection, $resulted);
-              $check_result = mysqli_num_rows($result_run)
+              $check_result = mysqli_num_rows($result_run) >0;
+
+              if($check_result) {
+                while($row = mysqli_fetch_assoc($result_run)){
+                  echo $check_result
+                }
+              }
 
               echo "$check_result Ratings\n";
               ?>
