@@ -1,3 +1,23 @@
+<?php
+
+
+if ($_SERVER["SERVER_NAME"] == "students.gaim.ucf.edu") {
+  if ($_SERVER["SCRIPT_URL"] == "/~ya818631/dig4172C/rmpRedesign/twoCompare.php") {
+    //yara
+    $connection = mysqli_connect('localhost', 'ya818631', '34096885!Yar', 'ya818631');
+  } else {
+    // $connection = mysqli_connect('localhost', 'em248165', '3535A5F4D0EB4F319A17FBEEF735D58Aa!', 'em248165');
+    $connection = mysqli_connect('localhost', 'root', '', 'rmpaccount');
+  }
+}
+
+// print_r($_POST);
+$professorID = $_POST['searchprof'];
+$query = "SELECT * FROM professors WHERE professorID = $professorID";
+$query_run = mysqli_query($connection, $query);
+
+?> 
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -37,29 +57,58 @@
     <div class="container">
     <div class="row ">
         <div class="column2 greyBg mx-10 ">
+        <?php echo "<input type=\"hidden\" name=\"professorID\" value=\"$professorID\">"; ?>
             <div style='float:left; width:60%; margin-left:30px'>
             <br>
-                <h4 class="proxima-bold text-left">Leonardo DiCaprio</h4>
+                <h4 class="proxima-bold text-left">
+                <?php
+                  if ($query_run->num_rows > 0) {
+                  while ($row = $query_run->fetch_assoc()) {
+                  echo $row['name'];
+                 }
+                } else {
+                echo "No Results";
+                }
+                ?>
+                </h4>
                 <h6 class="text-left greyText">University of Central Florida</h6>
             </div>
             <div style='float:left; width:30%'>
-                <h1 class="display-2 proxima-bold text-right">4.3</h1> 
+                <h1 class="display-2 proxima-bold text-right">
+                <?php
+                //Averaging rating
+                  $qry = "SELECT ROUND(AVG(rating),1) AS AverageRating FROM ratings WHERE professorID = $professorID";
+                  $qry_result = mysqli_query($connection, $qry);
+                  while($row = mysqli_fetch_assoc($qry_result)){
+                  echo $row['AverageRating'];
+                  }
+                ?>
+                </h1> 
             </div>
             <ul class="stats-list">
                 <li>
                   <h1>54%</h1> <span class="stats-list-label">Would take again</span>
                 </li>
                 <li>
-                  <h1>2.5</h1> <span class="stats-list-label">Level of dificulty</span>
+                  <h1>
+                  <?php
+                  //Averaging difficulty
+                  $qry = "SELECT ROUND(AVG(difficulty),1) AS AverageDif FROM ratings WHERE professorID = $professorID";
+                  $qry_result = mysqli_query($connection, $qry);
+                  while($row = mysqli_fetch_assoc($qry_result)){
+                  echo $row['AverageDif'];
+                  }
+                  ?>
+                  </h1> <span class="stats-list-label">Level of dificulty</span>
                 </li>
               </ul>
 
-              <span class="badgepos">Gives Feedback</span>
+              <!-- <span class="badgepos">Gives Feedback</span>
               <span class="badgepos">Caring</span>
               <br>
               <br>
               <span class="badgeneg">Tough Grader</span>
-              <span class="badgeneg">Reading Heavy</span>
+              <span class="badgeneg">Reading Heavy</span> -->
 
               <br>
               <br>
@@ -75,29 +124,58 @@
         </div>
 
         <div class="column2 greyBg mx-10 ">
+        <?php echo "<input type=\"hidden\" name=\"professorID\" value=\"$professorID\">"; ?>
             <div style='float:left; width:60%; margin-left:30px'>
             <br>
-                <h4 class="proxima-bold text-left">Tom Cruise</h4>
+                <h4 class="proxima-bold text-left">
+                <?php
+                  if ($query_run->num_rows > 0) {
+                  while ($row = $query_run->fetch_assoc()) {
+                  echo $row['name'];
+                 }
+                } else {
+                echo "No Results";
+                }
+                ?>
+                </h4>
                 <h6 class="text-left greyText">University of Central Florida</h6>
             </div>
             <div style='float:left; width:30%'>
-                <h1 class="display-2 proxima-bold text-right">4.5</h1> 
+                <h1 class="display-2 proxima-bold text-right">
+                <?php
+                //Averaging rating
+                  $qry = "SELECT ROUND(AVG(rating),1) AS AverageRating FROM ratings WHERE professorID = $professorID";
+                  $qry_result = mysqli_query($connection, $qry);
+                  while($row = mysqli_fetch_assoc($qry_result)){
+                  echo $row['AverageRating'];
+                  }
+                ?>
+                </h1> 
             </div>
             <ul class="stats-list">
                 <li>
-                  <h1>62%</h1> <span class="stats-list-label">Would take again</span>
+                  <h1>54%</h1> <span class="stats-list-label">Would take again</span>
                 </li>
                 <li>
-                  <h1>2.1</h1> <span class="stats-list-label">Level of dificulty</span>
+                  <h1>
+                  <?php
+                  //Averaging difficulty
+                  $qry = "SELECT ROUND(AVG(difficulty),1) AS AverageDif FROM ratings WHERE professorID = $professorID";
+                  $qry_result = mysqli_query($connection, $qry);
+                  while($row = mysqli_fetch_assoc($qry_result)){
+                  echo $row['AverageDif'];
+                  }
+                  ?>
+                  </h1> <span class="stats-list-label">Level of dificulty</span>
                 </li>
               </ul>
 
-              <span class="badgepos">Amazing Lectures</span>
-              <span class="badgeneg">Lecture Heavy</span>
+              <!-- <span class="badgepos">Gives Feedback</span>
+              <span class="badgepos">Caring</span>
               <br>
               <br>
-              <span class="badgepos">Hilarious</span>
-              <span class="badgepos">Clear Grading Criteria</span>
+              <span class="badgeneg">Tough Grader</span>
+              <span class="badgeneg">Reading Heavy</span> -->
 
               <br>
               <br>
@@ -106,11 +184,11 @@
               <p class="greyText">Full details</p>
               </div>
               <div style='float:right; width: 10%'>
-                <a href="oneCompare.php" class="text-decoration-none">
+                <a href="emptyCompare.php" class="text-decoration-none">
                 <img src="images/Trash.png" alt="Trash" >
                 </a>
             </div>
-        </div>
+            </div>
     </div>
     </div>
 </body>
