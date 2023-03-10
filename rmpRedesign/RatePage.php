@@ -189,10 +189,11 @@ $query_run = mysqli_query($connection, $query);
         <div>
             <p class="ml-5"><b>
               <?php
-              $resulted = mysql_query("SELECT * ratings WHERE professorID = $professorID");
-              $num_rows = mysql_num_rows($resulted);
+              $resulted = "SELECT * FROM ratings WHERE professorID = $professorID";
+              $result_run = mysqli_query($connection, $resulted);
+              $check_result = mysqli_num_rows($result_run)
 
-              echo "$num_rows Ratings\n";
+              echo "$check_result Ratings\n";
               ?>
             </b></p>
             <button class="btn btn-outline-secondary whiteButton px-4 ml-5 proxima" type="submit">All Courses</button>
