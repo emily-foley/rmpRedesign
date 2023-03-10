@@ -90,7 +90,20 @@ $query_run = mysqli_query($connection, $query);
             
             <ul class="stats-list" style='float:left; width:60%'>
                 <li>
-                  <h1>54%</h1> <span class="stats-list-label">Would take again</span>
+                  <h1>
+                    <?php
+                    $result1= "SELECT COUNT(*) AS total FROM ratings WHERE professorID = $professorID WHERE again = 'Yes'";
+
+                    $result2= "SELECT COUNT(*) AS total FROM ratings WHERE professorID = $professorID";
+
+                    $total_yes = $result1['total'];
+                    $total_answers = $result2['total'];
+                    $percentage_yes = ($total_yes / $total_answers) * 100;
+
+                    echo $percentage_yes;
+
+                    ?>
+                  </h1> <span class="stats-list-label">Would take again</span>
                 </li>
                 <li>
                   <h1>
@@ -324,6 +337,11 @@ $query_run = mysqli_query($connection, $query);
           echo "No Result";
         }
         ?>
+        
+        <br>
+        <br>
+        <br>
+        <br>
       </div>    
     </div>
 </body>
