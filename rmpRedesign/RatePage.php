@@ -187,22 +187,7 @@ $query_run = mysqli_query($connection, $query);
         </div>
         </div>
         <div>
-            <p class="ml-5"><b>
-              <?php
-
-              $resulted = "SELECT * FROM ratings WHERE professorID = $professorID";
-              $result_run = mysqli_query($connection, $resulted);
-              $check_result = mysqli_num_rows($result_run) >0;
-
-              if($check_result) {
-                while($row = mysqli_fetch_assoc($result_run)){
-                  echo $check_result
-                }
-              }
-
-              echo "$check_result Ratings\n";
-              ?>
-            </b></p>
+            <p class="ml-5"><b> 3 Ratings</b></p>
             <button class="btn btn-outline-secondary whiteButton px-4 ml-5 proxima" type="submit">All Courses</button>
         </div>
 
