@@ -39,7 +39,7 @@
       <ul>
         <?php
         if ($_SERVER["SERVER_NAME"] == "students.gaim.ucf.edu") {
-          if ($_SERVER["SCRIPT_URL"] == "/~ya818631/dig4172C/rmpRedesign/rate.php") {
+          if ($_SERVER["SCRIPT_URL"] == "/~ya818631/dig4172C/rmpRedesign/rateIn.php") {
             //yara
             $connection = mysqli_connect('localhost', 'ya818631', '34096885!Yar', 'ya818631');
           } else {

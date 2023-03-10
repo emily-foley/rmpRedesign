@@ -35,7 +35,7 @@
         <h2 class="text-center topPad proxima-bold pb-3 ">Search a Professor to Compare</h2>
     </div>
 
-    <form method="post" action="twoCompare.php">
+    <form method="post" action="twoCompareIn.php">
     <div class="dropdown">
       <ul>
 

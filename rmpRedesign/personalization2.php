@@ -33,7 +33,7 @@ if (isset($_POST['insertQuiz'])) {
         echo "Error: " . $sql . "<br>" . $connection->error;
     }
 
-    header('Location: index.php');
+    header('Location: indexIn.php');
 
 }
 
