@@ -189,7 +189,7 @@ $query_run = mysqli_query($connection, $query);
         <div>
             <p class="ml-5"><b>
               <?php
-              $number = "SELECT * from ratings";
+              $number = "SELECT * FROM ratings WHERE professorID = $professorID";
 
               if ($resulted = mysqli_query($connnection, $number)) {
               
