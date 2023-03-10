@@ -197,10 +197,10 @@ $query_run = mysqli_query($connection, $query);
                   $rowcount = mysqli_num_rows( $resulted );
                   
                   // Display result
-                  echo $rowcount
+                  printf($rowcount);
                }
               ?>
-            Ratings</b></p>
+            </b></p>
             <button class="btn btn-outline-secondary whiteButton px-4 ml-5 proxima" type="submit">All Courses</button>
         </div>
 
