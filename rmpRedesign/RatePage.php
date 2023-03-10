@@ -215,7 +215,7 @@ $query_run = mysqli_query($connection, $query);
 
                   <div style=' float:left; width: 45%;'>
                   <?php
-                      $rating = "SELECT rating FROM ratings WHERE professorID = $professorID"
+                      $rating = mysqli_query($connection, "SELECT rating FROM ratings WHERE professorID = $professorID"); 
 
                       if ($rating >= 4) {
                           $image = '<span> <img src="images/Awesome.png" alt="Awesome" style="width:5%"> &nbsp <b>Awesome</b></span>';
@@ -228,16 +228,14 @@ $query_run = mysqli_query($connection, $query);
                       echo '<img src="' . $image . '" alt="Rating Image">';
                     ?>
 
-                    <!-- <?php
-                      // $picture = mysqli_query($connection, "SELECT rating FROM ratings WHERE professorID = $professorID"); 
+                      <!-- // $picture = mysqli_query($connection, "SELECT rating FROM ratings WHERE professorID = $professorID"); 
                       // $show = mysqli_fetch_assoc($picture); 
                       // if ($show['rating'] == 1.0 || 2.0) { 
                       //   echo '<span> <img src="images/Awful.png" alt="Awful" style="width:5%"> &nbsp <b>Awful</b>'; 
                       //   } elseif ($show['rating'] == 3.0) 
                       //     { echo '<img src="images/Average.png" alt="Average" style="width:5%"> &nbsp <b>Average</b>'; 
                       //   } elseif($show['rating'] == 4.0 || 5.0)  
-                      //     { echo '<span> <img src="images/Awesome.png" alt="Awesome" style="width:5%"> &nbsp <b>Awesome</b></span>';  }                       
-                    ?>  -->
+                      //     { echo '<span> <img src="images/Awesome.png" alt="Awesome" style="width:5%"> &nbsp <b>Awesome</b></span>';  }                        -->
                   </div>
 
                   <div style='float:left; width: 46%; padding-left: 0px;'>
