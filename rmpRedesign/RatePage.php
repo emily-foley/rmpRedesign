@@ -189,22 +189,10 @@ $query_run = mysqli_query($connection, $query);
         <div>
             <p class="ml-5"><b>
               <?php
-              mysql_select_db("database", $connection);
-
-              $resulted = mysql_query("SELECT * ratings WHERE professorID = $professorID", $connection);
+              $resulted = mysql_query("SELECT * ratings WHERE professorID = $professorID");
               $num_rows = mysql_num_rows($resulted);
 
               echo "$num_rows Ratings\n";
-              // $number = "SELECT * FROM ratings WHERE professorID = $professorID";
-
-              // if ($resulted = mysqli_query($connnection, $number)) {
-              
-              //     // Return the number of rows in result set
-              //     $rowcount = mysqli_num_rows( $resulted );
-                  
-              //     // Display result
-              //     printf($rowcount);
-              //  }
               ?>
             </b></p>
             <button class="btn btn-outline-secondary whiteButton px-4 ml-5 proxima" type="submit">All Courses</button>
