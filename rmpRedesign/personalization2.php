@@ -80,7 +80,7 @@ if (isset($_POST['insertQuiz'])) {
 
     <div>
         <div class="pt-5 justify-content-center">
-            <form action="" method="post">
+            <form class="justify-content-center text-center" action="" method="post">
                 <h2 class="text-center topPad pb-2 proxima-bold">Personalization Quiz</h2>
 
                 <div class="q-container mb-4 w-50 text-center proxima nova">
