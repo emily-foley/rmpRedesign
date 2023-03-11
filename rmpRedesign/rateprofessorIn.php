@@ -44,7 +44,7 @@ $query_run = mysqli_query($connection, $query);
 
 
 ?>
-  
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -74,7 +74,7 @@ $query_run = mysqli_query($connection, $query);
 <body>
 
   <!-- Navbar -->
-  <?php include ('NavbarLoggedIn.php');?>
+  <?php include('NavbarLoggedIn.php'); ?>
   <!-- Navbar -->
 
   <div class="pt-3 justify-content-center">
@@ -219,7 +219,7 @@ $query_run = mysqli_query($connection, $query);
         <textarea name="review" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
         <br>
         <br>
-        <input type="submit" name="insert" value="Submit Rating"
+        <input class="fakeBtnBlue" type="submit" name="insert" value="Submit Rating"
           class="fakeBtnBlue proxima nova text-decoration-none" />
       </div>
       </form>
