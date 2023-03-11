@@ -70,7 +70,7 @@
         </script>-->
 
       </ul>
-      <input type="submit" name="submit" value="Search" />
+      <input class="fakeBtnBlue" type="submit" name="submit" value="Search" />
     </div>
   </form>
 
@@ -87,4 +87,3 @@
   </div>
 
 </body>
-

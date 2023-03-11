@@ -114,7 +114,7 @@ if (isset($_POST['insertQuiz'])) {
                 </div>
             </div>
             <div class="mb-4 w-80 text-center">
-                <input type="submit" name="insertQuiz" value="Submit quiz"
+                <input class="fakeBtnBlue" type="submit" name="insertQuiz" value="Submit quiz"
                     class="fakeBtnBlue proxima nova text-decoration-none" />
 
                 <!-- <a href="indexIn.php"
