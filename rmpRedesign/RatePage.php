@@ -230,6 +230,7 @@ $query_run = mysqli_query($connection, $query);
 
                   <div style=' float:left; width: 45%;'>
                     <?php
+                    // there is a bug
                       $picture = mysqli_query($connection, "SELECT rating FROM ratings WHERE professorID = $professorID"); 
                       $show = mysqli_fetch_assoc($picture); 
                       if ($show['rating'] == 1.0 || 2.0) { 
