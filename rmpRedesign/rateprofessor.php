@@ -219,7 +219,7 @@ $query_run = mysqli_query($connection, $query);
         <textarea name="review" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
         <br>
         <br>
-        <input type="submit" name="insert" value="Submit Rating"
+        <input class="fakeBtnBlue" type="submit" name="insert" value="Submit Rating"
           class="fakeBtnBlue proxima nova text-decoration-none" />
       </div>
       </form>
