@@ -1,3 +1,23 @@
+<?php
+
+
+if ($_SERVER["SERVER_NAME"] == "students.gaim.ucf.edu") {
+  if ($_SERVER["SCRIPT_URL"] == "/~ya818631/dig4172C/rmpRedesign/twoCompare.php") {
+    //yara
+    $connection = mysqli_connect('localhost', 'ya818631', '34096885!Yar', 'ya818631');
+  } else {
+    // $connection = mysqli_connect('localhost', 'em248165', '3535A5F4D0EB4F319A17FBEEF735D58Aa!', 'em248165');
+    $connection = mysqli_connect('localhost', 'root', '', 'rmpaccount');
+  }
+}
+
+// print_r($_POST);
+$professorID = $_POST['searchprof'];
+$query = "SELECT * FROM professors WHERE professorID = $professorID";
+$query_run = mysqli_query($connection, $query);
+
+?> 
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,8 +49,18 @@
 <!-- Navbar -->
 <?php include ('NavbarLoggedIn.php');?>
 <!-- Navbar -->
-
-  <h4 class="mb-4 proxima-bold text-center pt-5">Report a Rating for Leonardo DiCaprio</h4>
+<?php echo "<input type=\"hidden\" name=\"professorID\" value=\"$professorID\">"; ?>
+  <h4 class="mb-4 proxima-bold text-center pt-5">Report a Rating for 
+  <?php
+    if ($query_run->num_rows > 0) {
+    while ($row = $query_run->fetch_assoc()) {
+    echo $row['name'];
+    }
+     } else {
+     echo "No Results";
+     }
+  ?>
+  </h4>
 
   <div class="container mb-4 w-51 proxima nova">
     <div class="row justify-content-md-center">
@@ -42,13 +72,25 @@
                 <div style='float:left; margin-left:30px'>
     
                 <div class="mb-md-4 mt-md-4">
+                <?php 
+        $sql = "SELECT * FROM ratings WHERE professorID = $professorID";
+        $sql_run = mysqli_query($connection, $sql);
+        $check_rating = mysqli_num_rows($sql_run) >0;
+        ?>
     
                   <h5 class="proxima-bold">You are reporting: </h5>
                 </div>
-                  <p>"Attendance isn't mandatory, but if you don't go you'll fall behind. The class was tough and he is very
-                    picky with grading. I still ended up with an A in this class and I felt like I learned a lot. I went to
-                    almost every class, didn't procrastinate and asked questions when needed to. His feedback is helpful but
-                    he can come off as a bit rude."</p>
+                  <p>
+                  <?php
+                  if($check_rating) {
+                    while($row = mysqli_fetch_assoc($sql_run)){
+                      echo $row['review'];
+                 }
+                } else {
+                echo "No Results";
+                }
+                ?>
+                  </p>
     
                   <h5 class="proxima-bold">What is the problem?</h5>
     

@@ -44,7 +44,7 @@
         </li>
         <li class="nav-item me-3 me-lg-0">
           <!-- <img src="images/CompareNav.png"  alt="logo" class="center"> -->
-          <a class="nav-link text-white" href="emptyCompareIn.php"><i class="mx-1"></i> Compare</a>
+          <a class="nav-link text-white" href="oneCompareIn.php"><i class="mx-1"></i> Compare</a>
         </li>
     </div>
 

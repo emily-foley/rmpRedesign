@@ -326,8 +326,17 @@ $query_run = mysqli_query($connection, $query);
                   </div>
 
                   <div style='float:right; margin-right:2%;'>
-                    <a href="report.php" class="text-decoration-none" style="color:black">
+                    <a href="reportIn.php" class="text-decoration-none" style="color:black">
+                    <?php
+                    $result = mysqli_query($connection, "SELECT * FROM professors");
+                    echo "<select id='searchprof' name='searchprof'>";
+                    while ($row = mysqli_fetch_array($result)) {
+                      ?>
                     <p><img src="images/Report.png" alt="Report" style="width:50%"><br>Report</p>
+                    <?php
+                    }
+                    mysqli_close($connection)
+                    ?>
                     </a>
                   </div>
               </div>
