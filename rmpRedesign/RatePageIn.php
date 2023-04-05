@@ -327,8 +327,9 @@ $query_run = mysqli_query($connection, $query);
 
                   <div style='float:right; margin-right:2%;'>
                   <?php echo "<input type=\"hidden\" name=\"professorID\" value=\"$professorID\">"; ?>
-                    <a href="reportIn.php" class="text-decoration-none" style="color:black">
-                    <p><img src="images/Report.png" alt="Report" style="width:50%"><br>Report</p>
+                    <a href="reportIn.php" class="text-decoration-none" style="color:black" <?php echo"<option value=$row[professorID]>$row[name]</option>" ?>>
+                    <?php echo"<option value=$row[professorID]>$row[name]</option>" ?>
+                    <p><img src="images/Report.png" alt="Report" style="width:50%" <?php echo"<option value=$row[professorID]>$row[name]</option>" ?>><br>Report</p>
                     </a>
                   </div>
               </div>
