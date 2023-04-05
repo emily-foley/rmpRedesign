@@ -1,5 +1,5 @@
 <?php
-include('database.php');
+
 
 if ($_SERVER["SERVER_NAME"] == "students.gaim.ucf.edu") {
     if ($_SERVER["SCRIPT_URL"] == "/~ya818631/dig4172C/rmpRedesign/personalization2.php") {
@@ -22,8 +22,8 @@ if (isset($_POST['insertQuiz'])) {
     $totalScore = $q1 + $q2 + $q3 + $q4;
 
     $query = "UPDATE users SET quizScore = $totalScore WHERE user = " . $_SESSION['loggedin'] . "";
-    // echo $query;
-    $query_run = mysqli_query($connection, $query);
+    echo $query;
+    //$query_run = mysqli_query($connection, $query);
 
 
     // $query = "SELECT SUM(answer_value) AS score FROM quiz WHERE (question_id = 1 AND answer_id = $q1) OR (question_id = 2 AND answer_id = $q2)";
@@ -41,7 +41,7 @@ if (isset($_POST['insertQuiz'])) {
         echo "Error: " . $sql . "<br>" . $connection->error;
     }
 
-    header('Location: indexIn.php');
+    // header('Location: indexIn.php');
 
 }
 
@@ -80,43 +80,42 @@ if (isset($_POST['insertQuiz'])) {
     <?php include('NavbarLoggedIn.php'); ?>
     <!-- Navbar -->
 
-
     <div class="pt-5 justify-content-center">
         <form class="justify-content-center text-center" action="" method="post">
             <h2 class="text-center topPad pb-2 proxima-bold">Personalization Quiz</h2>
 
-            <div class="q-container mb-4 w-50 text-center proxima nova">
+            <div class="q-container text-center proxima nova">
                 <h5>I prefer...</h5>
                 <div class="questions">
-                    <input type="radio" name="q1" id="question1" value="1"><label>Group
+                    <input type="radio" name="q1" id="question1" value="1" require><label>Group
                         Projects</label>
-                    <input type="radio" name="q1" id="question2" value="2"><label>Individual
+                    <input type="radio" name="q1" id="question2" value="2" require><label>Individual
                         work</label>
                 </div>
             </div>
-            <div class="q-container mb-4 w-50 text-center proxima nova">
+            <div class="q-container text-center proxima nova">
                 <h5>I prefer to attend classes...</h5>
                 <div class="questions">
-                    <input type="radio" name="q2" id="question3" value="1"><label>Online</label>
-                    <input type="radio" name="q2" id="question4" value="2"><label>In person</label>
+                    <input type="radio" name="q2" id="question3" value="1" require><label>Online</label>
+                    <input type="radio" name="q2" id="question4" value="2" require><label>In person</label>
                 </div>
             </div>
-            <div class="q-container mb-4 w-50 text-center proxima nova">
+            <div class="q-container text-center proxima nova">
                 <h5>I would rather learn from...</h5>
                 <div class="questions">
-                    <input type="radio" name="q3" id="question1" value="1"><label>Reading</label>
-                    <input type="radio" name="q3" id="question1" value="2"><label>Lectures</label>
+                    <input type="radio" name="q3" id="question1" value="1" require><label>Reading</label>
+                    <input type="radio" name="q3" id="question1" value="2" require><label>Lectures</label>
                 </div>
             </div>
-            <div class="q-container mb-4 w-50 text-center proxima nova">
+            <div class="q-container text-center proxima nova">
                 <h5>I prefer a class with mostly...</h5>
                 <div class="questions">
-                    <input type="radio" name="q4" id="question1" value="1">
+                    <input type="radio" name="q4" id="question1" value="1" require>
                     <label>Essays</label>
-                    <input type="radio" name="q4" id="question1" value="2"><label>Quizzes</label>
+                    <input type="radio" name="q4" id="question1" value="2" require><label>Quizzes</label>
                 </div>
             </div>
-            <div class="mb-4 w-80 text-center">
+            <div class=" text-center">
                 <input class="fakeBtnBlue" type="submit" name="insertQuiz" value="Submit quiz"
                     class="fakeBtnBlue proxima nova text-decoration-none" />
 
