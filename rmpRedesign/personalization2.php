@@ -1,5 +1,5 @@
 <?php
-
+include('database.php');
 
 if ($_SERVER["SERVER_NAME"] == "students.gaim.ucf.edu") {
     if ($_SERVER["SCRIPT_URL"] == "/~ya818631/dig4172C/rmpRedesign/personalization2.php") {
@@ -22,8 +22,8 @@ if (isset($_POST['insertQuiz'])) {
     $totalScore = $q1 + $q2 + $q3 + $q4;
 
     $query = "UPDATE users SET quizScore = $totalScore WHERE user = " . $_SESSION['loggedin'] . "";
-    echo $query;
-    //$query_run = mysqli_query($connection, $query);
+    // echo $query;
+    $query_run = mysqli_query($connection, $query);
 
 
     // $query = "SELECT SUM(answer_value) AS score FROM quiz WHERE (question_id = 1 AND answer_id = $q1) OR (question_id = 2 AND answer_id = $q2)";
@@ -41,7 +41,7 @@ if (isset($_POST['insertQuiz'])) {
         echo "Error: " . $sql . "<br>" . $connection->error;
     }
 
-    // header('Location: indexIn.php');
+    header('Location: indexIn.php');
 
 }
 
