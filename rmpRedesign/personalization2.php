@@ -1,5 +1,5 @@
 <?php
-
+include('database.php');
 
 if ($_SERVER["SERVER_NAME"] == "students.gaim.ucf.edu") {
     if ($_SERVER["SCRIPT_URL"] == "/~ya818631/dig4172C/rmpRedesign/personalization2.php") {
