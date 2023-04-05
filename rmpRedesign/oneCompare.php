@@ -74,11 +74,14 @@ $query_run = mysqli_query($connection, $query);
                 </li>
               </ul>
 
+              <br>
+              <br>
+
               <div style='float:left; width: 80%; margin-left:30px'>
               <p class="greyText">Full details</p>
               </div>
               <div style='float:right; width: 10%'>
-                <a href="emptyCompare.html" class="text-decoration-none">
+                <a href="emptyCompare.php" class="text-decoration-none">
                 <img src="images/Trash.png" alt="Trash" >
                 </a>
             </div>

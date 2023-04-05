@@ -36,7 +36,7 @@
 
     <div class="container">
     <div class="row ">
-        <div class="column greyBg mx-10 "><a href="compare.php" class="text-decoration-none"><h1 class="display-1 proxima-bold blue" >+</h1></div></a>
+        <div class="column greyBg mx-10 "><a href="oneCompare.php" class="text-decoration-none"><h1 class="display-1 proxima-bold blue" >+</h1></div></a>
         <div class="column greyBg mx-10 "><h1 class="display-1 proxima-bold blue">+</h1></div>
     </div>
     </div>
