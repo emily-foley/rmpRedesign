@@ -326,7 +326,7 @@ $query_run = mysqli_query($connection, $query);
                   </div>
 
                   <div style='float:right; margin-right:2%;'>
-                    <a href="report.php" class="text-decoration-none" style="color:black">
+                    <a href="reportIn.php" class="text-decoration-none" style="color:black">
                     <p><img src="images/Report.png" alt="Report" style="width:50%"><br>Report</p>
                     </a>
                   </div>
