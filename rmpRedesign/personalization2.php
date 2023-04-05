@@ -11,16 +11,19 @@ if ($_SERVER["SERVER_NAME"] == "students.gaim.ucf.edu") {
     }
 }
 
+
+
 if (isset($_POST['insertQuiz'])) {
     $q1 = $_POST['q1'];
     $q2 = $_POST['q2'];
     $q3 = $_POST['q3'];
     $q4 = $_POST['q4'];
 
-    $query = "INSERT INTO personalization (q1,q2,q3,q4) VALUES ('$q1','$q2','$q3','$q4')";
-    $query_run = mysqli_query($connection, $query);
+    $totalScore = $q1 + $q2 + $q3 + $q4;
 
-    // $totalScore = $q1 + $q2 + $q3 + $q4;
+    $query = "UPDATE users SET quizScore = $totalScore WHERE user = " . $_SESSION['loggedin'] . "";
+    echo $query;
+    //$query_run = mysqli_query($connection, $query);
 
 
     // $query = "SELECT SUM(answer_value) AS score FROM quiz WHERE (question_id = 1 AND answer_id = $q1) OR (question_id = 2 AND answer_id = $q2)";
