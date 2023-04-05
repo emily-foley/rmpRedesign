@@ -46,13 +46,13 @@ if (isset($_POST['regsubmit'])) {
 
 		$password = password_hash($password, PASSWORD_DEFAULT);
 
-		$sql = "INSERT INTO users (email, password, re_password) VALUES ('$email', '$password', '$re_password')";
+		$sql = "INSERT INTO users (email, password, re_password, quizScore) VALUES ('$email', '$password', '$re_password', 0)";
 
 		mysqli_query($connection, $sql);
 
 		$_SESSION['loggedin'] = $email;
 
-            header('location: personalization.php');
+		header('location: personalization.php');
 
 	}
 
