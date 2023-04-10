@@ -85,6 +85,10 @@ $query_run = mysqli_query($connection, $query);
                 <img src="images/Trash.png" alt="Trash" >
                 </a>
             </div>
+
+            <br>
+            <br>
+            
         </div>
         <div class="column greyBg mx-10 "><a href="compare2In.php" class="text-decoration-none"><h1 class="display-1 proxima-bold blue">+</h1></a></div>
     </div>
