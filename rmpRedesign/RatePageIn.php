@@ -234,11 +234,12 @@ $query_run = mysqli_query($connection, $query);
                       $picture = mysqli_query($connection, "SELECT rating FROM ratings WHERE professorID = $professorID"); 
                       $show = mysqli_fetch_assoc($picture); 
                       if ($show['rating'] == 1.0 || 2.0) { 
-                        echo '<span> <img src="images/Awful.png" alt="Awful" style="width:5%"> &nbsp <b>Awful</b>'; 
+                        echo '<span><img src="images/Awful.png" alt="Awful" style="width:5%"> &nbsp <b style="color:red">Awful</b></span>'; 
+                        //<span> <img src="images/Awful.png" alt="Awful" style="width:5%"> &nbsp 
                         } elseif ($show['rating'] == 3.0) 
-                          { echo '<img src="images/Average.png" alt="Average" style="width:5%"> &nbsp <b>Average</b>'; 
+                          { echo '<span><img src="images/Average.png" alt="Average" style="width:5%"> &nbsp <b style="color:yellow">Average</b></span>'; 
                         } elseif($show['rating'] == 4.0 || 5.0)  
-                          { echo '<span> <img src="images/Awesome.png" alt="Awesome" style="width:5%"> &nbsp <b>Awesome</b></span>';  }                       
+                          { echo '<span><img src="images/Awesome.png" alt="Awesome" style="width:5%"> &nbsp <b style="color:green">Awesome</b></span>';  }                       
                     ?> 
                   </div>
 
