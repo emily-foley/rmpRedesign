@@ -92,7 +92,7 @@ $query_run = mysqli_query($connection, $query);
                 <li>
                 <h1>
                       <?php
-                    $seql = "SELECT COUNT(*) AS total_answers, SUM(again='Yes') AS total_yes FROM ratings WHERE professorID = $professorID";
+                    $seql = "SELECT ROUND(COUNT(*),1) AS total_answers, SUM(again='Yes') AS total_yes FROM ratings WHERE professorID = $professorID";
                     $reslt = mysqli_query($connection, $seql);
                     
                     if (!$reslt) {
@@ -120,22 +120,6 @@ $query_run = mysqli_query($connection, $query);
                   </h1> <span class="stats-list-label">Level of dificulty</span>
                 </li>
               </ul>
-
-              <!-- <div style='float:left; width: 40.5%'>
-                <p class="greyText">Professors Top Tags</p>
-                </div>
-
-             <div style='float:left; width:60%'>
-              <span class="badgepos" style='float:left; margin-right: 10px;'>Gives Feedback</span>
-              <span class="badgepos" style='float:left'>Caring</span>
-              <br>
-              <br>
-              <span class="badgeneg" style='float:left; margin-right: 10px;'>Tough Grader</span>
-              <span class="badgeneg" style='float:left'>Reading Heavy</span>
-            </div>
-              <br>
-              <br> -->
-
 
         <!-- Side Bar graph -->
         </div>

@@ -93,7 +93,7 @@ $query_run = mysqli_query($connection, $query);
                 <li>
                 <h1>
                       <?php
-                    $seql = "SELECT COUNT(*) AS total_answers, SUM(again='Yes') AS total_yes FROM ratings WHERE professorID = $professorID";
+                    $seql = "SELECT ROUND(COUNT(*),1) AS total_answers, SUM(again='Yes') AS total_yes FROM ratings WHERE professorID = $professorID";
                     $reslt = mysqli_query($connection, $seql);
                     
                     if (!$reslt) {
