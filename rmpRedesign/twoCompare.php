@@ -80,11 +80,11 @@ $query_run = mysqli_query($connection, $query);
               <div style='float:left; width: 80%; margin-left:30px'>
               <p class="greyText">Full details</p>
               </div>
-              <div style='float:right; width: 10%'>
-                <a href="emptyCompare.php" class="text-decoration-none">
-                <img src="images/Trash.png" alt="Trash" >
+              <div style='float:right; width: 5%'>
+                <a href="oneCompare.php" class="text-decoration-none">
+                <img src="images/Trash.png" style="width: 110%" alt="Trash" >
                 </a>
-            </div>
+              </div>
     </div>
 
         <div class="column2 greyBg mx-10 ">
@@ -118,7 +118,22 @@ $query_run = mysqli_query($connection, $query);
             </div>
             <ul class="stats-list">
                 <li>
-                  <h1>54%</h1> <span class="stats-list-label">Would take again</span>
+                  <h1>
+                  <?php
+                   $seql = "SELECT COUNT(*) AS total_answers, SUM(again='Yes') AS total_yes FROM ratings WHERE professorID = $professorID";
+                   $reslt = mysqli_query($connection, $seql);
+                   
+                   if (!$reslt) {
+                       die("Query failed: " . mysqli_error($connection));
+                   }
+                   
+                   $rowz = mysqli_fetch_assoc($reslt);
+                   
+                   $percentage_yes = ($rowz['total_yes'] / $rowz['total_answers']) * 100;
+                   
+                   echo round($percentage_yes, 1) . "<b>%</b>";                   
+                    ?>
+                  </h1> <span class="stats-list-label">Would take again</span>
                 </li>
                 <li>
                   <h1>
@@ -140,11 +155,11 @@ $query_run = mysqli_query($connection, $query);
               <div style='float:left; width: 80%; margin-left:30px'>
               <p class="greyText">Full details</p>
               </div>
-              <div style='float:right; width: 10%'>
+              <div style='float:right; width: 5%'>
                 <a href="oneCompare.php" class="text-decoration-none">
-                <img src="images/Trash.png" alt="Trash" >
+                <img src="images/Trash.png" style="width: 110%" alt="Trash" >
                 </a>
-            </div>
+              </div>
             </div>
     </div>
     </div>
