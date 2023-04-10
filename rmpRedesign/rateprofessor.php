@@ -46,7 +46,7 @@ if (isset($_POST['insert'])) {
     // Insert data into database
     $professorID = mysqli_real_escape_string($connection, $_POST['professorID']);
     $course = mysqli_real_escape_string($connection, $_POST['course']);
-    $online = mysqli_real_escape_string($connection, $_POST['online']);
+    $online = isset($_POST['online']) ? 1 : 0;
     $rating = mysqli_real_escape_string($connection, $_POST['rating']);
     $difficulty = mysqli_real_escape_string($connection, $_POST['difficulty']);
     $again = mysqli_real_escape_string($connection, $_POST['again']);
@@ -62,15 +62,19 @@ if (isset($_POST['insert'])) {
     header('Location: RatingSubmitted.php');
     exit();
 } else {
-    echo "Error: " . $query . "<br>" . $connection->error;
+    echo "Error: " . $query . "<br>" . mysqli_error($connection);
 }
 }
 
 
 // print_r($_POST);
-$professorID = $_POST['searchprof'];
-$query = "SELECT * FROM professors WHERE professorID = $professorID";
-$query_run = mysqli_query($connection, $query);
+
+
+if (isset($_POST['searchprof'])) {
+  $professorID = mysqli_real_escape_string($connection, $_POST['searchprof']);
+  $query = "SELECT * FROM professors WHERE professorID = '$professorID'";
+}
+
 
 }
 ?>
