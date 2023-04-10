@@ -140,11 +140,11 @@ $query_run = mysqli_query($connection, $query);
               <div style='float:left; width: 80%; margin-left:30px'>
               <p class="greyText">Full details</p>
               </div>
-              <div style='float:right; width: 10%'>
-                <a href="oneCompareIn.php" class="text-decoration-none">
-                <img src="images/Trash.png" alt="Trash" >
+              <div style='float:right; width: 5%'>
+                <a href="OneCompareIn.php" class="text-decoration-none">
+                <img src="images/Trash.png" style="width: 110%" alt="Trash" >
                 </a>
-            </div>
+              </div>
             </div>
     </div>
     </div>
