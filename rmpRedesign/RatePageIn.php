@@ -311,9 +311,11 @@ $query_run = mysqli_query($connection, $query);
                   <div style='float:right; margin-right:2%;'>
                     <a class="text-decoration-none" style="color:black">
                     <?php
-                     echo "<td><a href='reportIn.php?id=" . $row["id"] . "'>Report</a></td>";
+                     echo 
+                     ?> <img src="images/Report.png" alt="Report" style="width:50%">
+                     <?php
+                     "<td><a href='reportIn.php?id=" . $row["ratingID"] . "'>Report</a></td>";
                     ?>
-                    <p><img src="images/Report.png" alt="Report" style="width:50%"><br>Report</p>
                     </a>
                   </div>
               </div>
