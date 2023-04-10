@@ -91,8 +91,7 @@ $query_run = mysqli_query($connection, $query);
             
             <ul class="stats-list" style='float:left; width:60%'>
                 <li>
-                  <h1>
-                    <!-- 54% -->
+                <h1>
                       <?php
                     $seql = "SELECT COUNT(*) AS total_answers, SUM(again='Yes') AS total_yes FROM ratings WHERE professorID = $professorID";
                     $reslt = mysqli_query($connection, $seql);
@@ -105,7 +104,7 @@ $query_run = mysqli_query($connection, $query);
 
                     $percentage_yes = ($rowz['total_yes'] / $rowz['total_answers']) * 100;
 
-                    echo $percentage_yes; 
+                    echo $percentage_yes?><b>%</b> <?php; 
                     ?>
                   </h1> <span class="stats-list-label">Would take again</span>
                 </li>
@@ -122,21 +121,6 @@ $query_run = mysqli_query($connection, $query);
                   </h1> <span class="stats-list-label">Level of dificulty</span>
                 </li>
               </ul>
-
-              <!-- <div style='float:left; width: 40.5%'>
-                <p class="greyText">Professors Top Tags</p>
-                </div>
-
-             <div style='float:left; width:60%'>
-              <span class="badgepos" style='float:left; margin-right: 10px;'>Gives Feedback</span>
-              <span class="badgepos" style='float:left'>Caring</span>
-              <br>
-              <br>
-              <span class="badgeneg" style='float:left; margin-right: 10px;'>Tough Grader</span>
-              <span class="badgeneg" style='float:left'>Reading Heavy</span>
-            </div>
-              <br>
-              <br> -->
 
 
         <!-- Side Bar graph -->
@@ -232,17 +216,12 @@ $query_run = mysqli_query($connection, $query);
 
                   <div style=' float:left; width: 45%;'>
                     <?php
-                      //$rate = mysqli_query($connection, "SELECT rating FROM ratings WHERE professorID = $professorID"); 
-                      //$show = mysqli_fetch_assoc($rate); 
-                      if ($row['rating'] == 1.0 || 2.0) { 
-                        echo '<b>Awful</b>'; 
-                        //<span> <img src="images/Awful.png" alt="Awful" style="width:5%"> &nbsp </span>
-                        } elseif ($row['rating'] == 3.0) 
-                          { echo '<b>Average</b>'; 
-                            //<span><img src="images/Average.png" alt="Average" style="width:5%"> &nbsp 
-                        } elseif($row['rating'] == 4.0 || 5.0)  
-                          { echo '<b>Awesome</b>';  }  
-                          //<span><img src="images/Awesome.png" alt="Awesome" style="width:5%"> &nbsp                      
+                      if ($row['rating'] == 1.0 || $row['rating'] == 2.0) { 
+                        echo '<img src="images/Awful.png" alt="Awful" style="width:5%"> &nbsp <b>Awful</b>'; 
+                        } else if ($row['rating'] == 3.0) 
+                          { echo '<img src="images/Average.png" alt="Average" style="width:5%"> &nbsp <b>Average</b>'; 
+                        } else if($row['rating'] == 4.0 || $row['rating'] == 5.0)  
+                          { echo '<img src="images/Awesome.png" alt="Awesome" style="width:5%"> &nbsp <b>Awesome</b>';  }                  
                     ?> 
                   </div>
 
