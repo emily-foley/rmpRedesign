@@ -10,31 +10,55 @@ if ($_SERVER["SERVER_NAME"] == "students.gaim.ucf.edu") {
     $connection = mysqli_connect('localhost', 'root', '', 'rmpaccount');
   }
 }
+$errors = array();
 
 if (isset($_POST['insert'])) {
-  $professorID = $_POST['professorID'];
-  $course = $_POST['course'];
-  $online = $_POST['online'];
-  $rating = $_POST['rating'];
-  $difficulty = $_POST['difficulty'];
-  $again = $_POST['again'];
-  $textbooks = $_POST['textbooks'];
-  $grade = $_POST['grade'];
-  $review = $_POST['review'];
-  $date = date("Y-M-D");
+  // Check if all required fields have been filled in
+  if (empty($_POST['professorID'])) {
+    $errors[] = "Professor ID is required";
+  }
+  if (empty($_POST['course'])) {
+    $errors[] = "Course is required";
+  }
+  if (empty($_POST['rating'])) {
+    $errors[] = "Rating is required";
+  }
+  if (empty($_POST['difficulty'])) {
+    $errors[] = "Difficulty is required";
+  }
+  if (empty($_POST['again'])) {
+    $errors[] = "Would take again is required";
+  }
+  if (empty($_POST['textbooks'])) {
+    $errors[] = "Textbooks is required";
+  }
+  if (empty($_POST['grade'])) {
+    $errors[] = "Grade received is required";
+  }
+  if (empty($_POST['review'])) {
+    $errors[] = "Review is required";
+  }
+  // Validate input fields
+  if (!empty($_POST['rating']) && ($_POST['rating'] < 1 || $_POST['rating'] > 5)) {
+    $errors[] = "Rating must be between 1 and 5";
+  }
+  $date = date("Y-m-d");
   // $created_at = NULL;
 
-  $query = "INSERT INTO ratings (ratingID,professorID,course,online,rating,difficulty,again,textbooks,grade,review,date) VALUES (NULL,'$professorID','$course','$online','$rating','$difficulty','$again','$textbooks','$grade','$review', NOW() )";
+  if (empty($errors)) {
+    // Insert data into database
+    $query = "INSERT INTO ratings (ratingID,professorID,course,online,rating,difficulty,again,textbooks,grade,review,date) VALUES (NULL,'$professorID','$course','$online','$rating','$difficulty','$again','$textbooks','$grade','$review', NOW() )";
   $query_run = mysqli_query($connection, $query);
 
-  if ($connection->query($sql) === true) {
+  if ($connection->query($query) === true) {
     echo "data inserted successfully";
-  } else {
-    echo "Error: " . $sql . "<br>" . $connection->error;
-  }
+} else {
+    echo "Error: " . $query . "<br>" . $connection->error;
+}
 
   header('Location: RatingSubmitted.php');
 
+}
 }
 
 // print_r($_POST);
