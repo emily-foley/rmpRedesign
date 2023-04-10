@@ -42,12 +42,19 @@ if (isset($_POST['insert'])) {
   if (!empty($_POST['rating']) && ($_POST['rating'] < 1 || $_POST['rating'] > 5)) {
     $errors[] = "Rating must be between 1 and 5";
   }
-  $date = date("Y-m-d");
-  // $created_at = NULL;
-
   if (empty($errors)) {
     // Insert data into database
-    $query = "INSERT INTO ratings (ratingID,professorID,course,online,rating,difficulty,again,textbooks,grade,review,date) VALUES (NULL,'$professorID','$course','$online','$rating','$difficulty','$again','$textbooks','$grade','$review', NOW() )";
+    $professorID = mysqli_real_escape_string($connection, $_POST['professorID']);
+    $course = mysqli_real_escape_string($connection, $_POST['course']);
+    $online = mysqli_real_escape_string($connection, $_POST['online']);
+    $rating = mysqli_real_escape_string($connection, $_POST['rating']);
+    $difficulty = mysqli_real_escape_string($connection, $_POST['difficulty']);
+    $again = mysqli_real_escape_string($connection, $_POST['again']);
+    $textbooks = mysqli_real_escape_string($connection, $_POST['textbooks']);
+    $grade = mysqli_real_escape_string($connection, $_POST['grade']);
+    $review = mysqli_real_escape_string($connection, $_POST['review']);
+    $date = date("Y-m-d");
+    $query = "INSERT INTO ratings (ratingID,professorID,course,online,rating,difficulty,again,textbooks,grade,review,date, created_at) VALUES ('$professorID','$course','$online','$rating','$difficulty','$again','$textbooks','$grade','$review', NOW() )";
   $query_run = mysqli_query($connection, $query);
 
   if ($connection->query($query) === true) {
