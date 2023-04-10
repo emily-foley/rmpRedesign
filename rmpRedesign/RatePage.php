@@ -103,7 +103,7 @@ $query_run = mysqli_query($connection, $query);
 
                     $percentage_yes = ($rowz['total_yes'] / $rowz['total_answers']) * 100;
 
-                    echo $percentage_yes ?> <b>%</b> <?php; 
+                    echo $percentage_yes?><b>%</b> <?php; 
                     ?>
                   </h1> <span class="stats-list-label">Would take again</span>
                 </li>
@@ -230,17 +230,12 @@ $query_run = mysqli_query($connection, $query);
 
                   <div style=' float:left; width: 45%;'>
                     <?php
-                      //$rate = mysqli_query($connection, "SELECT rating FROM ratings WHERE professorID = $professorID"); 
-                      //$show = mysqli_fetch_assoc($rate); 
-                      if ($row['rating'] == 1.0 || 2.0) { 
+                      if ($row['rating'] == 1.0 || $row['rating'] == 2.0) { 
                         echo '<b>Awful</b>'; 
-                        //<span> <img src="images/Awful.png" alt="Awful" style="width:5%"> &nbsp </span>
                         } else if ($row['rating'] == 3.0) 
                           { echo '<b>Average</b>'; 
-                            //<span><img src="images/Average.png" alt="Average" style="width:5%"> &nbsp 
-                        } else if($row['rating'] == 4.0 || 5.0)  
-                          { echo '<b>Awesome</b>';  }  
-                          //<span><img src="images/Awesome.png" alt="Awesome" style="width:5%"> &nbsp                      
+                        } else if($row['rating'] == 4.0 || $row['rating'] == 5.0)  
+                          { echo '<b>Awesome</b>';  }                  
                     ?> 
                   </div>
 
