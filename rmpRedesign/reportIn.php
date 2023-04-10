@@ -11,17 +11,17 @@ if ($_SERVER["SERVER_NAME"] == "students.gaim.ucf.edu") {
   }
 }
 
-// print_r($_POST);
-//$professorID = $_POST['searchprof'];
-//$query = "SELECT * FROM professors WHERE professorID = $professorID";
-//$query_run = mysqli_query($connection, $query);
+print_r($_POST);
+$professorID = $_POST['searchprof'];
+$query = "SELECT * FROM professors WHERE professorID = $professorID";
+$query_run = mysqli_query($connection, $query);
 
 // Retrieve reviewID from POST request
-$reviewID = $_POST['reviewID'];
+$ratingID = $_POST['ratingID'];
 
 // Query the database for review details
-$query = "SELECT * FROM ratings WHERE ratingID = $ratingID";
-$result = mysqli_query($connection, $query);
+$query2 = "SELECT * FROM ratings WHERE ratingID = $ratingID";
+$result = mysqli_query($connection, $query2);
 
 ?>
 
@@ -97,8 +97,8 @@ $result = mysqli_query($connection, $query);
                 //echo "No Results";
                 //}
                 if (mysqli_num_rows($rating) > 0) {
-                  $row = mysqli_fetch_assoc($rating);
-                  echo "<p>" . $row["review"] . "</p>";
+                  $row2 = mysqli_fetch_assoc($rating);
+                  echo "<p>" . $row2["review"] . "</p>";
                 } else {
                   echo "Rating not found.";
                 }
