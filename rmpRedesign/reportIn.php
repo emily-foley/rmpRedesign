@@ -16,9 +16,14 @@ if ($_SERVER["SERVER_NAME"] == "students.gaim.ucf.edu") {
 //$query = "SELECT * FROM professors WHERE professorID = $professorID";
 //$query_run = mysqli_query($connection, $query);
 
-$rating_id = $_GET["id"];
-$rating = mysqli_query($connection, "SELECT review FROM ratings WHERE id = $rating_id");
-?> 
+// Retrieve reviewID from POST request
+$reviewID = $_POST['reviewID'];
+
+// Query the database for review details
+$query = "SELECT * FROM ratings WHERE ratingID = $ratingID";
+$result = mysqli_query($connection, $query);
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -94,20 +99,23 @@ $rating = mysqli_query($connection, "SELECT review FROM ratings WHERE id = $rati
                 if (mysqli_num_rows($rating) > 0) {
                   $row = mysqli_fetch_assoc($rating);
                   echo "<p>" . $row["review"] . "</p>";
-                  echo "<form method='post' action='report_submit.php'>";
-                  echo "<input type='hidden' name='rating_id' value='" . $row["id"] . "'>";
-                  ?>
-                  <h5 class="proxima-bold">What is the problem?</h5>
-                  <p>If you think this comment is inconsistent with Rate My Professors' Site Guidelines, report it and tell
-                  us why.</p>
-                  <?php
-                  echo "<textarea name='report_description'></textarea>";
-                  echo "<input type='submit' value='Submit Report'>";
-                  echo "</form>";
                 } else {
                   echo "Rating not found.";
                 }
                 ?>
+                    <h5 class="proxima-bold">What is the problem?</h5>
+
+                    <p>If you think this comment is inconsistent with Rate My Professors' Site Guidelines, report it and tell
+                      us why.</p>
+                    </div>    
+                    <div class="col-md-7">
+                    <input class="resizedTextbox" type="text" placeholder="Tell us what is wrong with this comment...">
+                    </div>
+                    <div class="mb-4 text-center proxima nova">
+
+                    <div class="mt-5">
+                      <a href="reportSubmittedIn.php" class="fakeBtnBlue proxima btn-lg py-1 px-5 mt-3 mb-3 text-decoration-none">Submit</a>
+                    </div>
                   <div class="mb-4 text-center proxima nova">
                   <p class="pb-lg-2 mt-3">
                     <a class="proxima greyText text-decoration-none" href="RatePageIn.php">Cancel</a>
