@@ -103,7 +103,7 @@ $query_run = mysqli_query($connection, $query);
 
                     $percentage_yes = ($rowz['total_yes'] / $rowz['total_answers']) * 100;
 
-                    echo $percentage_yes; 
+                    echo $percentage_yes ?> <b>%</b> <?php; 
                     ?>
                   </h1> <span class="stats-list-label">Would take again</span>
                 </li>
