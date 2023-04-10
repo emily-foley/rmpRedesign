@@ -92,19 +92,19 @@ $query_run = mysqli_query($connection, $query);
             <ul class="stats-list" style='float:left; width:60%'>
                 <li>
                 <h1>
-                      <?php
-                    $seql = "SELECT COUNT(*) AS total_answers, SUM(again='Yes') AS total_yes FROM ratings WHERE professorID = $professorID";
-                    $reslt = mysqli_query($connection, $seql);
-                    
-                    if (!$reslt) {
-                        die("Query failed: " . mysqli_error($connection));
-                    }
-                    
-                    $rowz = mysqli_fetch_assoc($reslt);
-                    
-                    $percentage_yes = ($rowz['total_yes'] / $rowz['total_answers']) * 100;
-                    
-                    echo round($percentage_yes, 1) . "<b>%</b>";                    
+                <?php
+                   $seql = "SELECT COUNT(*) AS total_answers, SUM(again='Yes') AS total_yes FROM ratings WHERE professorID = $professorID";
+                   $reslt = mysqli_query($connection, $seql);
+                   
+                   if (!$reslt) {
+                       die("Query failed: " . mysqli_error($connection));
+                   }
+                   
+                   $rowz = mysqli_fetch_assoc($reslt);
+                   
+                   $percentage_yes = ($rowz['total_yes'] / $rowz['total_answers']) * 100;
+                   
+                   echo round($percentage_yes, 1) . "<b>%</b>";                   
                     ?>
                   </h1> <span class="stats-list-label">Would take again</span>
                 </li>
@@ -310,11 +310,9 @@ $query_run = mysqli_query($connection, $query);
 
                   <div style='float:right; margin-right:2%;'>
                     <a class="text-decoration-none" style="color:black">
+                    <p><img src="images/Report.png" alt="Report" style="width:50%"></p>
                     <?php
-                     echo 
-                     ?> <img src="images/Report.png" alt="Report" style="width:50%">
-                     <?php
-                     "<td><a href='reportIn.php?id=" . $row["ratingID"] . "'>Report</a></td>";
+                     echo "<td><a href='reportIn.php?id=" . $row["ratingID"] . "'>Report</a></td>";
                     ?>
                     </a>
                   </div>
