@@ -85,6 +85,8 @@ $query_run = mysqli_query($connection, $query);
                 <img src="images/Trash.png" style="width: 110%" alt="Trash" >
                 </a>
               </div>
+              <br>
+            <br>
     </div>
 
         <div class="column2 greyBg mx-10 ">
@@ -160,6 +162,8 @@ $query_run = mysqli_query($connection, $query);
                 <img src="images/Trash.png" style="width: 110%" alt="Trash" >
                 </a>
               </div>
+              <br>
+            <br>
             </div>
     </div>
     </div>
