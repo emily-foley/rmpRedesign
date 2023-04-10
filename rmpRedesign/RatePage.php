@@ -231,11 +231,11 @@ $query_run = mysqli_query($connection, $query);
                   <div style=' float:left; width: 45%;'>
                     <?php
                       if ($row['rating'] == 1.0 || $row['rating'] == 2.0) { 
-                        echo '<b>Awful</b>'; 
+                        echo '<img src="images/Awful.png" alt="Awful" style="width:5%"> &nbsp <b>Awful</b>'; 
                         } else if ($row['rating'] == 3.0) 
-                          { echo '<b>Average</b>'; 
+                          { echo '<img src="images/Average.png" alt="Average" style="width:5%"> &nbsp <b>Average</b>'; 
                         } else if($row['rating'] == 4.0 || $row['rating'] == 5.0)  
-                          { echo '<b>Awesome</b>';  }                  
+                          { echo '<img src="images/Awesome.png" alt="Awesome" style="width:5%"> &nbsp <b>Awesome</b>';  }                  
                     ?> 
                   </div>
 
