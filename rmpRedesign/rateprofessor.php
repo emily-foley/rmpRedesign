@@ -54,26 +54,25 @@ if (isset($_POST['insert'])) {
     $grade = mysqli_real_escape_string($connection, $_POST['grade']);
     $review = mysqli_real_escape_string($connection, $_POST['review']);
     $date = date("Y-m-d");
-    $query = "INSERT INTO ratings (ratingID,professorID,course,online,rating,difficulty,again,textbooks,grade,review,date, created_at) VALUES ('$professorID','$course','$online','$rating','$difficulty','$again','$textbooks','$grade','$review', NOW() )";
+    $query = "INSERT INTO ratings (ratingID,professorID,course,online,rating,difficulty,again,textbooks,grade,review,date, created_at) VALUES (NULL,'$professorID','$course','$online','$rating','$difficulty','$again','$textbooks','$grade','$review', '$date', now())";
   $query_run = mysqli_query($connection, $query);
 
-  if ($connection->query($query) === true) {
+  if ($query_run === true) {
     echo "data inserted successfully";
+    header('Location: RatingSubmitted.php');
+    exit();
 } else {
     echo "Error: " . $query . "<br>" . $connection->error;
 }
-
-  header('Location: RatingSubmitted.php');
-
 }
-}
+
 
 // print_r($_POST);
 $professorID = $_POST['searchprof'];
 $query = "SELECT * FROM professors WHERE professorID = $professorID";
 $query_run = mysqli_query($connection, $query);
 
-
+}
 ?>
 
 <!DOCTYPE html>
