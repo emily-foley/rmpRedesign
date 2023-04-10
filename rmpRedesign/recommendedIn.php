@@ -27,7 +27,7 @@
 <body>
 
 <!-- Navbar -->
-<?php include ('NavbarLoggedIn.php');?>
+<?php include('NavbarLoggedIn.php'); ?>
 <!-- Navbar -->
 
 
