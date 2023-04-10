@@ -17,7 +17,7 @@ if ($_SERVER["SERVER_NAME"] == "students.gaim.ucf.edu") {
 //$query_run = mysqli_query($connection, $query);
 
 $rating_id = $_GET["id"];
-$rating = mysqli_query($connection, "SELECT * FROM ratings WHERE id = $rating_id");
+$rating = mysqli_query($connection, "SELECT review FROM ratings WHERE id = $rating_id");
 ?> 
 
 <!DOCTYPE html>
