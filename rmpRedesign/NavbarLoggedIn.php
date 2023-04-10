@@ -49,7 +49,7 @@
     </div>
 
     <li class="nav-item noBullet">
-      <a class="fakeBtn2 nav-link" href="logout.php"><i class="mx-1"></i>Logout</a>
+      <a class="fakeBtn2 nav-link" href="logout.php">Logout</a>
     </li>
     </ul>
 
