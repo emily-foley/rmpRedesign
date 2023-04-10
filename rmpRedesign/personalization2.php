@@ -1,4 +1,5 @@
 <?php
+
 include('database.php');
 
 if ($_SERVER["SERVER_NAME"] == "students.gaim.ucf.edu") {
@@ -11,8 +12,6 @@ if ($_SERVER["SERVER_NAME"] == "students.gaim.ucf.edu") {
     }
 }
 
-
-
 if (isset($_POST['insertQuiz'])) {
     $q1 = $_POST['q1'];
     $q2 = $_POST['q2'];
@@ -21,7 +20,7 @@ if (isset($_POST['insertQuiz'])) {
 
     $totalScore = $q1 + $q2 + $q3 + $q4;
 
-    $query = "UPDATE users SET quizScore = $totalScore WHERE user = " . $_SESSION['loggedin'] . "";
+    $query = "UPDATE users SET quizScore = $totalScore WHERE email = " . $_SESSION['loggedin'] . "";
     // echo $query;
     $query_run = mysqli_query($connection, $query);
 
