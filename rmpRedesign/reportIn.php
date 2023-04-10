@@ -12,10 +12,12 @@ if ($_SERVER["SERVER_NAME"] == "students.gaim.ucf.edu") {
 }
 
 // print_r($_POST);
-$professorID = $_POST['searchprof'];
-$query = "SELECT * FROM professors WHERE professorID = $professorID";
-$query_run = mysqli_query($connection, $query);
+//$professorID = $_POST['searchprof'];
+//$query = "SELECT * FROM professors WHERE professorID = $professorID";
+//$query_run = mysqli_query($connection, $query);
 
+$rating_id = $_GET["id"];
+$rating = mysqli_query($connection, "SELECT * FROM ratings WHERE id = $rating_id");
 ?> 
 
 <!DOCTYPE html>
@@ -73,6 +75,7 @@ $query_run = mysqli_query($connection, $query);
     
                 <div class="mb-md-4 mt-md-4">
                 <?php 
+                
         $sql = "SELECT * FROM ratings WHERE professorID = $professorID";
         $sql_run = mysqli_query($connection, $sql);
         $check_rating = mysqli_num_rows($sql_run) >0;
@@ -82,30 +85,31 @@ $query_run = mysqli_query($connection, $query);
                 </div>
                   <p>
                   <?php
-                  if($check_rating) {
-                    while($row = mysqli_fetch_assoc($sql_run)){
-                      echo $row['review'];
-                 }
+                  //if($check_rating) {
+                    //while($row = mysqli_fetch_assoc($sql_run)){
+                      //echo $row['review'];
+                 //}
+                //} else {
+                //echo "No Results";
+                //}
+                if (mysqli_num_rows($rating) > 0) {
+                  $row = mysqli_fetch_assoc($rating);
+                  echo "<p>" . $row["review"] . "</p>";
+                  echo "<form method='post' action='report_submit.php'>";
+                  echo "<input type='hidden' name='rating_id' value='" . $row["id"] . "'>";
+                  ?>
+                  <h5 class="proxima-bold">What is the problem?</h5>
+                  <p>If you think this comment is inconsistent with Rate My Professors' Site Guidelines, report it and tell
+                  us why.</p>
+                  <?php
+                  echo "<textarea name='report_description'></textarea>";
+                  echo "<input type='submit' value='Submit Report'>";
+                  echo "</form>";
                 } else {
-                echo "No Results";
+                  echo "Rating not found.";
                 }
                 ?>
-                  </p>
-    
-                  <h5 class="proxima-bold">What is the problem?</h5>
-    
-                  <p>If you think this comment is inconsistent with Rate My Professors' Site Guidelines, report it and tell
-                    us why.</p>
-                  </div>    
-                  <div class="col-md-7">
-                  <input class="resizedTextbox" type="text" placeholder="Tell us what is wrong with this comment...">
-                </div>
                   <div class="mb-4 text-center proxima nova">
-
-                  <div class="mt-5">
-                    <a href="reportSubmittedIn.php" class="fakeBtnBlue proxima btn-lg py-1 px-5 mt-3 mb-3 text-decoration-none">Submit</a>
-                  </div>
-
                   <p class="pb-lg-2 mt-3">
                     <a class="proxima greyText text-decoration-none" href="RatePageIn.php">Cancel</a>
                   </p>
