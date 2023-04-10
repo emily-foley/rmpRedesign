@@ -91,15 +91,21 @@ $query_run = mysqli_query($connection, $query);
             <ul class="stats-list" style='float:left; width:60%'>
                 <li>
                 <h1>
-                  <?php
-                  //Averaging difficulty
-                  $qry = "SELECT ROUND(AVG(difficulty),1) AS AverageDif FROM ratings WHERE professorID = $professorID";
-                  $qry_result = mysqli_query($connection, $qry);
-                  while($row = mysqli_fetch_assoc($qry_result)){
-                  echo $row['AverageDif'];
-                  }
-                  ?>
-                  </h1> <span class="stats-list-label">Level of dificulty</span>
+                      <?php
+                    $seql = "SELECT COUNT(*) AS total_answers, SUM(again='Yes') AS total_yes FROM ratings WHERE professorID = $professorID";
+                    $reslt = mysqli_query($connection, $seql);
+                    
+                    if (!$reslt) {
+                      die("Query failed: " . mysqli_error($connection));
+                    }
+                    
+                    $rowz = mysqli_fetch_assoc($reslt);
+
+                    $percentage_yes = ($rowz['total_yes'] / $rowz['total_answers']) * 100;
+
+                    echo $percentage_yes; 
+                    ?>
+                  </h1> <span class="stats-list-label">Would take again</span>
                 </li>
                 <li>
                   <h1>
@@ -229,10 +235,10 @@ $query_run = mysqli_query($connection, $query);
                       if ($row['rating'] == 1.0 || 2.0) { 
                         echo '<b>Awful</b>'; 
                         //<span> <img src="images/Awful.png" alt="Awful" style="width:5%"> &nbsp </span>
-                        } elseif ($row['rating'] == 3.0) 
+                        } else if ($row['rating'] == 3.0) 
                           { echo '<b>Average</b>'; 
                             //<span><img src="images/Average.png" alt="Average" style="width:5%"> &nbsp 
-                        } elseif($row['rating'] == 4.0 || 5.0)  
+                        } else if($row['rating'] == 4.0 || 5.0)  
                           { echo '<b>Awesome</b>';  }  
                           //<span><img src="images/Awesome.png" alt="Awesome" style="width:5%"> &nbsp                      
                     ?> 
