@@ -88,7 +88,6 @@ $query_run = mysqli_query($connection, $query);
 
             <br>
             <br>
-            <br>
         </div>
         <div class="column greyBg mx-10 "><a href="compare2.php" class="text-decoration-none"><h1 class="display-1 proxima-bold blue">+</h1></a></div>
     </div>
