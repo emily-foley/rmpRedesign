@@ -82,7 +82,7 @@ $query_run = mysqli_query($connection, $query);
               </div>
               <div style='float:right; width: 5%'>
                 <a href="emptyCompare.php" class="text-decoration-none">
-                <img src="images/Trash.png" style="width: 90%" alt="Trash" >
+                <img src="images/Trash.png" style="width: 110%" alt="Trash" >
                 </a>
               </div>
 
