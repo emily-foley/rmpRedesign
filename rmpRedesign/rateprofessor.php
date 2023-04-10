@@ -10,73 +10,38 @@ if ($_SERVER["SERVER_NAME"] == "students.gaim.ucf.edu") {
     $connection = mysqli_connect('localhost', 'root', '', 'rmpaccount');
   }
 }
-$errors = array();
 
 if (isset($_POST['insert'])) {
-  // Check if all required fields have been filled in
-  if (empty($_POST['professorID'])) {
-    $errors[] = "Professor ID is required";
-  }
-  if (empty($_POST['course'])) {
-    $errors[] = "Course is required";
-  }
-  if (empty($_POST['rating'])) {
-    $errors[] = "Rating is required";
-  }
-  if (empty($_POST['difficulty'])) {
-    $errors[] = "Difficulty is required";
-  }
-  if (empty($_POST['again'])) {
-    $errors[] = "Would take again is required";
-  }
-  if (empty($_POST['textbooks'])) {
-    $errors[] = "Textbooks is required";
-  }
-  if (empty($_POST['grade'])) {
-    $errors[] = "Grade received is required";
-  }
-  if (empty($_POST['review'])) {
-    $errors[] = "Review is required";
-  }
-  // Validate input fields
-  if (!empty($_POST['rating']) && ($_POST['rating'] < 1 || $_POST['rating'] > 5)) {
-    $errors[] = "Rating must be between 1 and 5";
-  }
-  if (empty($errors)) {
-    // Insert data into database
-    $professorID = mysqli_real_escape_string($connection, $_POST['professorID']);
-    $course = mysqli_real_escape_string($connection, $_POST['course']);
-    $online = isset($_POST['online']) ? 1 : 0;
-    $rating = mysqli_real_escape_string($connection, $_POST['rating']);
-    $difficulty = mysqli_real_escape_string($connection, $_POST['difficulty']);
-    $again = mysqli_real_escape_string($connection, $_POST['again']);
-    $textbooks = mysqli_real_escape_string($connection, $_POST['textbooks']);
-    $grade = mysqli_real_escape_string($connection, $_POST['grade']);
-    $review = mysqli_real_escape_string($connection, $_POST['review']);
-    $date = date("Y-m-d");
-    $query = "INSERT INTO ratings (ratingID,professorID,course,online,rating,difficulty,again,textbooks,grade,review,date, created_at) VALUES (NULL,'$professorID','$course','$online','$rating','$difficulty','$again','$textbooks','$grade','$review', '$date', now())";
+  $professorID = $_POST['professorID'];
+  $course = $_POST['course'];
+  $online = $_POST['online'];
+  $rating = $_POST['rating'];
+  $difficulty = $_POST['difficulty'];
+  $again = $_POST['again'];
+  $textbooks = $_POST['textbooks'];
+  $grade = $_POST['grade'];
+  $review = $_POST['review'];
+  $date = date("Y-M-D");
+  // $created_at = NULL;
+
+  $query = "INSERT INTO ratings (ratingID,professorID,course,online,rating,difficulty,again,textbooks,grade,review,date) VALUES (NULL,'$professorID','$course','$online','$rating','$difficulty','$again','$textbooks','$grade','$review', NOW() )";
   $query_run = mysqli_query($connection, $query);
 
-  if ($query_run === true) {
+  if ($connection->query($sql) === true) {
     echo "data inserted successfully";
-    header('Location: RatingSubmitted.php');
-    exit();
-} else {
-    echo "Error: " . $query . "<br>" . mysqli_error($connection);
-}
-}
+  } else {
+    echo "Error: " . $sql . "<br>" . $connection->error;
+  }
 
+  header('Location: RatingSubmittedIn.php');
+
+}
 
 // print_r($_POST);
+$professorID = $_POST['searchprof'];
+$query = "SELECT * FROM professors WHERE professorID = $professorID";
+$query_run = mysqli_query($connection, $query);
 
-
-if (isset($_POST['searchprof'])) {
-  $professorID = mysqli_real_escape_string($connection, $_POST['searchprof']);
-  $query = "SELECT * FROM professors WHERE professorID = '$professorID'";
-}
-
-
-}
 ?>
 
 <!DOCTYPE html>
