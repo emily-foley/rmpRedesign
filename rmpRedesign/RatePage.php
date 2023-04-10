@@ -91,7 +91,7 @@ $query_run = mysqli_query($connection, $query);
             <ul class="stats-list" style='float:left; width:60%'>
                 <li>
                 <h1>
-                      <?php
+                    <?php
                    $seql = "SELECT COUNT(*) AS total_answers, SUM(again='Yes') AS total_yes FROM ratings WHERE professorID = $professorID";
                    $reslt = mysqli_query($connection, $seql);
                    
