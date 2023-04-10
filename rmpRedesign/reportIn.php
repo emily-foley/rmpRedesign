@@ -69,18 +69,17 @@ $rating = mysqli_query($connection, "SELECT * FROM ratings WHERE id = $rating_id
       <div class="container py-4 h-100">
         
           
-            <div class="container greyBg">
-              <div class="p-4">
-                <div style='float:left; margin-left:30px'>
+        <div class="container greyBg">
+          <div class="p-4">
+              <div style='float:left; margin-left:30px'>
     
                 <div class="mb-md-4 mt-md-4">
-                <?php 
+                  <?php 
                 
-        $sql = "SELECT * FROM ratings WHERE professorID = $professorID";
-        $sql_run = mysqli_query($connection, $sql);
-        $check_rating = mysqli_num_rows($sql_run) >0;
-        ?>
-    
+                  //$sql = "SELECT * FROM ratings WHERE professorID = $professorID";
+                  // $sql_run = mysqli_query($connection, $sql);
+                  //$check_rating = mysqli_num_rows($sql_run) >0;
+                  ?>
                   <h5 class="proxima-bold">You are reporting: </h5>
                 </div>
                   <p>
@@ -113,10 +112,10 @@ $rating = mysqli_query($connection, "SELECT * FROM ratings WHERE id = $rating_id
                   <p class="pb-lg-2 mt-3">
                     <a class="proxima greyText text-decoration-none" href="RatePageIn.php">Cancel</a>
                   </p>
-                  </div>
-                
               </div>
-            </div>       
+              </div>
+            </div>
+        </div>       
   </div>
   </div>
 
