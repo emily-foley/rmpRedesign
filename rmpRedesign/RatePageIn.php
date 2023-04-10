@@ -92,12 +92,12 @@ $query_run = mysqli_query($connection, $query);
             <ul class="stats-list" style='float:left; width:60%'>
                 <li>
                   <h1>
-                    54%
-                    <!-- precentage
+                    <!-- 54% -->
+                      <?php
                     $seql = "SELECT COUNT(*) AS total_answers, SUM(again='Yes') AS total_yes FROM ratings WHERE professorID = $professorID";
                     $reslt = mysqli_query($connection, $seql);
                     
-                    if (!$result) {
+                    if (!$reslt) {
                       die("Query failed: " . mysqli_error($connection));
                     }
                     
@@ -105,7 +105,8 @@ $query_run = mysqli_query($connection, $query);
 
                     $percentage_yes = ($rowz['total_yes'] / $rowz['total_answers']) * 100;
 
-                    echo $percentage_yes;  -->
+                    echo $percentage_yes; 
+                    ?>
                   </h1> <span class="stats-list-label">Would take again</span>
                 </li>
                 <li>
