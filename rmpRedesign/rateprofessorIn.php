@@ -106,6 +106,7 @@ $query_run = mysqli_query($connection, $query);
               <form action="" method="post">
 
                 <?php echo "<input type=\"hidden\" name=\"professorID\" value=\"$professorID\">"; ?>
+                <input type="hidden" name="ratingID" value="<?php echo $row['ratingID']; ?>">
 
                 <select name="course" id="courses">
                   <option value="DIG4172C">DIG4172C</option>
