@@ -48,7 +48,7 @@
         </li>
     </div>
 
-    <li class="nav-item me-lg-0 mr-1 ml-5 noBullet">
+    <li class="nav-item me-lg-0 mr-1 ml-1 noBullet">
       <a class="fakeBtn nav-link" href="logout.php"><i class="mx-1"></i>Logout</a>
     </li>
     </ul>
