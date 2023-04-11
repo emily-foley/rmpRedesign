@@ -13,15 +13,17 @@ if ($_SERVER["SERVER_NAME"] == "students.gaim.ucf.edu") {
 
 print_r($_POST);
 $professorID = $_POST['searchprof'];
+$ratingID = $_POST['ratingID'];
 $query = "SELECT * FROM professors WHERE professorID = $professorID";
-$query_run = mysqli_query($connection, $query);
+$query2 = "SELECT * FROM ratings WHERE ratingID = $ratingID";
+$query_run = mysqli_query($connection, $query, $query2);
+
 
 // Retrieve reviewID from POST request
-$ratingID = $_POST['ratingID'];
-
+//$ratingID = $_POST['ratingID'];
 // Query the database for review details
-$query2 = "SELECT * FROM ratings WHERE ratingID = $ratingID";
-$result = mysqli_query($connection, $query2);
+//$query2 = "SELECT * FROM ratings WHERE ratingID = $ratingID";
+//$result = mysqli_query($connection, $query2);
 
 ?>
 
@@ -55,7 +57,7 @@ $result = mysqli_query($connection, $query2);
 
 <!-- Navbar -->
 <?php include ('NavbarLoggedIn.php');?>
-<!-- Navbar -->
+
 <?php echo "<input type=\"hidden\" name=\"professorID\" value=\"$professorID\">"; ?>
   <h4 class="mb-4 proxima-bold text-center pt-5">Report a Rating for 
   <?php
