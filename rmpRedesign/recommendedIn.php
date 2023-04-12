@@ -41,7 +41,7 @@
     <div class="row justify-content-md-center">
         <?php 
         //$sql = "SELECT * FROM ratings JOIN users WHERE professorID = $professorID AND quizScore = $quizScore";
-        $sql = "SELECT name, professors.professorID AS proID, ratings.professorID AS profID, quizScore, rating, difficulty FROM ratings JOIN users JOIN professors WHERE professors.professorID = $professorID AND ratings.professorID = $professorID AND quizScore = $quizScore";
+        $sql = "SELECT name, professors.professorID AS proID, ratings.professorID AS profID, quizScore, rating, again, difficulty FROM ratings JOIN users JOIN professors WHERE professors.professorID = $professorID AND ratings.professorID = $professorID AND quizScore = $quizScore";
         $sql_run = mysqli_query($connection, $sql);
         $check_rating = mysqli_num_rows($sql_run) >0;
 
