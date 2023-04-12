@@ -95,121 +95,12 @@
               </div>
         </div>
 
-
-
-
-        <!--Row 2-->
-        <div class="column3 greyBg ">
-            <div style='float:left; width:30%; margin-left:30px'>
-            <br>
-                <h4 class="proxima-bold text-left">John Doe</h4>
-                <h6 class="text-left greyText">University of Central Florida</h6>
-            </div>
-            <div style=' float:left; width:30%'></divstyle>
-                <ul class="stats-list">
-                    <br>
-                    <li>
-                      <h2>62%</h2> <span class="stats-list-label">Would take again</span>
-                    </li>
-                    <li>
-                      <h2>2.9</h2> <span class="stats-list-label">Level of dificulty</span>
-                    </li>
-                  </ul>
-                </div>
-            <div style='float:left; width:30%'>
-                <h1 class="display-2 proxima-bold text-right">3.9</h1>
-            </div>
-   
-            <br>
-            <div style='float:left; width:100%'>
-              <span class="badgepos">Extra credit</span>
-              <span class="badgepos">Inspirational</span>
-              <span class="badgeneg">Graded by few things</span>
-            </div>
-
-
-
-
-              <div style='float:left; width: 90%; margin-left:30px; margin-top:30px;'>
-              <p class="greyText">Full details</p>
-              </div>
-        </div>
-
-
-
-
-        <!--Row 3-->
-             <div class="column3 greyBg ">
-                <div style='float:left; width:30%; margin-left:30px'>
-                <br>
-                    <h4 class="proxima-bold text-left">Mary Jane</h4>
-                    <h6 class="text-left greyText">University of Central Florida</h6>
-                </div>
-                <div style=' float:left; width:30%'></divstyle>
-                    <ul class="stats-list">
-                        <br>
-                        <li>
-                            <h2>35%</h2> <span class="stats-list-label">Would take again</span>
-                        </li>
-                        <li>
-                            <h2>4.5</h2> <span class="stats-list-label">Level of dificulty</span>
-                        </li>
-                        </ul>
-                        </div>
-                    <div style='float:left; width:30%'>
-                        <h1 class="display-2 proxima-bold text-right">2.8</h1>
-                    </div>
-           
-                    <br>
-                    <div style='float:left; width:100%'>
-                      <span class="badgepos">Test heavy</span>
-                      <span class="badgeneg">Tough grader</span>
-                      <span class="badgeneg">Reading heavy</span>
-                    </div>
-       
-                      <div style='float:left; width: 90%; margin-left:30px; margin-top:30px;'>
-                      <p class="greyText">Full details</p>
-                      </div>
-                </div>
-
-
-
-
-                <!--Row 4-->
-                <div class="column3 greyBg ">
-                    <div style='float:left; width:30%; margin-left:30px'>
-                    <br>
-                        <h4 class="proxima-bold text-left">James Smith</h4>
-                        <h6 class="text-left greyText">University of Central Florida</h6>
-                    </div>
-                    <div style=' float:left; width:30%'></divstyle>
-                        <ul class="stats-list">
-                            <br>
-                            <li>
-                              <h2>80%</h2> <span class="stats-list-label">Would take again</span>
-                            </li>
-                            <li>
-                              <h2>1.9</h2> <span class="stats-list-label">Level of dificulty</span>
-                            </li>
-                          </ul>
-                        </div>
-                    <div style='float:left; width:30%'>
-                        <h1 class="display-2 proxima-bold text-right">4.7</h1>
-                    </div>
-           
-                    <br>
-                    <div style='float:left; width:100%'>
-                      <span class="badgepos">Hilarious</span>
-                      <span class="badgepos">Caring</span>
-                      <span class="badgeneg">Lecture heavy</span>
-                      <span class="badgeneg">Group projects</span>
-                    </div>
-       
-                      <div style='float:left; width: 90%; margin-left:30px; margin-top:30px;'>
-                      <p class="greyText">Full details</p>
-                      </div>
-                </div>
-
+                <?php
+          }
+        } else{
+          echo "No Result";
+        }
+        ?>
 
             <div style='float:center; margin-top:30px;'>
                 <h6 class="greyText">View More</h6>
