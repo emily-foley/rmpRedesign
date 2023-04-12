@@ -20,8 +20,8 @@ if (isset($_POST['insertQuiz'])) {
 
     $totalScore = $q1 + $q2 + $q3 + $q4;
 
-    $query = "UPDATE users SET quizScore = $totalScore WHERE email = " . $_SESSION['loggedin'] . "";
-    echo $query;
+    $query = "UPDATE users SET quizScore = $totalScore WHERE email = \"" . $_SESSION['loggedin'] . "\"";
+    //echo $query;
     $query_run = mysqli_query($connection, $query);
 
 
@@ -40,7 +40,7 @@ if (isset($_POST['insertQuiz'])) {
         echo "Error: " . $sql . "<br>" . $connection->error;
     }
 
-   // header('Location: indexIn.php');
+   header('Location: indexIn.php');
 
 }
 
