@@ -92,7 +92,7 @@
     </figure>
     <figure>
       <figcaption class="mt-4">
-        <a class="black text-decoration-none" href="compareIn.php">
+        <a class="black text-decoration-none" href="oneCompareIn.php">
           <img class="center" src="images/balance.png" width="200">
           Compare Professors
         </a>
