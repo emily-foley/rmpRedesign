@@ -1,3 +1,23 @@
+<?php
+
+
+if ($_SERVER["SERVER_NAME"] == "students.gaim.ucf.edu") {
+  if ($_SERVER["SCRIPT_URL"] == "/~ya818631/dig4172C/rmpRedesign/recommendedIn.php") {
+    //yara
+    $connection = mysqli_connect('localhost', 'ya818631', '34096885!Yar', 'ya818631');
+  } else {
+    // $connection = mysqli_connect('localhost', 'em248165', '3535A5F4D0EB4F319A17FBEEF735D58Aa!', 'em248165');
+    $connection = mysqli_connect('localhost', 'root', '', 'rmpaccount');
+  }
+}
+
+// print_r($_POST);
+$professorID = $_POST['searchprof'];
+$query = "SELECT * FROM professors WHERE professorID = $professorID";
+$query_run = mysqli_query($connection, $query);
+
+?> 
+
 <!DOCTYPE html>
 <html lang="en">
 
