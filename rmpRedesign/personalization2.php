@@ -83,7 +83,7 @@ if (isset($_POST['insertQuiz'])) {
         <form action="" method="post" class="mb-4 w-50 text-center">
             <h2 class="text-center topPad pb-2 proxima-bold">Personalization Quiz</h2>
 
-            <div class="q-container mb-4 w-10 text-center proxima nova">
+            <div class="q-container text-center proxima nova">
                 <h5>I prefer...</h5>
                 <div class="questions">
                     <input type="radio" name="q1" id="question1" value="1" require><label>Group
@@ -92,21 +92,21 @@ if (isset($_POST['insertQuiz'])) {
                         work</label>
                 </div>
             </div>
-            <div class="q-container mb-4 w-10 text-center proxima nova">
+            <div class="q-container text-center proxima nova">
                 <h5>I prefer to attend classes...</h5>
                 <div class="questions">
                     <input type="radio" name="q2" id="question3" value="1" require><label>Online</label>
                     <input type="radio" name="q2" id="question4" value="2" require><label>In person</label>
                 </div>
             </div>
-            <div class="q-container mb-4 w-10 text-center proxima nova">
+            <div class="q-container text-center proxima nova">
                 <h5>I would rather learn from...</h5>
                 <div class="questions">
                     <input type="radio" name="q3" id="question1" value="1" require><label>Reading</label>
                     <input type="radio" name="q3" id="question1" value="2" require><label>Lectures</label>
                 </div>
             </div>
-            <div class="q-container mb-4 w-10 text-center proxima nova">
+            <div class="q-container text-center proxima nova">
                 <h5>I prefer a class with mostly...</h5>
                 <div class="questions">
                     <input type="radio" name="q4" id="question1" value="1" require>
@@ -114,7 +114,7 @@ if (isset($_POST['insertQuiz'])) {
                     <input type="radio" name="q4" id="question1" value="2" require><label>Quizzes</label>
                 </div>
             </div>
-            <div class="mb-4 w-80 text-center">
+            <div class=" text-center">
                 <input class="fakeBtnBlue" type="submit" name="insertQuiz" value="Submit quiz"
                     class="fakeBtnBlue proxima nova text-decoration-none" />
 
