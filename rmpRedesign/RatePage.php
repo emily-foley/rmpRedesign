@@ -311,6 +311,7 @@ $query_run = mysqli_query($connection, $query);
                     <p><img src="images/Report.png" alt="Report" style="width:50%"><br>Report</p>
                     </a>
                   </div>
+                  <br>
               </div>
           </div>
           </div>

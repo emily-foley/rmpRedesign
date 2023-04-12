@@ -316,6 +316,7 @@ $query_run = mysqli_query($connection, $query);
                     ?>
                     </a>
                   </div>
+                  <br>
               </div>
           </div>
           </div>
