@@ -108,7 +108,7 @@ $query_run = mysqli_query($connection, $query);
                 <?php echo "<input type=\"hidden\" name=\"professorID\" value=\"$professorID\">"; ?>
                 <input type="hidden" name="ratingID" value="<?php echo $row['ratingID']; ?>">
 
-                <select name="course" id="courses">
+                <select name="course" id="courses" required>
                   <option value="DIG4172C">DIG4172C</option>
                   <option value="DIG3043">DIG3043</option>
                   <option value="DIG4813">DIG4813</option>
@@ -199,7 +199,7 @@ $query_run = mysqli_query($connection, $query);
         <div style='float:left; width:30%'>
           <div class="dropdown">
             <div class="justify-content-left">
-              <select name="grade" id="grades">
+              <select name="grade" id="grades" required>
                 <option value="A">A</option>
                 <option value="B">B</option>
                 <option value="C">C</option>
@@ -217,7 +217,20 @@ $query_run = mysqli_query($connection, $query);
         <div style='float:left; width:100%; margin-left:30px'>
           <h5 class="proxima-bold text-left">Write a Review</h5>
         </div>
-        <textarea name="review" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        <textarea name="review" class="form-control" id="exampleFormControlTextarea1" rows="3" required></textarea>
+        <script>
+          function validateForm() {
+  var professorID = document.forms["myForm"]["professorID"].value;
+  var course = document.forms["myForm"]["course"].value;
+  var grade = document.forms["myForm"]["grade"].value;
+  var review = document.forms["myForm"]["review"].value;
+  
+  if (professorID == "" || course == "" || grade == "" || review == "") {
+    alert("Please fill out all required fields.");
+    return false;
+  }
+}
+        </script>
         <br>
         <br>
         <input class="fakeBtnBlue" type="submit" name="insert" value="Submit Rating"
