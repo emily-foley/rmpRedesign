@@ -63,67 +63,45 @@
                       ?> 
                 </h4>
                 <h6 class="text-left greyText">University of Central Florida</h6>
-            </div>
-            <div style=' float:left; width:30%'></div>
+                </div>
+            <div style=' float:left; width:30%'></divstyle>
                 <ul class="stats-list">
                     <br>
                     <li>
-                      <h2>
-                        <?php
-                          $seql = "SELECT COUNT(*) AS total_answers, SUM(again='Yes') AS total_yes FROM ratings WHERE professorID = $professorID";
-                          $reslt = mysqli_query($connection, $seql);
-                          
-                          if (!$reslt) {
-                              die("Query failed: " . mysqli_error($connection));
-                          }
-                          
-                          $rowz = mysqli_fetch_assoc($reslt);
-                          
-                          $percentage_yes = ($rowz['total_yes'] / $rowz['total_answers']) * 100;
-                          
-                          echo round($percentage_yes, 1) . "<b>%</b>";                   
-                            ?>
-                        </h2> <span class="stats-list-label">Would take again</span>
+                      <h2>54%</h2> <span class="stats-list-label">Would take again</span>
                     </li>
                     <li>
-                      <h2>
-                        <?php
-                        //Averaging difficulty
-                        $qry = "SELECT ROUND(AVG(difficulty),1) AS AverageDif FROM ratings WHERE professorID = $professorID";
-                        $qry_result = mysqli_query($connection, $qry);
-                        while($row = mysqli_fetch_assoc($qry_result)){
-                        echo $row['AverageDif'];
-                        }
-                        ?>
-                      </h2><span class="stats-list-label">Level of dificulty</span>
+                      <h2>2.5</h2> <span class="stats-list-label">Level of dificulty</span>
                     </li>
                   </ul>
                 </div>
             <div style='float:left; width:30%'>
-                <h1 class="display-2 proxima-bold text-right">
-                <?php
-                  //Averaging rating
-                  $qry = "SELECT ROUND(AVG(rating),1) AS AverageRating FROM ratings WHERE professorID = $professorID";
-                  $qry_result = mysqli_query($connection, $qry);
-                  while($row = mysqli_fetch_assoc($qry_result)){
-                  echo $row['AverageRating'];
-                  }
-                  ?>
-                </h1>
+                <h1 class="display-2 proxima-bold text-right">4.3</h1>
             </div>
-  
+   
+            <br>
+            <div style='float:left; width:100%'>
+              <span class="badgepos">Gives Feedback</span>
+              <span class="badgepos">Caring</span>
+              <span class="badgeneg">Tough Grader</span>
+              <span class="badgeneg">Reading Heavy</span>
+            </div>
+
+
+
+
               <div style='float:left; width: 90%; margin-left:30px; margin-top:30px;'>
               <p class="greyText">Full details</p>
               </div>
         </div>
-        <?php
+
+                <?php
           }
         } else{
           echo "No Result";
         }
         ?>
 
-        <br>
             <div style='float:center; margin-top:30px;'>
                 <h6 class="greyText">View More</h6>
             </div>
