@@ -101,17 +101,6 @@ $query_run = mysqli_query($connection, $query);
             <div style='float:left; width:30%'>
                 <h1 class="display-2 proxima-bold text-right">4.3</h1>
             </div>
-   
-            <br>
-            <div style='float:left; width:100%'>
-              <span class="badgepos">Gives Feedback</span>
-              <span class="badgepos">Caring</span>
-              <span class="badgeneg">Tough Grader</span>
-              <span class="badgeneg">Reading Heavy</span>
-            </div>
-
-
-
 
               <div style='float:left; width: 90%; margin-left:30px; margin-top:30px;'>
               <p class="greyText">Full details</p>
