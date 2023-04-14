@@ -91,12 +91,56 @@ $query_run = mysqli_query($connection, $query);
     $difficulty = round($prof_data['difficulty'], 1);
     $would_take_again = round($prof_data['would_take_again'] * 100) . "%";
     $overall_rating = $prof_data['overall_rating'];
-    echo "<p>$name - Difficulty: $difficulty, Would Take Again: $would_take_again, Overall Rating: $overall_rating</p>";
+
+    echo "<p>$name - Difficulty: $difficulty, Would Take Again: $would_take_again, Overall Rating: $overall_rating</p>"; ?>
+    
+    <div class="container mb-4">
+      <div class="row justify-content-md-center">
+        <div class="column3 greyBg ">
+            <div style='float:left; width:30%; margin-left:30px'>
+              <br>
+                <h4 class="proxima-bold text-left">
+                  <?php
+                     echo "$name";
+                  ?>
+                </h4>
+                <h6 class="text-left greyText">University of Central Florida</h6>
+            </div>
+            <div style=' float:left; width:30%'></divstyle>
+              <ul class="stats-list">
+                <br>
+                  <li>
+                    <h2>
+                      <?php
+                        echo "$would_take_again";
+                      ?> 
+                              </h2> <span class="stats-list-label">Would take again</span>
+                            </li>
+                            <li>
+                              <h2>
+                              <?php
+                                echo "$difficulty";
+                              ?>
+                              </h2> <span class="stats-list-label">Level of dificulty</span>
+                            </li>
+                          </ul>
+                        </div>
+                    <div style='float:left; width:30%'>
+                        <h1 class="display-2 proxima-bold text-right">
+                        <?php
+                          echo "$overall_rating";
+                        ?>
+                        </h1>
+                    </div>
+          
+                      <div style='float:left; width: 90%; margin-left:30px; margin-top:30px;'>
+                      <p class="greyText">Full details</p>
+                      </div>
+           </div>
+        </div>
+      </div>
+                <?php
   }
   ?>
-
-  <div class="container mb-4">
-    <div class="row justify-content-md-center">
-
 
 </body>
