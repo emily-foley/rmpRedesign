@@ -65,11 +65,11 @@ $query_run = mysqli_query($connection, $query);
 
   // Defining the range of scores to use for professor recommendations
   if ($user_score >= 0 && $user_score < 5) {
-    $professor_ids = array(1, 2, 3); // Professor IDs for low quiz scores
+    $professor_ids = array(4, 6, 8); // Professor IDs for low quiz scores
   } else if ($user_score >= 6 && $user_score < 7) {
-    $professor_ids = array(4, 5, 6); // Professor IDs for medium quiz scores
+    $professor_ids = array(5, 7, 10); // Professor IDs for medium quiz scores
   } else {
-    $professor_ids = array(7, 8, 9); // Professor IDs for high quiz scores
+    $professor_ids = array(11, 9); // Professor IDs for high quiz scores
   }
 
   // Query the ratings table to get the necessary data for each professor in the selected range
