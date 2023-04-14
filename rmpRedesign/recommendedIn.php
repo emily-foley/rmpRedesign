@@ -58,67 +58,41 @@ $query_run = mysqli_query($connection, $query);
   </div>
 
   <?php
-  // Define score ranges and corresponding professor IDs
-  $scoreRanges = array(
-    array(3, 4, array(1, 2, 3)),
-    // If the user score is between 3 and 4, recommend professors with IDs 1, 2, and 3
-    array(5, 6, array(4, 5, 6)),
-    // If the user score is between 5 and 6, recommend professors with IDs 4, 5, and 6
-    array(7, 8, array(7, 8, 9)) // If the user score is between 7 and 8 recommend professors with IDs 7, 8, and 9
-  );
+  // Get the user's quiz score
+  $query = "SELECT quizScore FROM users WHERE email = \"" . $_SESSION['loggedin'] . "\"";
+  $query_run = mysqli_query($connection, $query);
+  $user_score = mysqli_fetch_assoc($query_run)['quizScore'];
 
-  // Get the user's quiz score from the database
-  $email = $_SESSION['loggedin'];
-  $query = "SELECT quizScore FROM users WHERE email = '$email'";
-  $result = mysqli_query($connection, $query);
-  $row = mysqli_fetch_assoc($result);
-  $quizScore = $row['quizScore'];
+  // Defining the range of scores to use for professor recommendations
+  if ($user_score >= 0 && $user_score < 5) {
+    $professor_ids = array(1, 2, 3); // Professor IDs for low quiz scores
+  } else if ($user_score >= 6 && $user_score < 7) {
+    $professor_ids = array(4, 5, 6); // Professor IDs for medium quiz scores
+  } else {
+    $professor_ids = array(7, 8, 9); // Professor IDs for high quiz scores
+  }
 
-  // Loop through the score ranges to find the appropriate professor IDs
-  $professorIDs = array();
-  foreach ($scoreRanges as $range) {
-    if ($quizScore >= $range[0] && $quizScore <= $range[1]) {
-      $professorIDs = $range[2];
-      break;
-    }
+  // Query the ratings table to get the necessary data for each professor in the selected range
+  $professor_data = array();
+  foreach ($professor_ids as $prof_id) {
+    $query = "SELECT professors.name AS name, AVG(ratings.difficulty) AS difficulty, 
+              COUNT(CASE WHEN ratings.again = 'yes' THEN 1 END)/COUNT(*) AS would_take_again, 
+              ROUND(AVG(ratings.rating), 1) AS overall_rating
+              FROM ratings JOIN professors ON professors.professorID = ratings.professorID 
+              WHERE professors.professorID = $prof_id GROUP BY professors.name";
+    $query_run = mysqli_query($connection, $query);
+    $prof_data = mysqli_fetch_assoc($query_run);
+    $professor_data[] = $prof_data;
   }
 
   // Display the professor recommendations
-  echo "<h2>Professor Recommendations</h2>";
-  echo "<table>";
-  echo "<tr><th>Professor Name</th><th>Average Difficulty Rating</th><th>Average Would Take Again Percentage</th><th>Average Overall Rating</th></tr>";
-
-  foreach ($professorIDs as $professorID) {
-    // Get the professor's name
-    $query = "SELECT name FROM professors WHERE professorID = $professorID";
-    $result = mysqli_query($connection, $query);
-    $row = mysqli_fetch_assoc($result);
-    $name = $row['name'];
-
-    // Calculate the average difficulty rating
-    $query = "SELECT AVG(difficulty) AS avgDifficulty FROM ratings WHERE professorID = $professorID";
-    $result = mysqli_query($connection, $query);
-    $row = mysqli_fetch_assoc($result);
-    $avgDifficulty = round($row['avgDifficulty'], 1);
-
-    // Calculate the would take again percentage
-    $query = "SELECT COUNT(*) AS numRatings, SUM(again='Yes') AS numYes FROM ratings WHERE professorID = $professorID";
-    $result = mysqli_query($connection, $query);
-    $row = mysqli_fetch_assoc($result);
-    $numRatings = $row['numRatings'];
-    $numYes = $row['numYes'];
-    $wouldTakeAgain = round($numYes / $numRatings * 100);
-
-    // Calculate the average overall rating
-    $query = "SELECT AVG(rating) AS avgRating FROM ratings WHERE professorID = $professorID";
-    $result = mysqli_query($connection, $query);
-    $row = mysqli_fetch_assoc($result);
-    $avgRating = round($row['avgRating'], 1);
-
-    // Display the professor's information
-    echo "<tr><td>$name</td><td>$avgDifficulty</td><td>$wouldTakeAgain%</td><td>$avgRating</td></tr>";
+  foreach ($professor_data as $prof_data) {
+    $name = $prof_data['name'];
+    $difficulty = round($prof_data['difficulty'], 1);
+    $would_take_again = round($prof_data['would_take_again'] * 100) . "%";
+    $overall_rating = $prof_data['overall_rating'];
+    echo "<p>$name - Difficulty: $difficulty, Would Take Again: $would_take_again, Overall Rating: $overall_rating</p>";
   }
-  echo "</table>";
   ?>
 
   <div class="container mb-4">
