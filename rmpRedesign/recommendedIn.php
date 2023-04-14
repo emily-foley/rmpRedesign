@@ -130,7 +130,7 @@ $query_run = mysqli_query($connection, $query);
                         ?>
                         </h1>
                     </div>
-                      <div style='float:left; width: 90%; margin-left:30px; margin-top:20px;'>
+                      <div style='float:left; width: 90%; margin-left:30px; margin-top:10px;'>
                       <p class="greyText">Full details</p>
                       </div>
            </div>
