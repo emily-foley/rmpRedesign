@@ -70,12 +70,7 @@
         <script>                   $("#searchprof").chosen();
         </script>-->
 
-      </ul>
-      <input class="fakeBtnBlue" type="submit" name="submit" value="View ratings" />
-    </div>
-  </form>
-
-    <script>
+        <script>
       document.getElementById("myForm").addEventListener("submit", function(event) {
         event.preventDefault(); // prevent the default form submission
         
@@ -93,6 +88,11 @@
         xhr2.send(formData);
       });
     </script>
+    
+      </ul>
+      <input class="fakeBtnBlue" type="submit" name="submit" value="View ratings" />
+    </div>
+  </form>
 
   <div class="row justify-content-center">
     <figure>
