@@ -11,19 +11,11 @@ if ($_SERVER["SERVER_NAME"] == "students.gaim.ucf.edu") {
   }
 }
 
-session_start();
-if(isset($_SESSION["report"])) {
-  $professorID = $_SESSION["report"];
-  echo "Selected professor ID: " . $professorID;
-} else {
-  echo "No professor ID selected";
-}
-
-print_r($_POST);
 $professorID = $_POST['searchprof'];
 $ratingID = $_POST['ratingID'];
 $query = "SELECT name, professors.professorID AS proID, ratings.professorID AS profID, review FROM ratings JOIN professors WHERE professors.professorID = $professorID AND ratings.professorID = $professorID AND ratingID = $ratingID;";
 $query_run = mysqli_query($connection, $query);
+$check_rating = mysqli_num_rows($query_run) >0;
 
 ?>
 
@@ -81,29 +73,23 @@ $query_run = mysqli_query($connection, $query);
               <div style='float:left; margin-left:30px'>
     
                 <div class="mb-md-4 mt-md-4">
-                  <?php 
-                
-                  //$sql = "SELECT * FROM ratings WHERE professorID = $professorID";
-                  // $sql_run = mysqli_query($connection, $sql);
-                  //$check_rating = mysqli_num_rows($sql_run) >0;
-                  ?>
                   <h5 class="proxima-bold">You are reporting: </h5>
                 </div>
                   <p>
                   <?php
-                  //if($check_rating) {
-                    //while($row = mysqli_fetch_assoc($sql_run)){
-                      //echo $row['review'];
-                 //}
-                //} else {
-                //echo "No Results";
-                //}
-                if (mysqli_num_rows($rating) > 0) {
-                  $row2 = mysqli_fetch_assoc($rating);
-                  echo "<p>" . $row2["review"] . "</p>";
+                  if($check_rating) {
+                    while($row = mysqli_fetch_assoc($sql_run)){
+                      echo $row['review'];
+                 }
                 } else {
-                  echo "Rating not found.";
+                echo "No Results";
                 }
+                //if (mysqli_num_rows($rating) > 0) {
+                 // $row2 = mysqli_fetch_assoc($rating);
+                 // echo "<p>" . $row2["review"] . "</p>";
+                //} else {
+                 // echo "Rating not found.";
+                //}
                 ?>
                     <h5 class="proxima-bold">What is the problem?</h5>
 
