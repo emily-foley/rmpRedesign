@@ -11,7 +11,6 @@ if ($_SERVER["SERVER_NAME"] == "students.gaim.ucf.edu") {
   }
 }
 
-print_r($_POST);
 $professorID = $_POST['searchprof'];
 $_SESSION ["report"] = $professorID;
 $ratingID = $_POST['ratingID'];
