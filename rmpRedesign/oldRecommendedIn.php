@@ -58,26 +58,19 @@ if ($_SERVER["SERVER_NAME"] == "students.gaim.ucf.edu") {
             //$sql = "SELECT * FROM ratings JOIN users WHERE professorID = $professorID AND quizScore = $quizScore";
             $sql = "SELECT name, professors.professorID AS proID, ratings.professorID AS profID, quizScore, rating, again, difficulty, email FROM ratings JOIN users JOIN professors WHERE professors.professorID = $professorID AND ratings.professorID = $professorID AND quizScore = $quizScore AND email = \"" . $_SESSION['loggedin'] . "\"";
             $sql_run = mysqli_query($connection, $sql);
+            $check_rating = mysqli_num_rows($sql_run) >0;
 
-            if ($sql_run->num_rows > 0) {
-                while ($row = $query_run->fetch_assoc()) {
+            if($check_rating) {
+                while($row = mysqli_fetch_assoc($sql_run)){
                     ?>
                     <!--Row 2-->
                     <div class="column3 greyBg ">
                         <div style='float:left; width:30%; margin-left:30px'>
                             <br>
                             <h4 class="proxima-bold text-left">
+                                
                                 <?php
-                                if ($row['quizScore'] == 4 || $row['quizScore'] == 6 || $row['quizScore'] == 8) {
-                                    //echo $row['professorID'] = 5 ;
-                                    echo "hello";
-                                } else if ($row['quizScore'] == 2 || $row['quizScore'] == 3 || $row['quizScore'] == 5) { 
-                                    //echo $row['professorID'] = 6 ; 
-                                    echo "hi";
-                                } else if ($row['quizScore'] == 1 || $row['quizScore'] == 7) { 
-                                    //echo $row['professorID'] = 7 ;
-                                    echo "yo";
-                                }
+                                echo $row ['quizScore'];
                                 ?>
                             </h4>
                             <h6 class="text-left greyText">University of Central Florida</h6>
