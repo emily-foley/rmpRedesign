@@ -54,7 +54,7 @@
                     <div class="mt-5">
                       <a href="reportSubmittedIn.php" class="fakeBtnBlue proxima btn-lg py-1 px-5 mt-3 mb-3 text-decoration-none">Submit</a>
                     </div>
-                  <div class="mb-4 text-center proxima nova">
+                  <div class="mb-2 text-center proxima nova">
                   <p class="pb-lg-2 mt-3">
                     <a class="proxima greyText text-decoration-none" href="RatePageIn.php">Cancel</a>
                   </p>
