@@ -1,22 +1,3 @@
-<?php
-
-
-if ($_SERVER["SERVER_NAME"] == "students.gaim.ucf.edu") {
-  if ($_SERVER["SCRIPT_URL"] == "/~ya818631/dig4172C/rmpRedesign/reportIn.php") {
-    //yara
-    $connection = mysqli_connect('localhost', 'ya818631', '34096885!Yar', 'ya818631');
-  } else {
-    // $connection = mysqli_connect('localhost', 'em248165', '3535A5F4D0EB4F319A17FBEEF735D58Aa!', 'em248165');
-    $connection = mysqli_connect('localhost', 'root', '', 'rmpaccount');
-  }
-}
-
-$professorID = $_POST['searchprof'];
-$query = "SELECT name, professors.professorID AS proID, ratings.professorID AS profID, review FROM ratings JOIN professors WHERE professors.professorID = $professorID AND ratings.professorID = $professorID AND ratingID = $ratingID;";
-$query_run = mysqli_query($connection, $query);
-$check_rating = mysqli_num_rows($query_run) >0;
-
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -49,18 +30,7 @@ $check_rating = mysqli_num_rows($query_run) >0;
 <!-- Navbar -->
 <?php include ('NavbarLoggedIn.php');?>
 
-<?php echo "<input type=\"hidden\" name=\"professorID\" value=\"$professorID\">"; ?>
-  <h4 class="mb-4 proxima-bold text-center pt-5">Report a Rating for 
-  <?php
-    if ($query_run->num_rows > 0) {
-    while ($row = $query_run->fetch_assoc()) {
-    echo $row['name'];
-    }
-     } else {
-     echo "No Results";
-     }
-  ?>
-  </h4>
+  <h4 class="mb-4 proxima-bold text-center pt-5">Report a Rating</h4>
 
   <div class="container mb-4 w-51 proxima nova">
     <div class="row justify-content-md-center">
@@ -71,25 +41,6 @@ $check_rating = mysqli_num_rows($query_run) >0;
           <div class="p-4">
               <div style='float:left; margin-left:30px'>
     
-                <div class="mb-md-4 mt-md-4">
-                  <h5 class="proxima-bold">You are reporting: </h5>
-                </div>
-                  <p>
-                  <?php
-                  if($check_rating) {
-                    while($row = mysqli_fetch_assoc($sql_run)){
-                      echo $row['review'];
-                 }
-                } else {
-                echo "No Results";
-                }
-                //if (mysqli_num_rows($rating) > 0) {
-                 // $row2 = mysqli_fetch_assoc($rating);
-                 // echo "<p>" . $row2["review"] . "</p>";
-                //} else {
-                 // echo "Rating not found.";
-                //}
-                ?>
                     <h5 class="proxima-bold">What is the problem?</h5>
 
                     <p>If you think this comment is inconsistent with Rate My Professors' Site Guidelines, report it and tell
