@@ -84,8 +84,8 @@
     </figure>
     <figure>
       <figcaption class="mt-4">
-        <!-- <a class="black text-decoration-none" href="recommendIn.php">-->
-        <a class="black text-decoration-none" href="oldRecommendedIn.php"> 
+        <a class="black text-decoration-none" href="recommendIn.php">
+        <!-- <a class="black text-decoration-none" href="oldRecommendedIn.php"> -->
           <img class="center" src="images/thumbs.png" width="200">
           Recommend me a Professor</a>
       </figcaption>
