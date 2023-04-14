@@ -35,7 +35,7 @@
     <h4 class="text-center proxima-bold">Select professor to view ratings</h4>
   </div>
 
-  <form method="post" action="RatePageIn.php">
+  <form method="post" action="RatePageIn.php, reportIn.php">
     <div class="dropdown">
       <ul>
 

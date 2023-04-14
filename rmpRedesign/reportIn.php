@@ -13,10 +13,11 @@ if ($_SERVER["SERVER_NAME"] == "students.gaim.ucf.edu") {
 
 print_r($_POST);
 $professorID = $_POST['searchprof'];
+$_SESSION ["report"] = $professorID;
 $ratingID = $_POST['ratingID'];
-$query = "SELECT * FROM professors WHERE professorID = $professorID";
-$query2 = "SELECT * FROM ratings WHERE ratingID = $ratingID";
-$query_run = mysqli_query($connection, $query, $query2);
+$_SESSION ["rate"] = $ratingID;
+$query = "SELECT * FROM professors JOIN ratings WHERE professorID = $professorID AND ratingID = $ratingID";
+$query_run = mysqli_query($connection, $query);
 
 
 // Retrieve reviewID from POST request
