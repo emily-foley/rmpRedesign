@@ -315,7 +315,6 @@ $query_run = mysqli_query($connection, $query);
                   </div>
                   <br>
               </div>
-              </div>
           </div>
           </div>
 
