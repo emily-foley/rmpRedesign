@@ -35,7 +35,7 @@
     <h4 class="text-center proxima-bold">Select professor to view ratings</h4>
   </div>
 
-  <form method="post" action="RatePageIn.php">
+  <form id="myForm" method="post" action="RatePageIn.php" >
     <div class="dropdown">
       <ul>
 
@@ -69,7 +69,6 @@
         </link>
         <script>                   $("#searchprof").chosen();
         </script>-->
-
       </ul>
       <input class="fakeBtnBlue" type="submit" name="submit" value="View ratings" />
     </div>
@@ -100,6 +99,5 @@
     </figure>
   </div>
 
-
-
 </body>
+

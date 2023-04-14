@@ -123,6 +123,57 @@ $query_run = mysqli_query($connection, $query);
 
   <div class="container mb-4">
     <div class="row justify-content-md-center">
+        <?php 
+        //$sql = "SELECT * FROM ratings JOIN users WHERE professorID = $professorID AND quizScore = $quizScore";
+        $sql = "SELECT name, professors.professorID AS proID, ratings.professorID AS profID, quizScore, rating, again, difficulty FROM ratings JOIN users JOIN professors WHERE professors.professorID = $professorID AND ratings.professorID = $professorID AND quizScore = $quizScore";
+        $sql_run = mysqli_query($connection, $sql);
+        $check_rating = mysqli_num_rows($sql_run) >0;
+
+        if($check_rating) {
+          while($row = mysqli_fetch_assoc($sql_run)){
+            ?>
+                <!--Row 2-->
+            <div class="column3 greyBg ">
+            <div style='float:left; width:30%; margin-left:30px'>
+            <br>
+                <h4 class="proxima-bold text-left">
+                <?php
+                        if ($row['quizScore'] == 4 || $row['quizScore'] == 6 || $row['quizScore'] == 8) { 
+                          //echo ($row['name'] = Leonardo DiCaprio) ;
+                          echo "hello" ;
+                          } else if ($row['quizScore'] == 2 || $row['quizScore'] == 3 || $row['quizScore'] == 5) 
+                            { //echo ($row['name'] = Tom Cruise); 
+                              echo "hi" ;
+                          } else if($row['quizScore'] == 1 || $row['quizScore'] == 7)  
+                            { //echo ($row['name'] = Drew Barrymore);
+                              echo "yo" ;  }                  
+                      ?> 
+                </h4>
+                <h6 class="text-left greyText">University of Central Florida</h6>
+                </div>
+            <div style=' float:left; width:30%'></divstyle>
+                <ul class="stats-list">
+                    <br>
+                    <li>
+                      <h2>54%</h2> <span class="stats-list-label">Would take again</span>
+                    </li>
+                    <li>
+                      <h2>2.5</h2> <span class="stats-list-label">Level of dificulty</span>
+                    </li>
+                  </ul>
+                </div>
+            <div style='float:left; width:30%'>
+                <h1 class="display-2 proxima-bold text-right">4.3</h1>
+            </div>
+   
+            <br>
+            <div style='float:left; width:100%'>
+              <span class="badgepos">Gives Feedback</span>
+              <span class="badgepos">Caring</span>
+              <span class="badgeneg">Tough Grader</span>
+              <span class="badgeneg">Reading Heavy</span>
+            </div>
+
 
 
 

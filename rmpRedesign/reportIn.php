@@ -1,31 +1,3 @@
-<?php
-
-
-if ($_SERVER["SERVER_NAME"] == "students.gaim.ucf.edu") {
-  if ($_SERVER["SCRIPT_URL"] == "/~ya818631/dig4172C/rmpRedesign/reportIn.php") {
-    //yara
-    $connection = mysqli_connect('localhost', 'ya818631', '34096885!Yar', 'ya818631');
-  } else {
-    // $connection = mysqli_connect('localhost', 'em248165', '3535A5F4D0EB4F319A17FBEEF735D58Aa!', 'em248165');
-    $connection = mysqli_connect('localhost', 'root', '', 'rmpaccount');
-  }
-}
-
-print_r($_POST);
-$professorID = $_POST['searchprof'];
-$ratingID = $_POST['ratingID'];
-$query = "SELECT * FROM professors WHERE professorID = $professorID";
-$query2 = "SELECT * FROM ratings WHERE ratingID = $ratingID";
-$query_run = mysqli_query($connection, $query, $query2);
-
-
-// Retrieve reviewID from POST request
-//$ratingID = $_POST['ratingID'];
-// Query the database for review details
-//$query2 = "SELECT * FROM ratings WHERE ratingID = $ratingID";
-//$result = mysqli_query($connection, $query2);
-
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -58,18 +30,7 @@ $query_run = mysqli_query($connection, $query, $query2);
 <!-- Navbar -->
 <?php include ('NavbarLoggedIn.php');?>
 
-<?php echo "<input type=\"hidden\" name=\"professorID\" value=\"$professorID\">"; ?>
-  <h4 class="mb-4 proxima-bold text-center pt-5">Report a Rating for 
-  <?php
-    if ($query_run->num_rows > 0) {
-    while ($row = $query_run->fetch_assoc()) {
-    echo $row['name'];
-    }
-     } else {
-     echo "No Results";
-     }
-  ?>
-  </h4>
+  <h4 class="mb-4 proxima-bold text-center pt-5">Report a Rating</h4>
 
   <div class="container mb-4 w-51 proxima nova">
     <div class="row justify-content-md-center">
@@ -80,31 +41,6 @@ $query_run = mysqli_query($connection, $query, $query2);
           <div class="p-4">
               <div style='float:left; margin-left:30px'>
     
-                <div class="mb-md-4 mt-md-4">
-                  <?php 
-                
-                  //$sql = "SELECT * FROM ratings WHERE professorID = $professorID";
-                  // $sql_run = mysqli_query($connection, $sql);
-                  //$check_rating = mysqli_num_rows($sql_run) >0;
-                  ?>
-                  <h5 class="proxima-bold">You are reporting: </h5>
-                </div>
-                  <p>
-                  <?php
-                  //if($check_rating) {
-                    //while($row = mysqli_fetch_assoc($sql_run)){
-                      //echo $row['review'];
-                 //}
-                //} else {
-                //echo "No Results";
-                //}
-                if (mysqli_num_rows($rating) > 0) {
-                  $row2 = mysqli_fetch_assoc($rating);
-                  echo "<p>" . $row2["review"] . "</p>";
-                } else {
-                  echo "Rating not found.";
-                }
-                ?>
                     <h5 class="proxima-bold">What is the problem?</h5>
 
                     <p>If you think this comment is inconsistent with Rate My Professors' Site Guidelines, report it and tell
@@ -118,9 +54,9 @@ $query_run = mysqli_query($connection, $query, $query2);
                     <div class="mt-5">
                       <a href="reportSubmittedIn.php" class="fakeBtnBlue proxima btn-lg py-1 px-5 mt-3 mb-3 text-decoration-none">Submit</a>
                     </div>
-                  <div class="mb-4 text-center proxima nova">
+                  <div class="mb-2 text-center proxima nova">
                   <p class="pb-lg-2 mt-3">
-                    <a class="proxima greyText text-decoration-none" href="RatePageIn.php">Cancel</a>
+                    <a class="proxima greyText text-decoration-none" href="indexIn.php">Cancel</a>
                   </p>
               </div>
               </div>
