@@ -56,8 +56,7 @@ if ($_SERVER["SERVER_NAME"] == "students.gaim.ucf.edu") {
         <div class="row justify-content-md-center">
             <?php
             //$sql = "SELECT * FROM ratings JOIN users WHERE professorID = $professorID AND quizScore = $quizScore";
-            $email = $_SESSION['loggedin'];
-            $sql = "SELECT name, professors.professorID AS proID, ratings.professorID AS profID, quizScore, rating, again, difficulty, email FROM ratings JOIN users JOIN professors WHERE professors.professorID = $professorID AND ratings.professorID = $professorID AND quizScore = $quizScore AND email = '$email'";
+            $sql = "SELECT name, professors.professorID AS proID, ratings.professorID AS profID, quizScore, rating, again, difficulty, email FROM ratings JOIN users JOIN professors WHERE professors.professorID = $professorID AND ratings.professorID = $professorID AND quizScore = $quizScore AND email = \"" . $_SESSION['loggedin'] . "\"";
             $sql_run = mysqli_query($connection, $sql);
 
             if ($sql_run->num_rows > 0) {
@@ -70,14 +69,14 @@ if ($_SERVER["SERVER_NAME"] == "students.gaim.ucf.edu") {
                             <h4 class="proxima-bold text-left">
                                 <?php
                                 if ($row['quizScore'] == 4 || $row['quizScore'] == 6 || $row['quizScore'] == 8) {
-                                    echo $row['professorID'] = 5 ;
-                                    //echo "hello";
+                                    //echo $row['professorID'] = 5 ;
+                                    echo "hello";
                                 } else if ($row['quizScore'] == 2 || $row['quizScore'] == 3 || $row['quizScore'] == 5) { 
-                                    echo $row['professorID'] = 6 ; 
-                                    //echo "hi";
+                                    //echo $row['professorID'] = 6 ; 
+                                    echo "hi";
                                 } else if ($row['quizScore'] == 1 || $row['quizScore'] == 7) { 
-                                    echo $row['professorID'] = 7 ;
-                                    //echo "yo";
+                                    //echo $row['professorID'] = 7 ;
+                                    echo "yo";
                                 }
                                 ?>
                             </h4>
