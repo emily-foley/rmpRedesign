@@ -14,7 +14,6 @@ if ($_SERVER["SERVER_NAME"] == "students.gaim.ucf.edu") {
 session_start();
 if(isset($_SESSION["report"])) {
   $professorID = $_SESSION["report"];
-  // use $professorID to retrieve data from database or do other operations
   echo "Selected professor ID: " . $professorID;
 } else {
   echo "No professor ID selected";
@@ -22,18 +21,9 @@ if(isset($_SESSION["report"])) {
 
 print_r($_POST);
 $professorID = $_POST['searchprof'];
-$_SESSION ["report"] = $professorID;
 $ratingID = $_POST['ratingID'];
-$_SESSION ["rate"] = $ratingID;
 $query = "SELECT name, professors.professorID AS proID, ratings.professorID AS profID, review FROM ratings JOIN professors WHERE professors.professorID = $professorID AND ratings.professorID = $professorID AND ratingID = $ratingID;";
 $query_run = mysqli_query($connection, $query);
-
-
-// Retrieve reviewID from POST request
-//$ratingID = $_POST['ratingID'];
-// Query the database for review details
-//$query2 = "SELECT * FROM ratings WHERE ratingID = $ratingID";
-//$result = mysqli_query($connection, $query2);
 
 ?>
 
