@@ -90,9 +90,7 @@ $query_run = mysqli_query($connection, $query);
     $name = $prof_data['name'];
     $difficulty = round($prof_data['difficulty'], 1);
     $would_take_again = round($prof_data['would_take_again'] * 100) . "%";
-    $overall_rating = $prof_data['overall_rating'];
-
-    //echo "<p>$name - Difficulty: $difficulty, Would Take Again: $would_take_again, Overall Rating: $overall_rating</p>"; ?>
+    $overall_rating = $prof_data['overall_rating']; ?>
     
     <div class="container mb-4">
       <div class="row justify-content-md-center">
