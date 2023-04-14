@@ -11,12 +11,6 @@ if ($_SERVER["SERVER_NAME"] == "students.gaim.ucf.edu") {
         $connection = mysqli_connect('localhost', 'root', '', 'rmpaccount');
     }
 }
-
-// print_r($_POST);
-$professorID = $_POST['searchprof'];
-$query = "SELECT * FROM professors WHERE professorID = $professorID";
-$query_run = mysqli_query($connection, $query);
-
 ?>
 
 <!DOCTYPE html>
@@ -76,12 +70,14 @@ $query_run = mysqli_query($connection, $query);
                             <h4 class="proxima-bold text-left">
                                 <?php
                                 if ($row['quizScore'] == 4 || $row['quizScore'] == 6 || $row['quizScore'] == 8) {
-                                    //echo ($row['name'] = Leonardo DiCaprio) ;
-                                    echo "hello";
-                                } else if ($row['quizScore'] == 2 || $row['quizScore'] == 3 || $row['quizScore'] == 5) { //echo ($row['name'] = Tom Cruise); 
-                                    echo "hi";
-                                } else if ($row['quizScore'] == 1 || $row['quizScore'] == 7) { //echo ($row['name'] = Drew Barrymore);
-                                    echo "yo";
+                                    echo ($row['professorID'] = 5) ;
+                                    //echo "hello";
+                                } else if ($row['quizScore'] == 2 || $row['quizScore'] == 3 || $row['quizScore'] == 5) { 
+                                    echo ($row['professorID'] = 6) ; 
+                                    //echo "hi";
+                                } else if ($row['quizScore'] == 1 || $row['quizScore'] == 7) { 
+                                    echo ($row['professorID'] = 7) ;
+                                    //echo "yo";
                                 }
                                 ?>
                             </h4>
