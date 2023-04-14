@@ -16,7 +16,7 @@ $professorID = $_POST['searchprof'];
 $_SESSION ["report"] = $professorID;
 $ratingID = $_POST['ratingID'];
 $_SESSION ["rate"] = $ratingID;
-$query = "SELECT * FROM professors JOIN ratings WHERE professorID = $professorID AND ratingID = $ratingID";
+$query = "SELECT name, professors.professorID AS proID, ratings.professorID AS profID, review FROM ratings JOIN professors WHERE professors.professorID = $professorID AND ratings.professorID = $professorID AND ratingID = $ratingID;";
 $query_run = mysqli_query($connection, $query);
 
 
