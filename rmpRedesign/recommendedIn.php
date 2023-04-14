@@ -102,7 +102,7 @@ $query_run = mysqli_query($connection, $query);
     $avgDifficulty = round($row['avgDifficulty'], 1);
 
     // Calculate the would take again percentage
-    $query = "SELECT COUNT(*) AS numRatings, SUM(again='yes') AS numYes FROM ratings WHERE professorID = $professorID";
+    $query = "SELECT COUNT(*) AS numRatings, SUM(again='Yes') AS numYes FROM ratings WHERE professorID = $professorID";
     $result = mysqli_query($connection, $query);
     $row = mysqli_fetch_assoc($result);
     $numRatings = $row['numRatings'];
