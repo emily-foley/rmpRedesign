@@ -57,7 +57,7 @@ if ($_SERVER["SERVER_NAME"] == "students.gaim.ucf.edu") {
             <?php
             //$sql = "SELECT * FROM ratings JOIN users WHERE professorID = $professorID AND quizScore = $quizScore";
             $email = $_SESSION['loggedin'];
-            $sql = "SELECT name, professors.professorID AS proID, ratings.professorID AS profID, quizScore, rating, again, difficulty FROM ratings JOIN users JOIN professors WHERE professors.professorID = $professorID AND ratings.professorID = $professorID AND quizScore = $quizScore email = '$email'";
+            $sql = "SELECT name, professors.professorID AS proID, ratings.professorID AS profID, quizScore, rating, again, difficulty, email FROM ratings JOIN users JOIN professors WHERE professors.professorID = $professorID AND ratings.professorID = $professorID AND quizScore = $quizScore AND email = '$email'";
             $sql_run = mysqli_query($connection, $sql);
             $check_rating = mysqli_num_rows($sql_run) > 0;
 
