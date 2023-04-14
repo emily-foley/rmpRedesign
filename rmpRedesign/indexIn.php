@@ -35,7 +35,7 @@
     <h4 class="text-center proxima-bold">Select professor to view ratings</h4>
   </div>
 
-  <form id="myForm" method="post" action="RatePageIn.php" >
+  <form id="myForm" method="post" action="RatePageIn.php, reportIn.php" >
     <div class="dropdown">
       <ul>
 
@@ -98,25 +98,6 @@
       </figcaption>
     </figure>
   </div>
-
-<script>
-      document.getElementById("myForm").addEventListener("submit", function(event) {
-        event.preventDefault(); // prevent the default form submission
-        
-        // get the form data
-        var formData = new FormData(document.getElementById("myForm"));
-        
-        // send the form data to the first page using AJAX
-        var xhr1 = new XMLHttpRequest();
-        xhr1.open("POST", "RatePageIn.php");
-        xhr1.send(formData);
-        
-        // send the form data to the second page using AJAX
-        var xhr2 = new XMLHttpRequest();
-        xhr2.open("POST", "reportIn.php");
-        xhr2.send(formData);
-      });
-    </script>
 
 </body>
 
