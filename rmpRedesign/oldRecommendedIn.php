@@ -69,13 +69,13 @@ if ($_SERVER["SERVER_NAME"] == "students.gaim.ucf.edu") {
                             <br>
                             <h4 class="proxima-bold text-left">
                                 <?php
-                                if ($email == $row['quizScore'] == 4 || $row['quizScore'] == 6 || $row['quizScore'] == 8) {
+                                if ($row['quizScore'] == 4 || $row['quizScore'] == 6 || $row['quizScore'] == 8) {
                                     echo $row['professorID'] = 5 ;
                                     //echo "hello";
-                                } else if ( $email == $row['quizScore'] == 2 || $row['quizScore'] == 3 || $row['quizScore'] == 5) { 
+                                } else if ($row['quizScore'] == 2 || $row['quizScore'] == 3 || $row['quizScore'] == 5) { 
                                     echo $row['professorID'] = 6 ; 
                                     //echo "hi";
-                                } else if ($email == $row['quizScore'] == 1 || $row['quizScore'] == 7) { 
+                                } else if ($row['quizScore'] == 1 || $row['quizScore'] == 7) { 
                                     echo $row['professorID'] = 7 ;
                                     //echo "yo";
                                 }
