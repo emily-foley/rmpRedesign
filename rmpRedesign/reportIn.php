@@ -11,6 +11,15 @@ if ($_SERVER["SERVER_NAME"] == "students.gaim.ucf.edu") {
   }
 }
 
+session_start();
+if(isset($_SESSION["report"])) {
+  $professorID = $_SESSION["report"];
+  // use $professorID to retrieve data from database or do other operations
+  echo "Selected professor ID: " . $professorID;
+} else {
+  echo "No professor ID selected";
+}
+
 print_r($_POST);
 $professorID = $_POST['searchprof'];
 $_SESSION ["report"] = $professorID;
