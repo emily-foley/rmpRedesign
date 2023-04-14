@@ -56,7 +56,7 @@
                     </div>
                   <div class="mb-2 text-center proxima nova">
                   <p class="pb-lg-2 mt-3">
-                    <a class="proxima greyText text-decoration-none" href="RatePageIn.php">Cancel</a>
+                    <a class="proxima greyText text-decoration-none" href="indexIn.php">Cancel</a>
                   </p>
               </div>
               </div>
