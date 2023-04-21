@@ -63,7 +63,7 @@
 
          ?>
       </ul>
-      <input type="submit" name="submit" value="View ratings" />
+      <input class="fakeBtnBlue" type="submit" name="submit" value="View ratings" />
     </div>
   </form>
 
